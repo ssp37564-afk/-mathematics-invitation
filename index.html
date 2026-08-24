@@ -42,8 +42,8 @@ body{
     visibility:hidden;
 
     transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
+        opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 1.8s cubic-bezier(0.4, 0, 0.2, 1);
 
     overflow:hidden;
 }
@@ -72,8 +72,6 @@ body{
             transparent 50%
         );
 }
-
-/* Different year themes */
 
 .theme-fresher{
     background:
@@ -125,53 +123,21 @@ body{
 
 .star{
     position:absolute;
-
     width:2px;
     height:2px;
-
     border-radius:50%;
     background:#fff;
-
-    animation:twinkle 2s infinite alternate;
+    animation:twinkle 3s infinite alternate ease-in-out;
 }
 
 @keyframes twinkle{
     from{
-        opacity:.15;
-        transform:scale(.5);
+        opacity:.1;
+        transform:scale(.4);
     }
-
     to{
         opacity:1;
-        transform:scale(1.8);
-    }
-}
-
-/* ================= MATHEMATICS ================= */
-
-.math{
-    position:absolute;
-
-    font-size:34px;
-
-    opacity:.08;
-
-    animation:
-        mathFloat linear infinite;
-}
-
-@keyframes mathFloat{
-
-    0%{
-        transform:
-            translateY(110vh)
-            rotate(0deg);
-    }
-
-    100%{
-        transform:
-            translateY(-20vh)
-            rotate(360deg);
+        transform:scale(2);
     }
 }
 
@@ -184,20 +150,15 @@ body{
 .opening-content{
     position:relative;
     z-index:5;
-
     padding:30px;
-
-    animation:
-        openingReveal 2s ease;
+    animation: openingReveal 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 @keyframes openingReveal{
-
     from{
         opacity:0;
-        transform:scale(.75);
+        transform:scale(.7);
     }
-
     to{
         opacity:1;
         transform:scale(1);
@@ -206,22 +167,15 @@ body{
 
 .college{
     font-size:14px;
-
     letter-spacing:5px;
-
     text-transform:uppercase;
-
     color:#d8ccff;
-
     margin-bottom:28px;
 }
 
 .open-title{
-    font-size:
-        clamp(36px,8vw,80px);
-
+    font-size: clamp(36px,8vw,80px);
     line-height:1.15;
-
     text-shadow:
         0 0 25px rgba(255,255,255,.2),
         0 0 70px rgba(190,150,255,.25);
@@ -233,28 +187,15 @@ body{
 
 .enter{
     margin-top:55px;
-
     padding:17px 42px;
-
     border-radius:50px;
-
-    border:
-        1px solid rgba(255,255,255,.45);
-
-    background:
-        rgba(255,255,255,.08);
-
+    border: 1px solid rgba(255,255,255,.45);
+    background: rgba(255,255,255,.08);
     color:white;
-
     font-size:17px;
-
     letter-spacing:3px;
-
     cursor:pointer;
-
-    animation:
-        enterFloat 2.5s infinite ease-in-out;
-
+    animation: enterFloat 3s infinite ease-in-out;
     transition:.4s;
 }
 
@@ -262,205 +203,88 @@ body{
     background:#fff;
     color:#111;
     transform:scale(1.08);
-
-    box-shadow:
-        0 0 40px rgba(255,255,255,.45);
+    box-shadow: 0 0 40px rgba(255,255,255,.45);
 }
 
 @keyframes enterFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
 }
 
 /* ================= WHO ARE YOU ================= */
 
-#choice{
-    flex-direction:column;
-}
+#choice{ flex-direction:column; }
 
 .choice-content{
     position:relative;
     z-index:5;
-
     width:100%;
-
     padding:25px;
 }
 
 .choice-title{
-    font-size:
-        clamp(36px,7vw,65px);
-
+    font-size: clamp(36px,7vw,65px);
     margin-bottom:12px;
 }
 
 .choice-sub{
     color:#bcb5d0;
-
     letter-spacing:2px;
-
     margin-bottom:40px;
 }
 
 .options{
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:18px;
-
     max-width:850px;
-
     margin:auto;
 }
 
 .option{
     width:175px;
-
     padding:23px 12px;
-
     border-radius:22px;
-
-    border:
-        1px solid rgba(255,255,255,.22);
-
-    background:
-        rgba(255,255,255,.08);
-
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.08);
     backdrop-filter:blur(15px);
-
     cursor:pointer;
-
     font-size:19px;
-
     line-height:1.5;
-
-    transition:
-        transform .45s ease,
-        background .45s ease,
-        box-shadow .45s ease;
+    transition: transform .5s cubic-bezier(0.2, 0.8, 0.2, 1), background .5s ease, box-shadow .5s ease;
 }
 
 .option:hover{
-
-    transform:
-        translateY(-12px)
-        scale(1.05);
-
-    background:
-        rgba(255,255,255,.17);
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.4);
-}
-
-/* ================= YEAR INTRO ================= */
-
-.year-intro{
-    position:absolute;
-
-    z-index:10;
-
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(0,0,0,.35);
-
-    backdrop-filter:blur(2px);
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-.year-intro.show{
-    animation:
-        introFade 2s ease forwards;
-}
-
-.year-word{
-    font-size:
-        clamp(38px,8vw,75px);
-
-    letter-spacing:4px;
-
-    text-shadow:
-        0 0 35px rgba(255,255,255,.4);
-}
-
-@keyframes introFade{
-
-    0%{
-        opacity:0;
-    }
-
-    30%{
-        opacity:1;
-    }
-
-    70%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:0;
-    }
+    transform: translateY(-12px) scale(1.05);
+    background: rgba(255,255,255,.17);
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
 }
 
 /* ================= PETALS / FLOWERS ================= */
 
 .particles{
     position:absolute;
-
     inset:0;
-
     overflow:hidden;
-
     pointer-events:none;
 }
 
 .particle{
     position:absolute;
-
     top:-70px;
-
-    animation:
-        fall linear forwards;
+    animation: fall linear forwards;
 }
 
 @keyframes fall{
-
     0%{
-        transform:
-            translateY(0)
-            rotate(0deg);
-
+        transform: translateY(0) rotate(0deg);
         opacity:0;
     }
-
-    10%{
-        opacity:1;
-    }
-
+    10%{ opacity:1; }
     100%{
-        transform:
-            translateY(115vh)
-            rotate(720deg);
-
-        opacity:.12;
+        transform: translateY(115vh) rotate(720deg);
+        opacity:.15;
     }
 }
 
@@ -468,45 +292,27 @@ body{
 
 .center-content{
     position:relative;
-
     z-index:5;
-
     padding:30px;
-
     max-width:950px;
 }
 
 .fresh-line{
-    font-size:
-        clamp(30px,6vw,65px);
-
+    font-size: clamp(30px,6vw,65px);
     line-height:1.35;
-
     font-style:italic;
-
-    text-shadow:
-        0 0 30px rgba(255,210,255,.45);
-
-    animation:
-        textReveal 2s ease;
+    text-shadow: 0 0 30px rgba(255,210,255,.45);
+    animation: textReveal 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 @keyframes textReveal{
-
     from{
         opacity:0;
-
-        transform:
-            translateY(45px)
-            scale(.85);
+        transform: translateY(50px) scale(.85);
     }
-
     to{
         opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -514,354 +320,197 @@ body{
 
 .invite-card{
     position:relative;
-
     z-index:5;
-
     width:min(90%,760px);
-
-    padding:
-        clamp(42px,8vw,75px)
-        30px;
-
+    padding: clamp(42px,8vw,75px) 30px;
     border-radius:30px;
-
-    border:
-        1px solid rgba(255,255,255,.3);
-
-    background:
-        rgba(255,255,255,.09);
-
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(255,255,255,.09);
     backdrop-filter:blur(18px);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.5),
-        0 0 70px rgba(210,170,255,.15);
-
-    animation:
-        cardOpen 1.8s cubic-bezier(.2,.8,.2,1);
+    box-shadow: 0 30px 100px rgba(0,0,0,.5), 0 0 70px rgba(210,170,255,.15);
+    animation: cardOpen 2.2s cubic-bezier(.2,.8,.2,1);
 }
 
 .invite-card::before{
-
     content:"";
-
     position:absolute;
-
     inset:10px;
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
+    border: 1px solid rgba(255,255,255,.12);
     border-radius:22px;
-
     pointer-events:none;
 }
 
 @keyframes cardOpen{
-
     from{
         opacity:0;
-
-        transform:
-            perspective(1000px)
-            rotateX(65deg)
-            scale(.5);
+        transform: perspective(1000px) rotateX(60deg) scale(.6);
     }
-
     to{
         opacity:1;
-
-        transform:
-            perspective(1000px)
-            rotateX(0)
-            scale(1);
+        transform: perspective(1000px) rotateX(0) scale(1);
     }
 }
 
 .card-small{
-
     font-size:14px;
-
     letter-spacing:5px;
-
     color:#ddceff;
-
     text-transform:uppercase;
 }
 
 .card-title{
-
-    font-size:
-        clamp(38px,7vw,72px);
-
+    font-size: clamp(38px,7vw,72px);
     line-height:1.1;
-
     margin:25px 0;
 }
 
 .card-text{
-
-    font-size:
-        clamp(17px,3vw,25px);
-
+    font-size: clamp(17px,3vw,25px);
     line-height:1.7;
-
     color:#ddd7e8;
 }
 
 .card-symbol{
-
     margin-top:30px;
-
     font-size:28px;
-
     letter-spacing:10px;
 }
 
 /* ================= TEACHERS DAY ================= */
 
 .teacher-content{
-
     position:relative;
-
     z-index:5;
-
     max-width:950px;
-
     padding:30px;
 }
 
 .teacher-title{
-
-    font-size:
-        clamp(36px,7vw,72px);
-
+    font-size: clamp(36px,7vw,72px);
     color:#efd8ff;
-
     margin-bottom:35px;
-
-    animation:
-        teacherTitle 1.5s ease;
+    animation: teacherTitle 2s ease;
 }
 
 .teacher-line{
-
     opacity:0;
-
-    font-size:
-        clamp(19px,4vw,32px);
-
+    font-size: clamp(19px,4vw,32px);
     line-height:1.65;
-
     color:#eee9f3;
-
 }
 
 .teacher-line.show{
-
-    animation:
-        lineAppear 1.2s ease forwards;
+    animation: lineAppear 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .teacher-highlight{
-
     color:#eac8ff;
-
-    text-shadow:
-        0 0 25px rgba(235,190,255,.35);
+    text-shadow: 0 0 25px rgba(235,190,255,.35);
 }
 
 @keyframes teacherTitle{
-
-    from{
-        opacity:0;
-        transform:translateY(-30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{ opacity:0; transform:translateY(-40px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
 @keyframes lineAppear{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{ opacity:0; transform:translateY(35px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
 /* ================= FINAL ================= */
 
-#final{
-    flex-direction:column;
-}
+#final{ flex-direction:column; }
 
 .final-content{
-
     position:relative;
-
     z-index:5;
-
     max-width:1000px;
-
     padding:30px;
 }
 
 .final-line{
-
     opacity:0;
-
-    font-size:
-        clamp(25px,5vw,55px);
-
+    font-size: clamp(25px,5vw,55px);
     line-height:1.45;
-
     margin-bottom:20px;
 }
 
 .final-line.show{
-
-    animation:
-        lineAppear 1.5s ease forwards;
+    animation: lineAppear 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .credit{
-
     margin-top:45px;
-
     font-size:17px;
-
     letter-spacing:2px;
-
     color:#d8cde4;
-
     opacity:0;
-
 }
 
 .credit.show{
-
-    animation:
-        lineAppear 1.5s ease forwards;
+    animation: lineAppear 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .replay{
-
     margin-top:30px;
-
     padding:13px 34px;
-
     border-radius:30px;
-
-    border:
-        1px solid rgba(255,255,255,.35);
-
-    background:
-        rgba(255,255,255,.05);
-
+    border: 1px solid rgba(255,255,255,.35);
+    background: rgba(255,255,255,.05);
     color:white;
-
     cursor:pointer;
-
     letter-spacing:2px;
-
     opacity:0;
-
     transition:.4s;
 }
 
 .replay.show{
-
-    animation:
-        lineAppear 1.5s ease forwards;
+    animation: lineAppear 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .replay:hover{
-
     background:#fff;
-
     color:#111;
 }
 
 /* ================= MUSIC BUTTON ================= */
 
 .music{
-
     position:fixed;
-
     z-index:100;
-
     top:18px;
     right:18px;
-
     width:45px;
     height:45px;
-
     border-radius:50%;
-
-    border:
-        1px solid rgba(255,255,255,.3);
-
-    background:
-        rgba(0,0,0,.25);
-
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(0,0,0,.25);
     color:#fff;
-
     cursor:pointer;
-
     backdrop-filter:blur(10px);
 }
 
-/* ================= MOBILE ================= */
-
 @media(max-width:600px){
-
-    .options{
-        gap:12px;
-    }
-
-    .option{
-        width:145px;
-
-        padding:17px 8px;
-
-        font-size:17px;
-    }
-
-    .choice-sub{
-        margin-bottom:25px;
-    }
-
-    .college{
-        font-size:11px;
-        letter-spacing:3px;
-    }
-
-    .music{
-        top:10px;
-        right:10px;
-    }
+    .options{ gap:12px; }
+    .option{ width:145px; padding:17px 8px; font-size:17px; }
+    .choice-sub{ margin-bottom:25px; }
+    .college{ font-size:11px; letter-spacing:3px; }
+    .music{ top:10px; right:10px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- MUSIC BUTTON -->
-<button class="music" id="musicBtn" onclick="toggleMusic()">🔇</button>
+<!-- AUDIO PLAYER (DYNAMIC SOURCES FOR DIFFERENT YEARS) -->
+<audio id="bgAudio" loop></audio>
+
+<button class="music" id="musicBtn" onclick="toggleMusic()">🔊</button>
 
 <section id="opening" class="screen active">
     <div class="bg theme-fourth"></div>
     <div class="stars"></div>
-    <div id="mathSymbols"></div>
-
     <div class="opening-content">
         <div class="college">
             Midnapore College (Autonomous)
@@ -917,7 +566,7 @@ body{
         <div class="fresh-line">
             A new journey begins
         </div>
-        <div class="fresh-line" style="animation-delay:.8s;">
+        <div class="fresh-line" style="animation-delay:1.5s;">
             with lots of hopes... ✨
         </div>
     </div>
@@ -1016,6 +665,43 @@ body{
 </section>
 
 <script>
+/* MULTIPLE SOFT MUSIC TRACKS FOR EACH YEAR */
+const musicTracks = {
+    opening: "https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3",
+    fresher: "https://assets.mixkit.co/music/preview/mixkit-feeling-happy-5.mp3",
+    second: "https://assets.mixkit.co/music/preview/mixkit-sweet-nature-518.mp3",
+    third: "https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3",
+    fourth: "https://assets.mixkit.co/music/preview/mixkit-valley-sunset-127.mp3"
+};
+
+let audioPlayer = document.getElementById("bgAudio");
+let isMuted = false;
+
+function playTrack(trackKey) {
+    if (musicTracks[trackKey]) {
+        audioPlayer.src = musicTracks[trackKey];
+        if (!isMuted) {
+            audioPlayer.play().catch(e => console.log("Audio play prevented:", e));
+        }
+    }
+}
+
+function toggleMusic() {
+    const btn = document.getElementById("musicBtn");
+    if (audioPlayer.paused && !isMuted) {
+        audioPlayer.play();
+        btn.innerText = "🔊";
+    } else if (!audioPlayer.muted && !audioPlayer.paused) {
+        audioPlayer.pause();
+        isMuted = true;
+        btn.innerText = "🔇";
+    } else {
+        isMuted = false;
+        audioPlayer.play();
+        btn.innerText = "🔊";
+    }
+}
+
 function showScreen(id){
     document.querySelectorAll(".screen").forEach(screen=>{
         screen.classList.remove("active");
@@ -1023,12 +709,8 @@ function showScreen(id){
     document.getElementById(id).classList.add("active");
 }
 
-function startMusic(){
-    // Basic music placeholder
-}
-
 function enterSite(){
-    startMusic();
+    playTrack('opening');
     showScreen("choice");
 }
 
@@ -1036,6 +718,8 @@ let selectedYear="";
 
 function startYear(year){
     selectedYear=year;
+    playTrack(year); // Plays specific soft music based on selected year
+
     if(year==="fresher"){
         fresherFlow();
     }else{
@@ -1053,8 +737,8 @@ function fresherFlow(){
 
         setTimeout(()=>{
             showTeacherScreen();
-        }, 7000);
-    }, 5500);
+        }, 10000);
+    }, 8000);
 }
 
 function seniorFlow(year){
@@ -1081,7 +765,7 @@ function showTeacherScreen(){
 
     setTimeout(()=>{
         showFinal();
-    }, selectedYear==="fresher" ? 6000 : 8500);
+    }, selectedYear==="fresher" ? 10000 : 12000);
 }
 
 function setTeacherTheme(year){
@@ -1106,7 +790,7 @@ function createTeacherLines(){
         line.classList.remove("show");
         setTimeout(() => {
             line.classList.add("show");
-        }, index * 800);
+        }, index * 1200);
     });
 }
 
@@ -1119,7 +803,7 @@ function showFinal(){
         el.classList.remove("show");
         setTimeout(() => {
             el.classList.add("show");
-        }, index * 900);
+        }, index * 1400);
     });
 }
 
@@ -1132,7 +816,7 @@ function createParticles(containerId, symbols, count){
         p.className = "particle";
         p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
         p.style.left = Math.random() * 100 + "%";
-        p.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        p.style.animationDuration = (Math.random() * 4 + 4) + "s";
         p.style.animationDelay = (Math.random() * 2) + "s";
         p.style.fontSize = (Math.random() * 12 + 16) + "px";
         container.appendChild(p);
@@ -1140,12 +824,8 @@ function createParticles(containerId, symbols, count){
 }
 
 function replay(){
+    playTrack('opening');
     showScreen("choice");
-}
-
-function toggleMusic(){
-    const btn = document.getElementById("musicBtn");
-    btn.innerText = btn.innerText === "🔇" ? "🔊" : "🔇";
 }
 </script>
 </body>
