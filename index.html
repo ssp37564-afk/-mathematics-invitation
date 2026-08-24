@@ -1,1 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080916">
 
+<title>Department of Mathematics | Invitation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:#050611;
+    color:#fff;
+}
+
+/* ================= SCREEN ================= */
+
+.screen{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+    overflow:hidden;
+}
+
+.screen.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* ================= BACKGROUNDS ================= */
+
+.bg{
+    position:absolute;
+    inset:0;
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(120,90,180,.35),
+            transparent 50%
+        );
+}
+
+/* Different year themes */
+
+.theme-fresher{
+    background:
+        radial-gradient(circle at center,
+        #533a67 0%,
+        #21182f 45%,
+        #070711 100%);
+}
+
+.theme-second{
+    background:
+        radial-gradient(circle at center,
+        #263b70 0%,
+        #111a38 45%,
+        #050711 100%);
+}
+
+.theme-third{
+    background:
+        radial-gradient(circle at center,
+        #634b2c 0%,
+        #292014 45%,
+        #070711 100%);
+}
+
+.theme-fourth{
+    background:
+        radial-gradient(circle at center,
+        #4a2c5e 0%,
+        #21152c 45%,
+        #05050c 100%);
+}
+
+.theme-final{
+    background:
+        radial-gradient(circle at center,
+        #49375e 0%,
+        #171329 50%,
+        #05050b 100%);
+}
+
+/* ================= STARS ================= */
+
+.stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+    background:#fff;
+
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.15;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.8);
+    }
+}
+
+/* ================= MATHEMATICS ================= */
+
+.math{
+    position:absolute;
+
+    font-size:34px;
+
+    opacity:.08;
+
+    animation:
+        mathFloat linear infinite;
+}
+
+@keyframes mathFloat{
+
+    0%{
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+    }
+
+    100%{
+        transform:
+            translateY(-20vh)
+            rotate(360deg);
+    }
+}
+
+/* ================= OPENING ================= */
+
+#opening{
+    flex-direction:column;
+}
+
+.opening-content{
+    position:relative;
+    z-index:5;
+
+    padding:30px;
+
+    animation:
+        openingReveal 2s ease;
+}
+
+@keyframes openingReveal{
+
+    from{
+        opacity:0;
+        transform:scale(.75);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.college{
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#d8ccff;
+
+    margin-bottom:28px;
+}
+
+.open-title{
+    font-size:
+        clamp(36px,8vw,80px);
+
+    line-height:1.15;
+
+    text-shadow:
+        0 0 25px rgba(255,255,255,.2),
+        0 0 70px rgba(190,150,255,.25);
+}
+
+.open-title span{
+    display:block;
+}
+
+.enter{
+    margin-top:55px;
+
+    padding:17px 42px;
+
+    border-radius:50px;
+
+    border:
+        1px solid rgba(255,255,255,.45);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:17px;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    animation:
+        enterFloat 2.5s infinite ease-in-out;
+
+    transition:.4s;
+}
+
+.enter:hover{
+    background:#fff;
+    color:#111;
+    transform:scale(1.08);
+
+    box-shadow:
+        0 0 40px rgba(255,255,255,.45);
+}
+
+@keyframes enterFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* ================= WHO ARE YOU ================= */
+
+#choice{
+    flex-direction:column;
+}
+
+.choice-content{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+
+    padding:25px;
+}
+
+.choice-title{
+    font-size:
+        clamp(36px,7vw,65px);
+
+    margin-bottom:12px;
+}
+
+.choice-sub{
+    color:#bcb5d0;
+
+    letter-spacing:2px;
+
+    margin-bottom:40px;
+}
+
+.options{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+.option{
+    width:175px;
+
+    padding:23px 12px;
+
+    border-radius:22px;
+
+    border:
+        1px solid rgba(255,255,255,.22);
+
+    background:
+        rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    cursor:pointer;
+
+    font-size:19px;
+
+    line-height:1.5;
+
+    transition:
+        transform .45s ease,
+        background .45s ease,
+        box-shadow .45s ease;
+}
+
+.option:hover{
+
+    transform:
+        translateY(-12px)
+        scale(1.05);
+
+    background:
+        rgba(255,255,255,.17);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
+}
+
+/* ================= YEAR INTRO ================= */
+
+.year-intro{
+    position:absolute;
+
+    z-index:10;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(2px);
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+.year-intro.show{
+    animation:
+        introFade 2s ease forwards;
+}
+
+.year-word{
+    font-size:
+        clamp(38px,8vw,75px);
+
+    letter-spacing:4px;
+
+    text-shadow:
+        0 0 35px rgba(255,255,255,.4);
+}
+
+@keyframes introFade{
+
+    0%{
+        opacity:0;
+    }
+
+    30%{
+        opacity:1;
+    }
+
+    70%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+/* ================= PETALS / FLOWERS ================= */
+
+.particles{
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+
+    top:-70px;
+
+    animation:
+        fall linear forwards;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(115vh)
+            rotate(720deg);
+
+        opacity:.12;
+    }
+}
+
+/* ================= FRESHER MESSAGE ================= */
+
+.center-content{
+    position:relative;
+
+    z-index:5;
+
+    padding:30px;
+
+    max-width:950px;
+}
+
+.fresh-line{
+    font-size:
+        clamp(30px,6vw,65px);
+
+    line-height:1.35;
+
+    font-style:italic;
+
+    text-shadow:
+        0 0 30px rgba(255,210,255,.45);
+
+    animation:
+        textReveal 2s ease;
+}
+
+@keyframes textReveal{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(45px)
+            scale(.85);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* ================= INVITATION CARD ================= */
+
+.invite-card{
+    position:relative;
+
+    z-index:5;
+
+    width:min(90%,760px);
+
+    padding:
+        clamp(42px,8vw,75px)
+        30px;
+
+    border-radius:30px;
+
+    border:
+        1px solid rgba(255,255,255,.3);
+
+    background:
+        rgba(255,255,255,.09);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.5),
+        0 0 70px rgba(210,170,255,.15);
+
+    animation:
+        cardOpen 1.8s cubic-bezier(.2,.8,.2,1);
+}
+
+.invite-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:10px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius:22px;
+
+    pointer-events:none;
+}
+
+@keyframes cardOpen{
+
+    from{
+        opacity:0;
+
+        transform:
+            perspective(1000px)
+            rotateX(65deg)
+            scale(.5);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            perspective(1000px)
+            rotateX(0)
+            scale(1);
+    }
+}
+
+.card-small{
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    color:#ddceff;
+
+    text-transform:uppercase;
+}
+
+.card-title{
+
+    font-size:
+        clamp(38px,7vw,72px);
+
+    line-height:1.1;
+
+    margin:25px 0;
+}
+
+.card-text{
+
+    font-size:
+        clamp(17px,3vw,25px);
+
+    line-height:1.7;
+
+    color:#ddd7e8;
+}
+
+.card-symbol{
+
+    margin-top:30px;
+
+    font-size:28px;
+
+    letter-spacing:10px;
+}
+
+/* ================= TEACHERS DAY ================= */
+
+.teacher-content{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:950px;
+
+    padding:30px;
+}
+
+.teacher-title{
+
+    font-size:
+        clamp(36px,7vw,72px);
+
+    color:#efd8ff;
+
+    margin-bottom:35px;
+
+    animation:
+        teacherTitle 1.5s ease;
+}
+
+.teacher-line{
+
+    opacity:0;
+
+    font-size:
+        clamp(19px,4vw,32px);
+
+    line-height:1.65;
+
+    color:#eee9f3;
+
+}
+
+.teacher-line.show{
+
+    animation:
+        lineAppear 1.2s ease forwards;
+}
+
+.teacher-highlight{
+
+    color:#eac8ff;
+
+    text-shadow:
+        0 0 25px rgba(235,190,255,.35);
+}
+
+@keyframes teacherTitle{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes lineAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= FINAL ================= */
+
+#final{
+    flex-direction:column;
+}
+
+.final-content{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:1000px;
+
+    padding:30px;
+}
+
+.final-line{
+
+    opacity:0;
+
+    font-size:
+        clamp(25px,5vw,55px);
+
+    line-height:1.45;
+
+    margin-bottom:20px;
+}
+
+.final-line.show{
+
+    animation:
+        lineAppear 1.5s ease forwards;
+}
+
+.credit{
+
+    margin-top:45px;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+    color:#d8cde4;
+
+    opacity:0;
+
+}
+
+.credit.show{
+
+    animation:
+        lineAppear 1.5s ease forwards;
+}
+
+.replay{
+
+    margin-top:30px;
+
+    padding:13px 34px;
+
+    border-radius:30px;
+
+    border:
+        1px solid rgba(255,255,255,.35);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color:white;
+
+    cursor:pointer;
+
+    letter-spacing:2px;
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.replay.show{
+
+    animation:
+        lineAppear 1.5s ease forwards;
+}
+
+.replay:hover{
+
+    background:#fff;
+
+    color:#111;
+}
+
+/* ================= MUSIC BUTTON ================= */
+
+.music{
+
+    position:fixed;
+
+    z-index:100;
+
+    top:18px;
+    right:18px;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(255,255,255,.3);
+
+    background:
+        rgba(0,0,0,.25);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .options{
+        gap:12px;
+    }
+
+    .option{
+        width:145px;
+
+        padding:17px 8px;
+
+        font-size:17px;
+    }
+
+    .choice-sub{
+        margin-bottom:25px;
+    }
+
+    .college{
+        font-size:11px;
+        letter-spacing:3px;
+    }
+
+    .music{
+        top:10px;
+        right:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC BUTTON -->
+<button class="music" id="musicBtn" onclick="toggleMusic()">🔇</button>
+
+
+<!-- ==================================================
+     OPENING
+================================================== -->
+
+<section id="opening" class="screen active">
+
+    <div class="bg theme-fourth"></div>
+
+    <div class="stars"></div>
+
+    <div id="mathSymbols"></div>
+
+    <div class="opening-content">
+
+        <div class="college">
+            Midnapore College (Autonomous)
+        </div>
+
+        <div class="open-title">
+
+            <span>WELCOME TO</span>
+
+            <span>DEPARTMENT OF MATHEMATICS</span>
+
+            <span>(UG)</span>
+
+        </div>
+
+        <button class="enter" onclick="enterSite()">
+
+            ✦ TAP TO ENTER ✦
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     WHO ARE YOU
+================================================== -->
+
+<section id="choice" class="screen">
+
+    <div class="bg theme-fourth"></div>
+
+    <div class="stars"></div>
+
+    <div class="choice-content">
+
+        <div class="choice-title">
+            WHO ARE YOU?
+        </div>
+
+        <div class="choice-sub">
+            Choose your year to continue
+        </div>
+
+        <div class="options">
+
+            <div class="option"
+                 onclick="startYear('fresher')">
+
+                🌸<br>
+                <b>1st Year</b><br>
+                (Fresher)
+
+            </div>
+
+            <div class="option"
+                 onclick="startYear('second')">
+
+                ✨<br>
+                <b>2nd Year</b>
+
+            </div>
+
+            <div class="option"
+                 onclick="startYear('third')">
+
+                🌷<br>
+                <b>3rd Year</b>
+
+            </div>
+
+            <div class="option"
+                 onclick="startYear('fourth')">
+
+                🌺<br>
+                <b>4th Year</b>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FRESHER INTRO
+================================================== -->
+
+<section id="fresher" class="screen">
+
+    <div class="bg theme-fresher"></div>
+
+    <div class="stars"></div>
+
+    <div class="particles" id="fresherParticles"></div>
+
+    <div class="center-content">
+
+        <div class="fresh-line">
+
+            A new journey begins
+
+        </div>
+
+        <div class="fresh-line"
+             style="animation-delay:.8s;">
+
+            with lots of hopes... ✨
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FRESHER INVITATION
+================================================== -->
+
+<section id="fresherInvite" class="screen">
+
+    <div class="bg theme-fresher"></div>
+
+    <div class="stars"></div>
+
+    <div class="particles" id="freshInviteParticles"></div>
+
+    <div class="invite-card">
+
+        <div class="card-small">
+            You Are Cordially Invited
+        </div>
+
+        <div class="card-title">
+
+            A Warm Welcome<br>
+            to Our Freshers
+
+        </div>
+
+        <div class="card-text">
+
+            A new chapter begins with new dreams,<br>
+            new friendships and beautiful memories.
+
+            <br><br>
+
+            <b>Department of Mathematics</b>
+
+            <br>
+
+            Midnapore College (Autonomous)
+
+        </div>
+
+        <div class="card-symbol">
+            ✦ 🌸 ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     TEACHERS DAY
+================================================== -->
+
+<section id="teacher" class="screen">
+
+    <div id="teacherBg"
+         class="bg theme-second"></div>
+
+    <div class="stars"></div>
+
+    <div class="particles" id="teacherParticles"></div>
+
+    <div class="teacher-content">
+
+        <div class="teacher-title">
+            Teachers' Day ✨
+        </div>
+
+        <!-- 1ST YEAR -->
+        <div id="fresherTeacherText">
+
+            <div class="teacher-line">
+
+                <span class="teacher-highlight">
+                    Brothers & Sisters ❤️
+                </span>
+
+            </div>
+
+            <div class="teacher-line">
+
+                You are warmly invited to celebrate
+
+            </div>
+
+            <div class="teacher-line">
+
+                <b>Teachers' Day</b> with us.
+
+            </div>
+
+        </div>
+
+
+        <!-- 2ND/3RD/4TH YEAR -->
+        <div id="seniorTeacherText">
+
+            <div class="teacher-line">
+
+                <span class="teacher-highlight">
+                    Friends, Brothers & Sisters ❤️
+                </span>
+
+            </div>
+
+            <div class="teacher-line">
+
+                You are warmly invited to celebrate
+
+            </div>
+
+            <div class="teacher-line">
+
+                <b>Teachers' Day</b> with us.
+
+            </div>
+
+            <div class="teacher-line">
+
+                <b>And don't forget...</b>
+
+            </div>
+
+            <div class="teacher-line">
+
+                Come together and give our
+
+                <span class="teacher-highlight">
+                    Freshers
+                </span>
+
+                a warm welcome. 🌸
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FINAL
+================================================== -->
+
+<section id="final" class="screen">
+
+    <div class="bg theme-final"></div>
+
+    <div class="stars"></div>
+
+    <div class="particles" id="finalParticles"></div>
+
+    <div class="final-content">
+
+        <div class="final-line">
+
+            ✨ We sincerely seek the participation
+            of each and every one of you. ✨
+
+        </div>
+
+        <div class="final-line">
+
+            Come and be a part of the celebration
+            and make the programme a grand success. ❤️
+
+        </div>
+
+        <div class="final-line">
+
+            Let's come together, celebrate together,
+            and create beautiful memories together.
+
+        </div>
+
+        <div class="credit">
+
+            Created by Sukumar Pradhan 😁
+
+        </div>
+
+        <button class="replay" onclick="replay()">
+
+            ↻ REPLAY
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* ==================================================
+   SCREEN
+================================================== */
+
+function showScreen(id){
+
+    document
+    .querySelectorAll(".screen")
+    .forEach(screen=>{
+        screen.classList.remove("active");
+    });
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+}
+
+
+/* ==================================================
+   ENTER
+================================================== */
+
+function enterSite(){
+
+    startMusic();
+
+    showScreen("choice");
+
+}
+
+
+/* ==================================================
+   YEAR SELECTION
+================================================== */
+
+let selectedYear="";
+
+function startYear(year){
+
+    selectedYear=year;
+
+    if(year==="fresher"){
+
+        fresherFlow();
+
+    }else{
+
+        seniorFlow(year);
+
+    }
+}
+
+
+/* ==================================================
+   FRESHER FLOW
+================================================== */
+
+function fresherFlow(){
+
+    showScreen("fresher");
+
+    createParticles(
+        "fresherParticles",
+        ["🌸","🌺","🌷","🌼","💮"],
+        65
+    );
+
+    setTimeout(()=>{
+
+        showScreen("fresherInvite");
+
+        createParticles(
+            "freshInviteParticles",
+            ["🌸","✨","💮","🌷"],
+            35
+        );
+
+        setTimeout(()=>{
+
+            showTeacherScreen();
+
+        },7000);
+
+    },5500);
+
+}
+
+
+/* ==================================================
+   SENIOR FLOW
+================================================== */
+
+function seniorFlow(year){
+
+    setTeacherTheme(year);
+
+    showTeacherScreen();
+
+}
+
+
+/* ==================================================
+   TEACHER SCREEN
+================================================== */
+
+function showTeacherScreen(){
+
+    showScreen("teacher");
+
+    const fresherText =
+        document.getElementById(
+            "fresherTeacherText"
+        );
+
+    const seniorText =
+        document.getElementById(
+            "seniorTeacherText"
+        );
+
+    if(selectedYear==="fresher"){
+
+        fresherText.style.display="block";
+        seniorText.style.display="none";
+
+    }else{
+
+        fresherText.style.display="none";
+        seniorText.style.display="block";
+
+    }
+
+    createTeacherLines();
+
+    createParticles(
+        "teacherParticles",
+        getTeacherParticles(),
+        50
+    );
+
+    setTimeout(()=>{
+
+        showFinal();
+
+    }, selectedYear==="fresher" ? 6000 : 8500);
+
+}
+
+
+/* ==================================================
+   YEAR THEMES
+================================================== */
+
+function setTeacherTheme(year){
+
+    const bg =
+        document.getElementById("teacherBg");
+
+    bg.classList.remove(
+        "theme-sec
