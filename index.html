@@ -48,7 +48,7 @@ body{
     visibility:visible;
 }
 
-/* ================= VIBRANT COLOURFUL BACKGROUNDS ================= */
+/* ================= BACKGROUNDS ================= */
 
 .bg{
     position:absolute;
@@ -420,7 +420,7 @@ body{
     <div class="particles" id="freshInviteParticles"></div>
     <div class="invite-card">
         <div class="card-small">You Are Cordially Invited</div>
-        <div class="card-title">A Warm Welcome<br>to Our Freshers'</div>
+        <div class="card-title">Freshers' Welcome &<br>Teachers' Day Celebration</div>
         <div class="card-text">
             A new chapter begins with new dreams,<br>new friendships and beautiful memories.<br><br>
             <b style="color:#00f2fe;">Department of Mathematics</b><br>Midnapore College (Autonomous)
@@ -430,22 +430,22 @@ body{
     <div class="tap-hint">👉 Tap anywhere to proceed 👈</div>
 </section>
 
-<!-- SLIDE 5: TEACHERS DAY -->
+<!-- SLIDE 5: TEACHERS DAY & FRESHERS WELCOME -->
 <section id="teacher" class="screen">
     <div id="teacherBg" class="bg theme-second"></div>
     <div class="stars"></div>
     <div class="particles" id="teacherParticles"></div>
     <div class="teacher-content">
-        <div class="teacher-title">Teachers' Day ✨</div>
+        <div class="teacher-title">Teachers' Day & Freshers' Welcome ✨</div>
         <div id="fresherTeacherText">
             <div class="teacher-line"><span class="teacher-highlight">Brothers & Sisters ❤️</span></div>
             <div class="teacher-line">You are warmly invited to celebrate</div>
-            <div class="teacher-line"><b>Teachers' Day</b> with us.</div>
+            <div class="teacher-line"><b>Teachers' Day & Freshers' Welcome</b> with us.</div>
         </div>
         <div id="seniorTeacherText">
             <div class="teacher-line"><span class="teacher-highlight">Friends, Brothers & Sisters ❤️</span></div>
             <div class="teacher-line">You are warmly invited to celebrate</div>
-            <div class="teacher-line"><b>Teachers' Day</b> with us.</div>
+            <div class="teacher-line"><b>Teachers' Day & Freshers' Welcome</b> with us.</div>
             <div class="teacher-line"><b>And don't forget...</b></div>
             <div class="teacher-line">Come together and give our <span class="teacher-highlight">Freshers'</span> a warm welcome. 🌸</div>
         </div>
@@ -453,14 +453,14 @@ body{
     <div class="tap-hint">👉 Tap anywhere to proceed 👈</div>
 </section>
 
-<!-- SLIDE 6: FINAL -->
+<!-- SLIDE 6: FINAL INVITATION -->
 <section id="final" class="screen">
     <div class="bg theme-final"></div>
     <div class="stars"></div>
     <div class="particles" id="finalParticles"></div>
     <div class="final-content">
         <div class="final-line" style="color:#ffea00; text-shadow:0 0 20px rgba(255,234,0,0.6);">✨ Those who haven't paid yet, please pay as soon as possible! ✨</div>
-        <div class="final-line">Because this year's Freshers' Welcome is going to be truly memorable! ❤️</div>
+        <div class="final-line">Because this year's Freshers' Welcome & Teachers' Day is going to be truly memorable! ❤️</div>
         <div class="final-line" style="color:#00f2fe;">Everyone please come and co-operate. Just a few days left... Let's enjoy!</div>
         <div class="credit">Created by Sukumar Pradhan 😁</div>
         <button class="replay" onclick="replay(event)">↻ REPLAY</button>
@@ -468,14 +468,8 @@ body{
 </section>
 
 <script>
-/* RELIABLE MULTI-YEAR HINDI MUSIC TRACKS */
-const musicTracks = {
-    opening: "https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3",
-    fresher: "https://assets.mixkit.co/music/preview/mixkit-feeling-happy-5.mp3",
-    second:  "https://assets.mixkit.co/music/preview/mixkit-sweet-nature-518.mp3",
-    third:   "https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3",
-    fourth:  "https://assets.mixkit.co/music/preview/mixkit-valley-sunset-127.mp3"
-};
+/* WORKING AUDIO TRACK FOR ALL YEARS */
+const mainMusicTrack = "https://assets.mixkit.co/music/preview/mixkit-valley-sunset-127.mp3";
 
 let audioPlayer = document.getElementById("bgAudio");
 let isMuted = false;
@@ -484,12 +478,10 @@ let autoTimer = null;
 
 const screenOrder = ["opening", "choice", "fresher", "fresherInvite", "teacher", "final"];
 
-function playTrack(trackKey) {
-    if (musicTracks[trackKey]) {
-        audioPlayer.src = musicTracks[trackKey];
-        if (!isMuted) {
-            audioPlayer.play().catch(e => console.log("Audio waiting for tap"));
-        }
+function playMainTrack() {
+    audioPlayer.src = mainMusicTrack;
+    if (!isMuted) {
+        audioPlayer.play().catch(e => console.log("Audio waiting for tap"));
     }
 }
 
@@ -543,7 +535,7 @@ function handleGlobalClick() {
 
 function enterSite(e){
     if(e) e.stopPropagation();
-    playTrack('opening');
+    playMainTrack();
     showScreen("choice");
 }
 
@@ -552,7 +544,7 @@ let selectedYear="";
 function startYear(year, e){
     if(e) e.stopPropagation();
     selectedYear=year;
-    playTrack(year);
+    playMainTrack();
 
     if(year==="fresher"){
         showScreen("fresher");
@@ -627,7 +619,7 @@ function createParticles(containerId, symbols, count){
 
 function replay(e){
     if(e) e.stopPropagation();
-    playTrack('opening');
+    playMainTrack();
     showScreen("choice");
 }
 </script>
