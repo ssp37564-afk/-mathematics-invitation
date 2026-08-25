@@ -273,7 +273,7 @@ body{
 
 #final{ flex-direction:column; }
 .final-content{ position:relative; z-index:5; max-width:1000px; padding:30px; }
-.final-line{ opacity:0; font-size: clamp(23px,4.5vw,48px); line-height:1.5; margin-bottom:20px; }
+.final-line{ opacity:0; font-size: clamp(22px,4.5vw,46px); line-height:1.5; margin-bottom:20px; }
 .final-line.show{ animation: lineAppear 2s ease forwards; }
 .credit{ margin-top:45px; font-size:17px; letter-spacing:2px; color:#d8cde4; opacity:0; }
 .credit.show{ animation: lineAppear 2s ease forwards; }
@@ -294,7 +294,7 @@ body{
 .replay.show{ animation: lineAppear 2s ease forwards; }
 .replay:hover{ background:#fff; color:#111; }
 
-/* ================= MUSIC BUTTON ================= */
+/* ================= MUSIC BUTTON & HINT ================= */
 
 .music{
     position:fixed;
@@ -318,6 +318,7 @@ body{
     letter-spacing:2px;
     color:rgba(255,255,255,0.4);
     text-transform:uppercase;
+    pointer-events:none;
 }
 
 @media(max-width:600px){
@@ -332,7 +333,7 @@ body{
 
 <body onclick="handleGlobalClick()">
 
-<!-- HINDI AUDIO TRACK -->
+<!-- HINDI AUDIO TRACK PLAYER -->
 <audio id="bgAudio" loop></audio>
 
 <button class="music" id="musicBtn" onclick="toggleMusic(event)">🔊</button>
@@ -429,7 +430,7 @@ body{
 </section>
 
 <script>
-/* HINDI AUDIO TRACKS FOR DIFFERENT SCREENS */
+/* DYNAMIC HINDI AUDIOS FOR DIFFERENT SECTIONS */
 const musicTracks = {
     opening: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3",
     fresher: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3",
@@ -441,6 +442,7 @@ const musicTracks = {
 let audioPlayer = document.getElementById("bgAudio");
 let isMuted = false;
 let currentScreenId = "opening";
+let autoTimer = null;
 
 const screenOrder = ["opening", "choice", "fresher", "fresherInvite", "teacher", "final"];
 
@@ -448,7 +450,7 @@ function playTrack(trackKey) {
     if (musicTracks[trackKey]) {
         audioPlayer.src = musicTracks[trackKey];
         if (!isMuted) {
-            audioPlayer.play().catch(e => console.log("Waiting for touch"));
+            audioPlayer.play().catch(e => console.log("Audio waiting for tap"));
         }
     }
 }
@@ -472,12 +474,19 @@ function toggleMusic(e) {
 
 function showScreen(id){
     currentScreenId = id;
+    if(autoTimer) clearTimeout(autoTimer);
+
     document.querySelectorAll(".screen").forEach(screen=>{ screen.classList.remove("active"); });
     document.getElementById(id).classList.add("active");
 
     if(id === "teacher") {
         createTeacherLines();
         createParticles("teacherParticles", getTeacherParticles(), 50);
+        autoTimer = setTimeout(() => { showScreen("final"); }, selectedYear === "fresher" ? 10000 : 12000);
+    } else if(id === "fresher") {
+        autoTimer = setTimeout(() => { showScreen("fresherInvite"); }, 8000);
+    } else if(id === "fresherInvite") {
+        autoTimer = setTimeout(() => { showScreen("teacher"); }, 10000);
     } else if(id === "final") {
         showFinalLines();
     }
