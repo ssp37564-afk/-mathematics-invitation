@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080916">
-
-<title>Department of Mathematics | Invitation</title>
+<title>Department of Mathematics | Dynamic Invitation</title>
 
 <style>
 *{
@@ -18,15 +17,17 @@ html,body{
     width:100%;
     height:100%;
     overflow:hidden;
+    user-select:none;
 }
 
 body{
-    font-family:Georgia,"Times New Roman",serif;
+    font-family:'Georgia', serif;
     background:#050611;
     color:#fff;
+    cursor:pointer;
 }
 
-/* ================= SCREEN ================= */
+/* ================= SCREEN / SLIDES ================= */
 
 .screen{
     position:absolute;
@@ -37,8 +38,9 @@ body{
     text-align:center;
     opacity:0;
     visibility:hidden;
-    transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 1.2s ease, transform 1.2s ease;
     overflow:hidden;
+    padding: 20px;
 }
 
 .screen.active{
@@ -46,554 +48,240 @@ body{
     visibility:visible;
 }
 
-/* ================= BACKGROUNDS ================= */
+/* ================= DIFFERENT SLIDE STYLES ================= */
 
-.bg{
-    position:absolute;
-    inset:0;
+.slide-1 {
+    background: radial-gradient(circle at center, #2e0854 0%, #120324 60%, #05010a 100%);
 }
 
-.bg::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: radial-gradient(circle at 50% 45%, rgba(120,90,180,.35), transparent 50%);
+.slide-2 {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
 }
 
-.theme-fresher{ background: radial-gradient(circle at center, #533a67 0%, #21182f 45%, #070711 100%); }
-.theme-second{ background: radial-gradient(circle at center, #263b70 0%, #111a38 45%, #050711 100%); }
-.theme-third{ background: radial-gradient(circle at center, #634b2c 0%, #292014 45%, #070711 100%); }
-.theme-fourth{ background: radial-gradient(circle at center, #4a2c5e 0%, #21152c 45%, #05050c 100%); }
-.theme-final{ background: radial-gradient(circle at center, #49375e 0%, #171329 50%, #05050b 100%); }
-
-/* ================= STARS ================= */
-
-.stars{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
+.slide-3 {
+    background: radial-gradient(circle at top right, #4a154b 0%, #19061c 70%, #050008 100%);
 }
 
-.star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    border-radius:50%;
-    background:#fff;
-    animation:twinkle 3s infinite alternate ease-in-out;
+.slide-4 {
+    background: linear-gradient(180deg, #2b0000 0%, #120000 60%, #050000 100%);
 }
 
-@keyframes twinkle{
-    from{ opacity:.1; transform:scale(.4); }
-    to{ opacity:1; transform:scale(2); }
+.slide-5 {
+    background: radial-gradient(circle at bottom left, #1b4332 0%, #081c15 60%, #020805 100%);
 }
 
-/* ================= OPENING ================= */
-
-#opening{ flex-direction:column; }
-
-.opening-content{
-    position:relative;
-    z-index:5;
-    padding:30px;
-    animation: openingReveal 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+.slide-6 {
+    background: linear-gradient(135deg, #3d0066 0%, #1f0033 50%, #0a0014 100%);
 }
 
-@keyframes openingReveal{
-    from{ opacity:0; transform:scale(.7); }
-    to{ opacity:1; transform:scale(1); }
+/* ================= FLOATING WORD ANIMATION ================= */
+
+.word-container {
+    max-width: 900px;
+    margin: auto;
+    z-index: 5;
+    position: relative;
 }
 
-.college{
-    font-size:14px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    color:#d8ccff;
-    margin-bottom:28px;
+.float-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(35px) scale(0.85);
+    filter: blur(4px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    margin: 0 4px;
 }
 
-.open-title{
-    font-size: clamp(36px,8vw,80px);
-    line-height:1.15;
-    text-shadow: 0 0 25px rgba(255,255,255,.2), 0 0 70px rgba(190,150,255,.25);
+.screen.active .float-word {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
-.open-title span{ display:block; }
-
-.enter{
-    margin-top:55px;
-    padding:17px 42px;
-    border-radius:50px;
-    border: 1px solid rgba(255,255,255,.45);
-    background: rgba(255,255,255,.08);
-    color:white;
-    font-size:17px;
-    letter-spacing:3px;
-    cursor:pointer;
-    animation: enterFloat 3s infinite ease-in-out;
-    transition:.4s;
+/* Headings & Text Styling */
+h1.title {
+    font-size: clamp(34px, 7vw, 75px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 0 25px rgba(255,255,255,0.3);
 }
 
-.enter:hover{
-    background:#fff;
-    color:#111;
-    transform:scale(1.08);
-    box-shadow: 0 0 40px rgba(255,255,255,.45);
+p.sub-text {
+    font-size: clamp(18px, 3.5vw, 28px);
+    line-height: 1.6;
+    color: #e2d9f3;
 }
 
-@keyframes enterFloat{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-10px); }
+.highlight {
+    color: #ff9e00;
+    text-shadow: 0 0 20px rgba(255,158,0,0.5);
+    font-weight: bold;
 }
 
-/* ================= WHO ARE YOU ================= */
-
-#choice{ flex-direction:column; }
-
-.choice-content{
-    position:relative;
-    z-index:5;
-    width:100%;
-    padding:25px;
+.alert-highlight {
+    color: #ff4d6d;
+    text-shadow: 0 0 20px rgba(255,77,109,0.6);
+    font-weight: bold;
 }
 
-.choice-title{ font-size: clamp(36px,7vw,65px); margin-bottom:12px; }
-.choice-sub{ color:#bcb5d0; letter-spacing:2px; margin-bottom:40px; }
+/* ================= TAP INSTRUCTION ================= */
 
-.options{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:18px;
-    max-width:850px;
-    margin:auto;
+.tap-hint {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
 }
 
-.option{
-    width:175px;
-    padding:23px 12px;
-    border-radius:22px;
-    border: 1px solid rgba(255,255,255,.22);
-    background: rgba(255,255,255,.08);
-    backdrop-filter:blur(15px);
-    cursor:pointer;
-    font-size:19px;
-    line-height:1.5;
-    transition: transform .5s cubic-bezier(0.2, 0.8, 0.2, 1), background .5s ease, box-shadow .5s ease;
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
 }
-
-.option:hover{
-    transform: translateY(-12px) scale(1.05);
-    background: rgba(255,255,255,.17);
-    box-shadow: 0 20px 50px rgba(0,0,0,.4);
-}
-
-/* ================= PETALS / FLOWERS ================= */
-
-.particles{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-.particle{ position:absolute; top:-70px; animation: fall linear forwards; }
-
-@keyframes fall{
-    0%{ transform: translateY(0) rotate(0deg); opacity:0; }
-    10%{ opacity:1; }
-    100%{ transform: translateY(115vh) rotate(720deg); opacity:.15; }
-}
-
-/* ================= FRESHER MESSAGE ================= */
-
-.center-content{ position:relative; z-index:5; padding:30px; max-width:950px; }
-.fresh-line{
-    font-size: clamp(30px,6vw,65px);
-    line-height:1.35;
-    font-style:italic;
-    text-shadow: 0 0 30px rgba(255,210,255,.45);
-    animation: textReveal 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-@keyframes textReveal{
-    from{ opacity:0; transform: translateY(50px) scale(.85); }
-    to{ opacity:1; transform: translateY(0) scale(1); }
-}
-
-/* ================= INVITATION CARD ================= */
-
-.invite-card{
-    position:relative;
-    z-index:5;
-    width:min(90%,760px);
-    padding: clamp(42px,8vw,75px) 30px;
-    border-radius:30px;
-    border: 1px solid rgba(255,255,255,.3);
-    background: rgba(255,255,255,.09);
-    backdrop-filter:blur(18px);
-    box-shadow: 0 30px 100px rgba(0,0,0,.5), 0 0 70px rgba(210,170,255,.15);
-    animation: cardOpen 2.2s cubic-bezier(.2,.8,.2,1);
-}
-
-.invite-card::before{
-    content:"";
-    position:absolute;
-    inset:10px;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius:22px;
-    pointer-events:none;
-}
-
-@keyframes cardOpen{
-    from{ opacity:0; transform: perspective(1000px) rotateX(60deg) scale(.6); }
-    to{ opacity:1; transform: perspective(1000px) rotateX(0) scale(1); }
-}
-
-.card-small{ font-size:14px; letter-spacing:5px; color:#ddceff; text-transform:uppercase; }
-.card-title{ font-size: clamp(38px,7vw,72px); line-height:1.1; margin:25px 0; }
-.card-text{ font-size: clamp(17px,3vw,25px); line-height:1.7; color:#ddd7e8; }
-.card-symbol{ margin-top:30px; font-size:28px; letter-spacing:10px; }
-
-/* ================= TEACHERS DAY ================= */
-
-.teacher-content{ position:relative; z-index:5; max-width:950px; padding:30px; }
-.teacher-title{ font-size: clamp(36px,7vw,72px); color:#efd8ff; margin-bottom:35px; animation: teacherTitle 2s ease; }
-.teacher-line{ opacity:0; font-size: clamp(19px,4vw,32px); line-height:1.65; color:#eee9f3; }
-.teacher-line.show{ animation: lineAppear 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-.teacher-highlight{ color:#eac8ff; text-shadow: 0 0 25px rgba(235,190,255,.35); }
-
-@keyframes teacherTitle{
-    from{ opacity:0; transform:translateY(-40px); }
-    to{ opacity:1; transform:translateY(0); }
-}
-
-@keyframes lineAppear{
-    from{ opacity:0; transform:translateY(35px); }
-    to{ opacity:1; transform:translateY(0); }
-}
-
-/* ================= FINAL ================= */
-
-#final{ flex-direction:column; }
-.final-content{ position:relative; z-index:5; max-width:1000px; padding:30px; }
-.final-line{ opacity:0; font-size: clamp(25px,5vw,55px); line-height:1.45; margin-bottom:20px; }
-.final-line.show{ animation: lineAppear 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-.credit{ margin-top:45px; font-size:17px; letter-spacing:2px; color:#d8cde4; opacity:0; }
-.credit.show{ animation: lineAppear 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-
-.replay{
-    margin-top:30px;
-    padding:13px 34px;
-    border-radius:30px;
-    border: 1px solid rgba(255,255,255,.35);
-    background: rgba(255,255,255,.05);
-    color:white;
-    cursor:pointer;
-    letter-spacing:2px;
-    opacity:0;
-    transition:.4s;
-}
-
-.replay.show{ animation: lineAppear 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-.replay:hover{ background:#fff; color:#111; }
 
 /* ================= MUSIC BUTTON ================= */
 
-.music{
-    position:fixed;
-    z-index:100;
-    top:18px;
-    right:18px;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border: 1px solid rgba(255,255,255,.3);
-    background: rgba(0,0,0,.25);
-    color:#fff;
-    cursor:pointer;
-    backdrop-filter:blur(10px);
-}
-
-@media(max-width:600px){
-    .options{ gap:12px; }
-    .option{ width:145px; padding:17px 8px; font-size:17px; }
-    .choice-sub{ margin-bottom:25px; }
-    .college{ font-size:11px; letter-spacing:3px; }
-    .music{ top:10px; right:10px; }
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
 }
 </style>
 </head>
 
-<body>
+<body onclick="nextSlide()">
 
-<button class="music" id="musicBtn" onclick="toggleMusic()">🔊</button>
+<audio id="hindiAudio" loop></audio>
 
-<section id="opening" class="screen active">
-    <div class="bg theme-fourth"></div>
-    <div class="stars"></div>
-    <div class="opening-content">
-        <div class="college">Midnapore College (Autonomous)</div>
-        <div class="open-title">
-            <span>WELCOME TO</span>
-            <span>DEPARTMENT OF MATHEMATICS</span>
-            <span>(UG)</span>
-        </div>
-        <button class="enter" onclick="enterSite()">✦ TAP TO ENTER ✦</button>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic(event)">🔊</button>
+
+<!-- SLIDE 1: OPENING -->
+<section id="slide-1" class="screen slide-1 active">
+    <div class="word-container">
+        <h1 class="title" id="text-1">Welcome to Department of Mathematics (UG)</h1>
+        <p class="sub-text" id="text-1-sub">Midnapore College (Autonomous)</p>
     </div>
+    <div class="tap-hint">👉 Tap anywhere to continue 👈</div>
 </section>
 
-<section id="choice" class="screen">
-    <div class="bg theme-fourth"></div>
-    <div class="stars"></div>
-    <div class="choice-content">
-        <div class="choice-title">WHO ARE YOU?</div>
-        <div class="choice-sub">Choose your year to continue</div>
-        <div class="options">
-            <div class="option" onclick="startYear('fresher')">🌸<br><b>1st Year</b><br>(Fresher)</div>
-            <div class="option" onclick="startYear('second')">✨<br><b>2nd Year</b></div>
-            <div class="option" onclick="startYear('third')">🌷<br><b>3rd Year</b></div>
-            <div class="option" onclick="startYear('fourth')">🌺<br><b>4th Year</b></div>
-        </div>
+<!-- SLIDE 2: YEAR SELECTION -->
+<section id="slide-2" class="screen slide-2">
+    <div class="word-container">
+        <h1 class="title" id="text-2">Who Are You?</h1>
+        <p class="sub-text" id="text-2-sub">Choose your academic identity to step into the grand celebration!</p>
     </div>
+    <div class="tap-hint">👉 Tap to proceed 👈</div>
 </section>
 
-<section id="fresher" class="screen">
-    <div class="bg theme-fresher"></div>
-    <div class="stars"></div>
-    <div class="particles" id="fresherParticles"></div>
-    <div class="center-content">
-        <div class="fresh-line">A new journey begins</div>
-        <div class="fresh-line" style="animation-delay:1.5s;">with lots of hopes... ✨</div>
+<!-- SLIDE 3: FRESHERS WELCOME -->
+<section id="slide-3" class="screen slide-3">
+    <div class="word-container">
+        <h1 class="title" id="text-3">A Warm Welcome to Our Freshers'!</h1>
+        <p class="sub-text" id="text-3-sub">A new chapter begins with new dreams, new friendships, and beautiful memories.</p>
     </div>
+    <div class="tap-hint">👉 Tap for Teachers' Day 👈</div>
 </section>
 
-<section id="fresherInvite" class="screen">
-    <div class="bg theme-fresher"></div>
-    <div class="stars"></div>
-    <div class="particles" id="freshInviteParticles"></div>
-    <div class="invite-card">
-        <div class="card-small">You Are Cordially Invited</div>
-        <div class="card-title">A Warm Welcome<br>to Our Freshers</div>
-        <div class="card-text">
-            A new chapter begins with new dreams,<br>new friendships and beautiful memories.<br><br>
-            <b>Department of Mathematics</b><br>Midnapore College (Autonomous)
-        </div>
-        <div class="card-symbol">✦ 🌸 ✦</div>
+<!-- SLIDE 4: TEACHERS DAY -->
+<section id="slide-4" class="screen slide-4">
+    <div class="word-container">
+        <h1 class="title" id="text-4">Teachers' Day Celebration ✨</h1>
+        <p class="sub-text" id="text-4-sub">Let us come together to honor our respected Teachers and celebrate with immense joy.</p>
     </div>
+    <div class="tap-hint">👉 Tap for Important Notice 👈</div>
 </section>
 
-<section id="teacher" class="screen">
-    <div id="teacherBg" class="bg theme-second"></div>
-    <div class="stars"></div>
-    <div class="particles" id="teacherParticles"></div>
-    <div class="teacher-content">
-        <div class="teacher-title">Teachers' Day ✨</div>
-        <div id="fresherTeacherText">
-            <div class="teacher-line"><span class="teacher-highlight">Brothers & Sisters ❤️</span></div>
-            <div class="teacher-line">You are warmly invited to celebrate</div>
-            <div class="teacher-line"><b>Teachers' Day</b> with us.</div>
-        </div>
-        <div id="seniorTeacherText">
-            <div class="teacher-line"><span class="teacher-highlight">Friends, Brothers & Sisters ❤️</span></div>
-            <div class="teacher-line">You are warmly invited to celebrate</div>
-            <div class="teacher-line"><b>Teachers' Day</b> with us.</div>
-            <div class="teacher-line"><b>And don't forget...</b></div>
-            <div class="teacher-line">Come together and give our <span class="teacher-highlight">Freshers</span> a warm welcome. 🌸</div>
-        </div>
+<!-- SLIDE 5: IMPORTANT NOTICE & MONEY COLLECTION -->
+<section id="slide-5" class="screen slide-5">
+    <div class="word-container">
+        <h1 class="title" id="text-5">⚠️ Important Announcement! ⚠️</h1>
+        <p class="sub-text" id="text-5-sub">Those who haven't paid yet, please pay as soon as possible because this year's Freshers' Welcome is going to be memorable!</p>
     </div>
+    <div class="tap-hint">👉 Tap for Final Words 👈</div>
 </section>
 
-<section id="final" class="screen">
-    <div class="bg theme-final"></div>
-    <div class="stars"></div>
-    <div class="particles" id="finalParticles"></div>
-    <div class="final-content">
-        <div class="final-line">✨ We sincerely seek the participation of each and every one of you. ✨</div>
-        <div class="final-line">Come and be a part of the celebration and make the programme a grand success. ❤️</div>
-        <div class="final-line">Let's come together, celebrate together, and create beautiful memories together.</div>
-        <div class="credit">Created by Sukumar Pradhan 😁</div>
-        <button class="replay" onclick="replay()">↻ REPLAY</button>
+<!-- SLIDE 6: FINAL INVITATION -->
+<section id="slide-6" class="screen slide-6">
+    <div class="word-container">
+        <h1 class="title" id="text-6">Let's Enjoy Together! ❤️</h1>
+        <p class="sub-text" id="text-6-sub">Everyone please come and co-operate. Just a few days left... Let's make Freshers' Welcome grand!</p>
     </div>
+    <div class="tap-hint">↻ Tap to replay from beginning</div>
 </section>
 
 <script>
-/* WEB AUDIO API - SYNTHESIZER FOR SMOOTH MUSIC WITHOUT DOWNLOAD PROBLEMS */
-let audioCtx = null;
-let musicInterval = null;
+/* HINDI TRACKS / MELODIC SONGS FOR EACH SLIDE */
+const songTracks = [
+    "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3", // Indian Flute & Soft Melodic Opening
+    "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73219.mp3", // Lively Celebration Beat
+    "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3", // Soft Hindi Instrumental/Piano
+    "https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939f792e7.mp3", // Respectful Ambient Indian Sound
+    "https://cdn.pixabay.com/download/audio/2022/03/24/audio_c8c363f8bb.mp3", // Upbeat Party Track
+    "https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3"  // Grand Festive Finale
+];
+
+let currentSlide = 0;
+const totalSlides = 6;
+const audioPlayer = document.getElementById("hindiAudio");
 let isMuted = false;
 
-// Gentle Soft Musical Frequencies for Each Year
-const yearNotes = {
-    opening: [261.63, 329.63, 392.00, 523.25], // C Major Soft Harmonies
-    fresher: [349.23, 440.00, 523.25, 659.25], // F Major Sweet Melody
-    second:  [293.66, 369.99, 440.00, 587.33], // D Major Soft Chords
-    third:   [329.63, 415.30, 493.88, 659.25], // E Major Calm Tone
-    fourth:  [220.00, 277.18, 329.63, 440.00]  // A Minor Deep Emotional Tone
-};
+function prepareFloatingWords() {
+    const textElements = document.querySelectorAll('.title, .sub-text');
+    textElements.forEach(el => {
+        const words = el.innerText.split(' ');
+        el.innerHTML = words.map((word, i) => 
+            `<span class="float-word" style="transition-delay: ${i * 0.12}s">${word}</span>`
+        ).join(' ');
+    });
+}
 
-function initAudio() {
-    if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function playSlideMusic(index) {
+    if (!isMuted && songTracks[index]) {
+        audioPlayer.src = songTracks[index];
+        audioPlayer.play().catch(e => console.log("Audio waiting for user tap"));
     }
-    if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-    }
 }
 
-function playNote(freq, duration = 1.8) {
-    if (isMuted || !audioCtx) return;
-    try {
-        let osc = audioCtx.createOscillator();
-        let gain = audioCtx.createGain();
+function nextSlide() {
+    const screens = document.querySelectorAll('.screen');
+    screens[currentSlide].classList.remove('active');
 
-        osc.type = 'sine'; // Soft soothing wave
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-        gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.3);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-    } catch(e) {}
+    currentSlide = (currentSlide + 1) % totalSlides;
+    
+    screens[currentSlide].classList.add('active');
+    playSlideMusic(currentSlide);
 }
 
-function startYearMusic(yearKey) {
-    initAudio();
-    if (musicInterval) clearInterval(musicInterval);
-
-    const notes = yearNotes[yearKey] || yearNotes.opening;
-    let index = 0;
-
-    musicInterval = setInterval(() => {
-        if (!isMuted && audioCtx) {
-            playNote(notes[index % notes.length], 2.2);
-            // Ambient harmonic note
-            if (index % 2 === 0) {
-                playNote(notes[(index + 2) % notes.length] / 2, 2.5);
-            }
-            index++;
-        }
-    }, 1400);
-}
-
-function toggleMusic() {
+function toggleMusic(event) {
+    event.stopPropagation();
     isMuted = !isMuted;
     const btn = document.getElementById("musicBtn");
-    btn.innerText = isMuted ? "🔇" : "🔊";
-    if (!isMuted) initAudio();
-}
-
-function showScreen(id){
-    document.querySelectorAll(".screen").forEach(screen=>{ screen.classList.remove("active"); });
-    document.getElementById(id).classList.add("active");
-}
-
-function enterSite(){
-    startYearMusic('opening');
-    showScreen("choice");
-}
-
-let selectedYear="";
-
-function startYear(year){
-    selectedYear=year;
-    startYearMusic(year);
-
-    if(year==="fresher"){
-        fresherFlow();
-    }else{
-        seniorFlow(year);
-    }
-}
-
-function fresherFlow(){
-    showScreen("fresher");
-    createParticles("fresherParticles", ["🌸","🌺","🌷","🌼","💮"], 65);
-
-    setTimeout(()=>{
-        showScreen("fresherInvite");
-        createParticles("freshInviteParticles", ["🌸","✨","💮","🌷"], 35);
-        setTimeout(()=>{ showTeacherScreen(); }, 10000);
-    }, 8000);
-}
-
-function seniorFlow(year){
-    setTeacherTheme(year);
-    showTeacherScreen();
-}
-
-function showTeacherScreen(){
-    showScreen("teacher");
-
-    const fresherText = document.getElementById("fresherTeacherText");
-    const seniorText = document.getElementById("seniorTeacherText");
-
-    if(selectedYear==="fresher"){
-        fresherText.style.display="block";
-        seniorText.style.display="none";
-    }else{
-        fresherText.style.display="none";
-        seniorText.style.display="block";
-    }
-
-    createTeacherLines();
-    createParticles("teacherParticles", getTeacherParticles(), 50);
-
-    setTimeout(()=>{ showFinal(); }, selectedYear==="fresher" ? 10000 : 12000);
-}
-
-function setTeacherTheme(year){
-    const bg = document.getElementById("teacherBg");
-    bg.className = "bg";
-    if(year === "second") bg.classList.add("theme-second");
-    else if(year === "third") bg.classList.add("theme-third");
-    else bg.classList.add("theme-fourth");
-}
-
-function getTeacherParticles(){ return ["🌸", "✨", "🌺", "🌷"]; }
-
-function createTeacherLines(){
-    const activeText = selectedYear === "fresher" ? 
-        document.getElementById("fresherTeacherText") : 
-        document.getElementById("seniorTeacherText");
     
-    const lines = activeText.querySelectorAll(".teacher-line");
-    lines.forEach((line, index) => {
-        line.classList.remove("show");
-        setTimeout(() => { line.classList.add("show"); }, index * 1200);
-    });
-}
-
-function showFinal(){
-    showScreen("final");
-    createParticles("finalParticles", ["✨", "🌸", "❤️"], 40);
-
-    const lines = document.querySelectorAll(".final-line, .credit, .replay");
-    lines.forEach((el, index) => {
-        el.classList.remove("show");
-        setTimeout(() => { el.classList.add("show"); }, index * 1400);
-    });
-}
-
-function createParticles(containerId, symbols, count){
-    const container = document.getElementById(containerId);
-    if(!container) return;
-    container.innerHTML = "";
-    for(let i = 0; i < count; i++){
-        const p = document.createElement("div");
-        p.className = "particle";
-        p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-        p.style.left = Math.random() * 100 + "%";
-        p.style.animationDuration = (Math.random() * 4 + 4) + "s";
-        p.style.animationDelay = (Math.random() * 2) + "s";
-        p.style.fontSize = (Math.random() * 12 + 16) + "px";
-        container.appendChild(p);
+    if (isMuted) {
+        audioPlayer.pause();
+        btn.innerText = "🔇";
+    } else {
+        audioPlayer.play();
+        btn.innerText = "🔊";
     }
 }
 
-function replay(){
-    startYearMusic('opening');
-    showScreen("choice");
-}
+window.onload = () => {
+    prepareFloatingWords();
+};
 </script>
 </body>
 </html>
