@@ -360,8 +360,10 @@ body{
 
 <body onclick="handleGlobalClick()">
 
-<!-- AUDIO TRACK PLAYER -->
-<audio id="bgAudio" loop></audio>
+<!-- AUDIO TRACK PLAYER (PROPER WORKING DIRECT STREAM) -->
+<audio id="bgAudio" loop preload="auto">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
 <button class="music" id="musicBtn" onclick="toggleMusic(event)">🔊</button>
 
@@ -468,62 +470,50 @@ body{
 </section>
 
 <script>
-/* WORKING AUDIO TRACK FOR ALL YEARS */
-const mainMusicTrack = "https://assets.mixkit.co/music/preview/mixkit-valley-sunset-127.mp3";
-
 let audioPlayer = document.getElementById("bgAudio");
 let isMuted = false;
 let currentScreenId = "opening";
-let autoTimer = null;
 
 const screenOrder = ["opening", "choice", "fresher", "fresherInvite", "teacher", "final"];
 
 function playMainTrack() {
-    audioPlayer.src = mainMusicTrack;
     if (!isMuted) {
-        audioPlayer.play().catch(e => console.log("Audio waiting for tap"));
+        audioPlayer.play().catch(e => console.log("Audio waiting for user click"));
     }
 }
 
 function toggleMusic(e) {
     if(e) e.stopPropagation();
     const btn = document.getElementById("musicBtn");
-    if (audioPlayer.paused && !isMuted) {
-        audioPlayer.play();
-        btn.innerText = "🔊";
-    } else if (!audioPlayer.muted && !audioPlayer.paused) {
-        audioPlayer.pause();
-        isMuted = true;
-        btn.innerText = "🔇";
-    } else {
+    if (audioPlayer.paused) {
         isMuted = false;
         audioPlayer.play();
         btn.innerText = "🔊";
+    } else {
+        isMuted = true;
+        audioPlayer.pause();
+        btn.innerText = "🔇";
     }
 }
 
 function showScreen(id){
     currentScreenId = id;
-    if(autoTimer) clearTimeout(autoTimer);
-
     document.querySelectorAll(".screen").forEach(screen=>{ screen.classList.remove("active"); });
     document.getElementById(id).classList.add("active");
 
     if(id === "teacher") {
         createTeacherLines();
         createParticles("teacherParticles", getTeacherParticles(), 60);
-        autoTimer = setTimeout(() => { showScreen("final"); }, selectedYear === "fresher" ? 10000 : 12000);
     } else if(id === "fresher") {
         createParticles("fresherParticles", ["🌸","🌺","✨","💫","💮"], 75);
-        autoTimer = setTimeout(() => { showScreen("fresherInvite"); }, 9000);
     } else if(id === "fresherInvite") {
         createParticles("freshInviteParticles", ["🌸","✨","💖","🌷"], 45);
-        autoTimer = setTimeout(() => { showScreen("teacher"); }, 10000);
     } else if(id === "final") {
         showFinalLines();
     }
 }
 
+// TAP ANYWHERE TO ADVANCE SLIDE (NO AUTOMATIC TRANSITION)
 function handleGlobalClick() {
     if(currentScreenId === "opening" || currentScreenId === "choice") return;
     
@@ -624,4 +614,5 @@ function replay(e){
 }
 </script>
 </body>
-</html>
+    </html>
+    
