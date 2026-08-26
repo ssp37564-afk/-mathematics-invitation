@@ -639,6 +639,8 @@ FAVORITE TEACHER
 
 <div id="favoriteBg" class="bg fresh"></div>
 
+<div class="flowers" id="flowers4"></div>
+
 <div class="content">
 
 <h2 style="font-size:clamp(28px,6vw,52px);">
@@ -1179,6 +1181,8 @@ function flowers(id,symbols,count){
 
     const box =
         document.getElementById(id);
+
+    if(!box) return;
 
     box.innerHTML = "";
 
