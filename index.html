@@ -47,59 +47,31 @@ body{
 }
 
 .welcome{
-    background:
-    radial-gradient(circle at center,
-    #70528f 0%,
-    #28183a 45%,
-    #08050d 100%);
+    background: radial-gradient(circle at center, #70528f 0%, #28183a 45%, #08050d 100%);
 }
 
 .choice{
-    background:
-    radial-gradient(circle at center,
-    #52608e 0%,
-    #17172f 50%,
-    #05040a 100%);
+    background: radial-gradient(circle at center, #52608e 0%, #17172f 50%, #05040a 100%);
 }
 
 .fresh{
-    background:
-    radial-gradient(circle at center,
-    #875779 0%,
-    #32172f 48%,
-    #08050d 100%);
+    background: radial-gradient(circle at center, #875779 0%, #32172f 48%, #08050d 100%);
 }
 
 .second{
-    background:
-    radial-gradient(circle at center,
-    #416b9d 0%,
-    #172343 50%,
-    #050711 100%);
+    background: radial-gradient(circle at center, #416b9d 0%, #172343 50%, #050711 100%);
 }
 
 .third{
-    background:
-    radial-gradient(circle at center,
-    #956638 0%,
-    #321f12 50%,
-    #08050a 100%);
+    background: radial-gradient(circle at center, #956638 0%, #321f12 50%, #08050a 100%);
 }
 
 .fourth{
-    background:
-    radial-gradient(circle at center,
-    #70498b 0%,
-    #271532 50%,
-    #07050c 100%);
+    background: radial-gradient(circle at center, #70498b 0%, #271532 50%, #07050c 100%);
 }
 
 .final{
-    background:
-    radial-gradient(circle at center,
-    #5d4776 0%,
-    #21142e 55%,
-    #06050b 100%);
+    background: radial-gradient(circle at center, #5d4776 0%, #21142e 55%, #06050b 100%);
 }
 
 /* TEXT */
@@ -407,8 +379,8 @@ button{
 <body>
 
 
-<!-- MUSIC -->
-<audio id="music" src="song.mp3" loop></audio>
+<!-- MUSIC INTEGRATED (DIRECT AUDIO LINK) -->
+<audio id="music" src="https://stream.zeno.fm/f3wvbbqmdg8uv" preload="auto" loop></audio>
 
 <button class="music" id="musicButton" onclick="toggleMusic()">
 🔇
@@ -749,487 +721,233 @@ GLOBAL
 ===================================================== */
 
 let selectedYear = "";
-
 let musicPlaying = false;
-
 
 /* =====================================================
 CHANGE PAGE
 ===================================================== */
 
 function show(id){
-
-    document
-    .querySelectorAll(".page")
-    .forEach(function(page){
-
+    document.querySelectorAll(".page").forEach(function(page){
         page.classList.remove("active");
-
     });
 
-    document
-    .getElementById(id)
-    .classList.add("active");
+    const targetPage = document.getElementById(id);
+    if(targetPage) {
+        targetPage.classList.add("active");
+    }
 }
-
 
 /* =====================================================
 TAP TO ENTER
 ===================================================== */
 
 function enter(){
-
-    /* FIRST go to page 2 */
-
     show("page2");
 
-    /* THEN try to start music */
-
-    const music =
-        document.getElementById("music");
-
-    music.volume = 0.65;
-
-    music.play()
-    .then(function(){
-
-        musicPlaying = true;
-
-        document
-        .getElementById("musicButton")
-        .innerHTML = "🔊";
-
-    })
-    .catch(function(){
-
-        /*
-        If browser blocks audio,
-        user can press the music button.
-        */
-
-        console.log("Audio blocked by browser.");
-
-    });
-
+    const music = document.getElementById("music");
+    if(music){
+        music.volume = 0.65;
+        let promise = music.play();
+        if(promise !== undefined){
+            promise.then(function(){
+                musicPlaying = true;
+                document.getElementById("musicButton").innerHTML = "🔊";
+            }).catch(function(err){
+                console.log("Audio play error:", err);
+                document.getElementById("musicButton").innerHTML = "🔇";
+            });
+        }
+    }
 }
-
 
 /* =====================================================
 MUSIC
 ===================================================== */
 
 function toggleMusic(){
-
-    const music =
-        document.getElementById("music");
+    const music = document.getElementById("music");
+    if(!music) return;
 
     if(music.paused){
-
-        music.play()
-        .then(function(){
-
+        music.play().then(function(){
             musicPlaying = true;
-
-            document
-            .getElementById("musicButton")
-            .innerHTML = "🔊";
-
+            document.getElementById("musicButton").innerHTML = "🔊";
+        }).catch(function(e){
+            console.log("Play failed:", e);
         });
-
-    }
-
-    else{
-
+    }else{
         music.pause();
-
         musicPlaying = false;
-
-        document
-        .getElementById("musicButton")
-        .innerHTML = "🔇";
-
+        document.getElementById("musicButton").innerHTML = "🔇";
     }
-
 }
-
 
 /* =====================================================
 YEAR
 ===================================================== */
 
 function chooseYear(year){
-
     selectedYear = year;
 
-
     if(year === "fresh"){
-
         show("freshIntro");
-
-        flowers(
-            "flowers1",
-            ["🌸","🌺","🌷","💮","🌼"],
-            70
-        );
-
+        flowers("flowers1", ["🌸","🌺","🌷","💮","🌼"], 70);
 
         setTimeout(function(){
-
             show("freshInvite");
-
-            flowers(
-                "flowers2",
-                ["🌸","✨","🌷","💮"],
-                40
-            );
-
+            flowers("flowers2", ["🌸","✨","🌷","💮"], 40);
 
             setTimeout(function(){
-
                 teachersDay();
-
             },6500);
-
         },5200);
-
-    }
-
-    else{
-
+    }else{
         teachersDay();
-
     }
-
 }
-
 
 /* =====================================================
 TEACHERS DAY
 ===================================================== */
 
 function teachersDay(){
+    const bg = document.getElementById("teacherBg");
+    const favBg = document.getElementById("favoriteBg");
 
-    const bg =
-        document.getElementById("teacherBg");
-
-    const favBg =
-        document.getElementById("favoriteBg");
-
-
-    document.getElementById("freshText").style.display =
-        "none";
-
-    document.getElementById("seniorText").style.display =
-        "none";
-
+    document.getElementById("freshText").style.display = "none";
+    document.getElementById("seniorText").style.display = "none";
 
     if(selectedYear === "fresh"){
-
         bg.className = "bg fresh";
-
         favBg.className = "bg fresh";
-
-        document.getElementById("freshText").style.display =
-            "block";
-
+        document.getElementById("freshText").style.display = "block";
     }
-
 
     if(selectedYear === "second"){
-
         bg.className = "bg second";
-
         favBg.className = "bg second";
-
-        document.getElementById("seniorText").style.display =
-            "block";
-
-        document.getElementById("address").innerHTML =
-            "Friends, Brothers &amp; Sisters ❤️";
-
+        document.getElementById("seniorText").style.display = "block";
+        document.getElementById("address").innerHTML = "Friends, Brothers &amp; Sisters ❤️";
     }
-
 
     if(selectedYear === "third"){
-
         bg.className = "bg third";
-
         favBg.className = "bg third";
-
-        document.getElementById("seniorText").style.display =
-            "block";
-
-        document.getElementById("address").innerHTML =
-            "Friends, Brothers &amp; Sisters ❤️";
-
+        document.getElementById("seniorText").style.display = "block";
+        document.getElementById("address").innerHTML = "Friends, Brothers &amp; Sisters ❤️";
     }
-
 
     if(selectedYear === "fourth"){
-
         bg.className = "bg fourth";
-
         favBg.className = "bg fourth";
-
-        document.getElementById("seniorText").style.display =
-            "block";
-
-        document.getElementById("address").innerHTML =
-            "Friends ❤️";
-
+        document.getElementById("seniorText").style.display = "block";
+        document.getElementById("address").innerHTML = "Friends ❤️";
     }
-
 
     show("teachers");
+    flowers("flowers3", ["🌸","🌷","✨","🌺"], 50);
 
-
-    flowers(
-        "flowers3",
-        ["🌸","🌷","✨","🌺"],
-        50
-    );
-
-
-    let waitTime = 7000;
-
-
-    if(selectedYear === "fresh"){
-
-        waitTime = 5200;
-
-    }
-
+    let waitTime = selectedYear === "fresh" ? 5200 : 7000;
 
     setTimeout(function(){
-
         favorite();
-
-    },waitTime);
-
+    }, waitTime);
 }
-
 
 /* =====================================================
 FAVORITE TEACHER
 ===================================================== */
 
 function favorite(){
-
     createTeacherButtons();
-
     show("favorite");
-
-    flowers(
-        "flowers4",
-        ["🌸","✨","🌷","💫"],
-        35
-    );
-
+    flowers("flowers4", ["🌸","✨","🌷","💫"], 35);
 }
-
 
 /* =====================================================
 13 TEACHERS
 ===================================================== */
 
 function createTeacherButtons(){
-
     const names = [
-
-        "Teacher 1",
-        "Teacher 2",
-        "Teacher 3",
-        "Teacher 4",
-        "Teacher 5",
-        "Teacher 6",
-        "Teacher 7",
-        "Teacher 8",
-        "Teacher 9",
-        "Teacher 10",
-        "Teacher 11",
-        "Teacher 12",
-        "Teacher 13"
-
+        "Teacher 1", "Teacher 2", "Teacher 3", "Teacher 4", 
+        "Teacher 5", "Teacher 6", "Teacher 7", "Teacher 8", 
+        "Teacher 9", "Teacher 10", "Teacher 11", "Teacher 12", "Teacher 13"
     ];
 
-
-    const grid =
-        document.getElementById(
-            "teacherGrid"
-        );
-
-
+    const grid = document.getElementById("teacherGrid");
     grid.innerHTML = "";
 
-
     names.forEach(function(name){
-
-        const button =
-            document.createElement("button");
-
-        button.className =
-            "teacher-choice";
-
-        button.textContent =
-            name;
-
-
-        button.onclick =
-            function(){
-
-                /* NO DATA IS SAVED */
-
-                show("final");
-
-            };
-
-
+        const button = document.createElement("button");
+        button.className = "teacher-choice";
+        button.textContent = name;
+        button.onclick = function(){
+            show("final");
+        };
         grid.appendChild(button);
-
     });
-
 }
 
-
 /* =====================================================
-YES
+YES / NO / POPUP
 ===================================================== */
 
 function answerYes(){
-
-    document
-    .getElementById("popupText")
-    .innerHTML =
-    "Awesome! Let's make this event unforgettable together! ❤️✨";
-
-    document
-    .getElementById("popup")
-    .classList.add("show");
-
+    document.getElementById("popupText").innerHTML = "Awesome! Let's make this event unforgettable together! ❤️✨";
+    document.getElementById("popup").classList.add("show");
 }
-
-
-/* =====================================================
-NO
-===================================================== */
 
 function answerNo(){
-
-    document
-    .getElementById("popupText")
-    .innerHTML =
-    "Arre come on! It's going to be super fun, don't miss it! 😉";
-
-    document
-    .getElementById("popup")
-    .classList.add("show");
-
+    document.getElementById("popupText").innerHTML = "Arre come on! It's going to be super fun, don't miss it! 😉";
+    document.getElementById("popup").classList.add("show");
 }
-
-
-/* =====================================================
-CLOSE
-===================================================== */
 
 function closePopup(){
-
-    document
-    .getElementById("popup")
-    .classList.remove("show");
-
+    document.getElementById("popup").classList.remove("show");
 }
-
 
 /* =====================================================
 RESTART
 ===================================================== */
 
 function restart(){
-
     selectedYear = "";
-
     closePopup();
-
     show("page1");
 
-
-    const music =
-        document.getElementById("music");
-
-    music.currentTime = 0;
-
-    music.play()
-    .then(function(){
-
-        musicPlaying = true;
-
-        document
-        .getElementById("musicButton")
-        .innerHTML = "🔊";
-
-    })
-    .catch(function(){});
-
+    const music = document.getElementById("music");
+    if(music){
+        music.currentTime = 0;
+        music.play().then(function(){
+            musicPlaying = true;
+            document.getElementById("musicButton").innerHTML = "🔊";
+        }).catch(function(){});
+    }
 }
-
 
 /* =====================================================
 FLOWERS
 ===================================================== */
 
-function flowers(id,symbols,count){
-
-    const box =
-        document.getElementById(id);
-
+function flowers(id, symbols, count){
+    const box = document.getElementById(id);
     if(!box) return;
 
     box.innerHTML = "";
 
-
-    for(let i=0;i<count;i++){
-
-        const flower =
-            document.createElement("div");
-
-        flower.className =
-            "flower";
-
-
-        flower.innerHTML =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-
-        flower.style.left =
-            Math.random()*100 + "%";
-
-
-        flower.style.fontSize =
-            (15 + Math.random()*22) +
-            "px";
-
-
-        flower.style.animationDuration =
-            (4 + Math.random()*5) +
-            "s";
-
-
-        flower.style.animationDelay =
-            Math.random()*3 +
-            "s";
-
-
+    for(let i=0; i<count; i++){
+        const flower = document.createElement("div");
+        flower.className = "flower";
+        flower.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+        flower.style.left = Math.random()*100 + "%";
+        flower.style.fontSize = (15 + Math.random()*22) + "px";
+        flower.style.animationDuration = (4 + Math.random()*5) + "s";
+        flower.style.animationDelay = Math.random()*3 + "s";
         box.appendChild(flower);
-
     }
-
 }
-
 </script>
 
 </body>
