@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Department of Mathematics</title>
 
+<!-- Canvas Confetti Library CDN -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <style>
 *{
     box-sizing:border-box;
@@ -22,6 +25,7 @@ body{
     font-family:Georgia,"Times New Roman",serif;
     color:white;
     background:#08050d;
+    user-select: none;
 }
 
 .page{
@@ -33,6 +37,7 @@ body{
     text-align:center;
     padding:20px;
     overflow:hidden;
+    cursor: pointer;
 }
 
 .page.active{
@@ -51,33 +56,13 @@ body{
     inset:0;
 }
 
-.welcome{
-    background:radial-gradient(circle at center,#65477d,#24152f 55%,#050309);
-}
-
-.choice{
-    background:radial-gradient(circle at center,#466d92,#17243a 55%,#04060c);
-}
-
-.fresh{
-    background:radial-gradient(circle at center,#a45f87,#421e42 55%,#08050d);
-}
-
-.second{
-    background:radial-gradient(circle at center,#4d8baa,#152f42 55%,#04070b);
-}
-
-.third{
-    background:radial-gradient(circle at center,#aa7045,#402512 55%,#080509);
-}
-
-.fourth{
-    background:radial-gradient(circle at center,#7954a0,#291638 55%,#07040c);
-}
-
-.final{
-    background:radial-gradient(circle at center,#684c83,#251532 55%,#06040a);
-}
+.welcome{ background:radial-gradient(circle at center,#65477d,#24152f 55%,#050309); }
+.choice{ background:radial-gradient(circle at center,#466d92,#17243a 55%,#04060c); }
+.fresh{ background:radial-gradient(circle at center,#a45f87,#421e42 55%,#08050d); }
+.second{ background:radial-gradient(circle at center,#4d8baa,#152f42 55%,#04070b); }
+.third{ background:radial-gradient(circle at center,#aa7045,#402512 55%,#080509); }
+.fourth{ background:radial-gradient(circle at center,#7954a0,#291638 55%,#07040c); }
+.final{ background:radial-gradient(circle at center,#684c83,#251532 55%,#06040a); }
 
 .college{
     font-size:13px;
@@ -92,9 +77,7 @@ h1{
     text-shadow:0 5px 25px #000;
 }
 
-h1 span{
-    display:block;
-}
+h1 span{ display:block; }
 
 h2{
     font-size:clamp(30px,7vw,60px);
@@ -114,6 +97,8 @@ h2{
     cursor:pointer;
     transition:.3s;
     -webkit-tap-highlight-color:transparent;
+    position: relative;
+    z-index: 20;
 }
 
 .main-btn:hover{
@@ -122,9 +107,7 @@ h2{
     transform:scale(1.05);
 }
 
-.main-btn:active{
-    transform:scale(.96);
-}
+.main-btn:active{ transform:scale(.96); }
 
 .options{
     display:flex;
@@ -132,6 +115,8 @@ h2{
     justify-content:center;
     gap:15px;
     margin-top:35px;
+    position: relative;
+    z-index: 20;
 }
 
 .year-btn{
@@ -166,19 +151,11 @@ h2{
     animation:appear 1.3s forwards;
 }
 
-.intro-line:nth-child(2){
-    animation-delay:.8s;
-}
+.intro-line:nth-child(2){ animation-delay:.8s; }
 
 @keyframes appear{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{ opacity:0; transform:translateY(30px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
 .card{
@@ -190,17 +167,12 @@ h2{
     backdrop-filter:blur(15px);
     box-shadow:0 25px 80px #0009;
     animation:cardIn 1s ease;
+    margin: 0 auto;
 }
 
 @keyframes cardIn{
-    from{
-        opacity:0;
-        transform:scale(.8);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+    from{ opacity:0; transform:scale(.8); }
+    to{ opacity:1; transform:scale(1); }
 }
 
 .card-small{
@@ -209,9 +181,7 @@ h2{
     color:#e5d8ec;
 }
 
-.card h2{
-    margin:20px 0;
-}
+.card h2{ margin:20px 0; }
 
 .card p{
     font-size:clamp(17px,3vw,24px);
@@ -247,29 +217,23 @@ h2{
 }
 
 @keyframes fall{
-    0%{
-        transform:translateY(0) rotate(0deg);
-        opacity:0;
-    }
-    10%{
-        opacity:1;
-    }
-    100%{
-        transform:translateY(115vh) rotate(720deg);
-        opacity:.15;
-    }
+    0%{ transform:translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:1; }
+    100%{ transform:translateY(115vh) rotate(720deg); opacity:.15; }
 }
 
 .teacher-grid{
     width:100%;
     max-width:850px;
-    max-height:53vh;
+    max-height:50vh;
     overflow-y:auto;
     margin:25px auto 0;
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:10px;
     padding:5px;
+    position: relative;
+    z-index: 20;
 }
 
 .teacher-choice{
@@ -294,6 +258,8 @@ h2{
     justify-content:center;
     gap:12px;
     flex-wrap:wrap;
+    position: relative;
+    z-index: 20;
 }
 
 .credit{
@@ -317,6 +283,13 @@ h2{
     font-size:18px;
 }
 
+.tap-hint {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
 .popup{
     position:fixed;
     inset:0;
@@ -328,9 +301,7 @@ h2{
     padding:25px;
 }
 
-.popup.show{
-    display:flex;
-}
+.popup.show{ display:flex; }
 
 .popup-box{
     width:100%;
@@ -348,22 +319,9 @@ h2{
 }
 
 @media(max-width:600px){
-
-    .year-btn{
-        width:145px;
-        min-height:90px;
-    }
-
-    .teacher-grid{
-        grid-template-columns:1fr;
-        max-height:48vh;
-    }
-
-    .college{
-        font-size:10px;
-        letter-spacing:2px;
-    }
-
+    .year-btn{ width:145px; min-height:90px; }
+    .teacher-grid{ grid-template-columns:1fr; max-height:45vh; }
+    .college{ font-size:10px; letter-spacing:2px; }
 }
 </style>
 </head>
@@ -372,620 +330,265 @@ h2{
 
 <!-- MUSIC -->
 <audio id="music" src="song.mp3" loop preload="auto"></audio>
-
-<button class="music-btn" id="musicButton" onclick="toggleMusic()">🔇</button>
-
+<button class="music-btn" id="musicButton" onclick="toggleMusic(event)">🔇</button>
 
 <!-- ================= SLIDE 1 ================= -->
-
-<section id="page1" class="page active">
-
+<section id="page1" class="page active" onclick="enterWebsite()">
 <div class="bg welcome"></div>
-
 <div class="content">
-
-<div class="college">
-MIDNAPORE COLLEGE (AUTONOMOUS)
-</div>
-
-<h1>
-<span>WELCOME TO</span>
-<span>DEPARTMENT OF</span>
-<span>MATHEMATICS (UG)</span>
-</h1>
-
-<button
-type="button"
-class="main-btn"
-onclick="enterWebsite()">
-✦ TAP TO ENTER ✦
-</button>
-
+    <div class="college">MIDNAPORE COLLEGE (AUTONOMOUS)</div>
+    <h1>
+        <span>WELCOME TO</span>
+        <span>DEPARTMENT OF</span>
+        <span>MATHEMATICS (UG)</span>
+    </h1>
+    <button type="button" class="main-btn">✦ TAP TO ENTER ✦</button>
 </div>
 </section>
-
 
 <!-- ================= SLIDE 2 ================= -->
-
 <section id="page2" class="page">
-
 <div class="bg choice"></div>
-
 <div class="content">
-
-<h2>WHO ARE YOU?</h2>
-
-<p style="margin-top:12px;color:#ddd;">
-Choose your year to continue
-</p>
-
-<div class="options">
-
-<button type="button" class="year-btn"
-onclick="chooseYear('fresh')">
-🌸<br><b>1st Year</b><br>(Freshers')
-</button>
-
-<button type="button" class="year-btn"
-onclick="chooseYear('second')">
-✨<br><b>2nd Year</b>
-</button>
-
-<button type="button" class="year-btn"
-onclick="chooseYear('third')">
-🌷<br><b>3rd Year</b>
-</button>
-
-<button type="button" class="year-btn"
-onclick="chooseYear('fourth')">
-🌺<br><b>4th Year</b>
-</button>
-
-</div>
+    <h2>WHO ARE YOU?</h2>
+    <p style="margin-top:12px;color:#ddd;">Choose your year to continue</p>
+    <div class="options">
+        <button type="button" class="year-btn" onclick="chooseYear('fresh', event)">🌸<br><b>1st Year</b><br>(Freshers')</button>
+        <button type="button" class="year-btn" onclick="chooseYear('second', event)">✨<br><b>2nd Year</b></button>
+        <button type="button" class="year-btn" onclick="chooseYear('third', event)">🌷<br><b>3rd Year</b></button>
+        <button type="button" class="year-btn" onclick="chooseYear('fourth', event)">🌺<br><b>4th Year</b></button>
+    </div>
 </div>
 </section>
-
 
 <!-- ================= FRESHERS INTRO ================= -->
-
-<section id="freshIntro" class="page">
-
+<section id="freshIntro" class="page" onclick="nextSlide('freshInvite')">
 <div class="bg fresh"></div>
-
 <div class="flowers" id="flowers1"></div>
-
 <div class="content intro">
-
-<div class="intro-line">
-A new journey begins...
-</div>
-
-<div class="intro-line">
-with lots of hopes... ✨
-</div>
-
+    <div class="intro-line">A new journey begins...</div>
+    <div class="intro-line">with lots of hopes... ✨</div>
+    <div class="tap-hint">(Tap anywhere to continue)</div>
 </div>
 </section>
-
 
 <!-- ================= FRESHERS INVITATION ================= -->
-
-<section id="freshInvite" class="page">
-
+<section id="freshInvite" class="page" onclick="nextSlide('teachers')">
 <div class="bg fresh"></div>
-
 <div class="flowers" id="flowers2"></div>
-
 <div class="card">
-
-<div class="card-small">
-YOU ARE CORDIALLY INVITED
-</div>
-
-<h2>
-A Warm Welcome<br>
-to Our Freshers'
-</h2>
-
-<p>
-A new chapter begins with new dreams,
-new friendships and beautiful memories.
-</p>
-
-<p>
-<b>Department of Mathematics</b><br>
-Midnapore College (Autonomous)
-</p>
-
-<div style="font-size:30px;margin-top:25px;">
-🌸 ✦ 🌸
-</div>
-
+    <div class="card-small">YOU ARE CORDIALLY INVITED</div>
+    <h2>A Warm Welcome<br>to Our Freshers'</h2>
+    <p>A new chapter begins with new dreams, new friendships and beautiful memories.</p>
+    <p><b>Department of Mathematics</b><br>Midnapore College (Autonomous)</p>
+    <div style="font-size:30px;margin-top:25px;">🌸 ✦ 🌸</div>
+    <div class="tap-hint">(Tap anywhere to continue)</div>
 </div>
 </section>
-
 
 <!-- ================= TEACHERS DAY ================= -->
-
-<section id="teachers" class="page">
-
+<section id="teachers" class="page" onclick="nextSlide('favorite')">
 <div id="teacherBg" class="bg fresh"></div>
-
 <div class="flowers" id="flowers3"></div>
-
 <div class="content">
-
-<h2>Teachers' Day ✨</h2>
-
-<div id="addressText" class="teacher-text address">
-Brothers &amp; Sisters ❤️
-</div>
-
-<p class="teacher-text">
-You are cordially invited to celebrate
-Teachers' Day to pay respect and gratitude
-to our honored Teachers.
-</p>
-
-<p id="freshersWelcome" class="teacher-text address">
-Let's all come together and give our freshers
-a warm and memorable welcome! 🌸
-</p>
-
+    <h2>Teachers' Day ✨</h2>
+    <div id="addressText" class="teacher-text address">Brothers &amp; Sisters ❤️</div>
+    <p class="teacher-text">
+        You are cordially invited to celebrate Teachers' Day to pay respect and gratitude to our honored Teachers.
+    </p>
+    <p id="freshersWelcome" class="teacher-text address">
+        Let's all come together and give our freshers a warm and memorable welcome! 🌸
+    </p>
+    <div class="tap-hint">(Tap anywhere to continue)</div>
 </div>
 </section>
-
 
 <!-- ================= FAVORITE TEACHER ================= -->
-
 <section id="favorite" class="page">
-
 <div id="favoriteBg" class="bg fresh"></div>
-
 <div class="content">
-
-<h2 style="font-size:clamp(26px,6vw,50px);">
-Mention Your Favorite Teacher
-in the Department ❤️
-</h2>
-
-<p style="margin-top:12px;color:#ddd;">
-Choose a teacher — no data will be saved.
-</p>
-
-<div class="teacher-grid" id="teacherGrid"></div>
-
+    <h2 style="font-size:clamp(26px,6vw,50px);">Mention Your Favorite Teacher in the Department ❤️</h2>
+    <p style="margin-top:12px;color:#ddd;">Choose a teacher — no data will be saved.</p>
+    <div class="teacher-grid" id="teacherGrid"></div>
+    <button type="button" class="main-btn" onclick="nextSlide('final')" style="margin-top:15px; padding: 10px 20px;">Skip / Next ➔</button>
 </div>
 </section>
-
 
 <!-- ================= FINAL ================= -->
-
 <section id="final" class="page">
-
 <div class="bg final"></div>
-
 <div class="content">
-
-<h2>
-Are you excited for the event? 🎉
-</h2>
-
-<div class="final-buttons">
-
-<button
-type="button"
-class="main-btn"
-onclick="answerYes()">
-Yes! 😍
-</button>
-
-<button
-type="button"
-class="main-btn"
-onclick="answerNo()">
-No 😅
-</button>
-
-</div>
-
-<div class="credit">
-Created by Sukumar 😁
-</div>
-
-<button
-type="button"
-class="main-btn"
-onclick="restartWebsite()">
-↻ RESTART
-</button>
-
+    <h2>Are you excited for the event? 🎉</h2>
+    <div class="final-buttons">
+        <button type="button" class="main-btn" onclick="answerYes()">Yes! 😍</button>
+        <button type="button" class="main-btn" onclick="answerNo()">No 😅</button>
+    </div>
+    <div class="credit">Created by Sukumar 😁</div>
+    <button type="button" class="main-btn" onclick="restartWebsite()">↻ RESTART</button>
 </div>
 </section>
 
-
 <!-- ================= POPUP ================= -->
-
 <div id="popup" class="popup">
-
 <div class="popup-box">
-
-<h3 id="popupText"></h3>
-
-<button
-type="button"
-class="main-btn"
-onclick="closePopup()">
-Continue ❤️
-</button>
-
+    <h3 id="popupText"></h3>
+    <button type="button" class="main-btn" onclick="closePopup()">Continue ❤️</button>
 </div>
 </div>
-
 
 <script>
-
-/* ================= VARIABLES ================= */
-
 let selectedYear = "";
 
-let transitionTimers = [];
-
-
-/* ================= PAGE FUNCTION ================= */
-
 function showPage(id){
-
     document.querySelectorAll(".page").forEach(function(page){
         page.classList.remove("active");
     });
-
     const page = document.getElementById(id);
-
     if(page){
         page.classList.add("active");
     }
 }
 
-
-/* ================= TAP TO ENTER ================= */
+function nextSlide(targetId) {
+    if(targetId === 'favorite') {
+        createTeacherButtons();
+    }
+    showPage(targetId);
+}
 
 function enterWebsite(){
-
-    /* First open the next page */
     showPage("page2");
-
-    /* Start music because this function was called by a user tap */
     const music = document.getElementById("music");
-
     music.volume = 0.65;
-
     music.play().then(function(){
-
         document.getElementById("musicButton").textContent = "🔊";
-
     }).catch(function(){
-
         document.getElementById("musicButton").textContent = "🔇";
-
     });
 }
 
-
-/* ================= MUSIC ================= */
-
-function toggleMusic(){
-
+function toggleMusic(e){
+    e.stopPropagation();
     const music = document.getElementById("music");
-
     if(music.paused){
-
         music.play().then(function(){
-
             document.getElementById("musicButton").textContent = "🔊";
-
         }).catch(function(){});
-
     }else{
-
         music.pause();
-
         document.getElementById("musicButton").textContent = "🔇";
     }
 }
 
-
-/* ================= YEAR SELECTION ================= */
-
-function chooseYear(year){
-
+function chooseYear(year, event){
+    if(event) event.stopPropagation();
     selectedYear = year;
 
-    clearTimers();
+    const bg = document.getElementById("teacherBg");
+    const favoriteBg = document.getElementById("favoriteBg");
+    const address = document.getElementById("addressText");
+    const freshersWelcome = document.getElementById("freshersWelcome");
 
-    if(year === "fresh"){
-
-        showPage("freshIntro");
-
-        createFlowers(
-            "flowers1",
-            ["🌸","🌺","🌷","💮","🌼"],
-            70
-        );
-
-        transitionTimers.push(
-            setTimeout(function(){
-
-                showPage("freshInvite");
-
-                createFlowers(
-                    "flowers2",
-                    ["🌸","✨","🌷","💮"],
-                    55
-                );
-
-                transitionTimers.push(
-                    setTimeout(function(){
-
-                        showTeachersDay();
-
-                    },6000)
-                );
-
-            },5000)
-        );
-
-    }else{
-
-        showTeachersDay();
-    }
-}
-
-
-/* ================= TEACHERS DAY ================= */
-
-function showTeachersDay(){
-
-    const bg =
-        document.getElementById("teacherBg");
-
-    const favoriteBg =
-        document.getElementById("favoriteBg");
-
-    const address =
-        document.getElementById("addressText");
-
-    if(selectedYear === "second"){
-
+    if(year === "second"){
         bg.className = "bg second";
         favoriteBg.className = "bg second";
-
-        address.innerHTML =
-            "Brothers &amp; Sisters ❤️";
-
-    }
-
-    else if(selectedYear === "third"){
-
+        address.innerHTML = "Brothers &amp; Sisters ❤️";
+        freshersWelcome.style.display = "block";
+    } else if(year === "third"){
         bg.className = "bg third";
         favoriteBg.className = "bg third";
-
-        address.innerHTML =
-            "Brothers &amp; Sisters ❤️";
-
-    }
-
-    else if(selectedYear === "fourth"){
-
+        address.innerHTML = "Brothers &amp; Sisters ❤️";
+        freshersWelcome.style.display = "block";
+    } else if(year === "fourth"){
         bg.className = "bg fourth";
         favoriteBg.className = "bg fourth";
-
-        address.innerHTML =
-            "Friends ❤️";
-
-    }
-
-    else{
-
+        address.innerHTML = "Friends ❤️";
+        freshersWelcome.style.display = "block";
+    } else {
         bg.className = "bg fresh";
         favoriteBg.className = "bg fresh";
-
-        address.innerHTML =
-            "Brothers &amp; Sisters ❤️";
+        address.innerHTML = "Dear Freshers ❤️";
+        freshersWelcome.style.display = "none";
     }
 
-
-    showPage("teachers");
-
-    createFlowers(
-        "flowers3",
-        ["🌸","🌷","✨","🌺"],
-        50
-    );
-
-
-    transitionTimers.push(
-        setTimeout(function(){
-
-            showFavoriteTeacher();
-
-        },6000)
-    );
+    if(year === "fresh"){
+        showPage("freshIntro");
+        createFlowers("flowers1", ["🌸","🌺","🌷","💮","🌼"], 70);
+        createFlowers("flowers2", ["🌸","✨","🌷","💮"], 55);
+    } else {
+        showPage("teachers");
+        createFlowers("flowers3", ["🌸","🌷","✨","🌺"], 50);
+    }
 }
-
-
-/* ================= TEACHER LIST ================= */
-
-function showFavoriteTeacher(){
-
-    createTeacherButtons();
-
-    showPage("favorite");
-}
-
 
 function createTeacherButtons(){
-
     const names = [
-
-        "Dr. Manimohan Mandal",
-        "Dr. Sujit Kumar De",
-        "Dr. Himadri Shekhar Mandal",
-        "Dr. Prasun Kumar Nayak",
-        "Dr. Bijan Kumar Das",
-        "Dr. Pulak Sahoo",
-        "Dr. Prasanta Sahoo",
-        "Dr. Nibedita Mandal",
-        "Bandana Sau",
-        "Dr. Bandana Bhunia",
-        "Mousumi Ghorai",
-        "Mrinmoyee Das",
-        "Riya Dutta"
-
+        "Dr. Manimohan Mandal", "Dr. Sujit Kumar De", "Dr. Himadri Shekhar Mandal",
+        "Dr. Prasun Kumar Nayak", "Dr. Bijan Kumar Das", "Dr. Pulak Sahoo",
+        "Dr. Prasanta Sahoo", "Dr. Nibedita Mandal", "Bandana Sau",
+        "Dr. Bandana Bhunia", "Mousumi Ghorai", "Mrinmoyee Das", "Riya Dutta"
     ];
 
-
-    const grid =
-        document.getElementById("teacherGrid");
-
+    const grid = document.getElementById("teacherGrid");
     grid.innerHTML = "";
 
-
     names.forEach(function(name){
-
-        const button =
-            document.createElement("button");
-
+        const button = document.createElement("button");
         button.type = "button";
-
-        button.className =
-            "teacher-choice";
-
-        button.textContent =
-            name;
-
-
-        /*
-        No data is collected.
-        No name is stored.
-        Clicking simply moves to final slide.
-        */
-
-        button.onclick = function(){
-
-            showPage("final");
-
+        button.className = "teacher-choice";
+        button.textContent = name;
+        button.onclick = function(e){
+            e.stopPropagation();
+            nextSlide("final");
         };
-
-
         grid.appendChild(button);
-
     });
 }
 
-
-/* ================= YES ================= */
-
 function answerYes(){
+    // Trigger Confetti Effect
+    confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 }
+    });
 
-    document.getElementById("popupText").textContent =
-        "Awesome! Let's make this event unforgettable together! ❤️✨";
-
+    document.getElementById("popupText").textContent = "Awesome! Let's make this event unforgettable together! ❤️✨";
     document.getElementById("popup").classList.add("show");
 }
-
-
-/* ================= NO ================= */
 
 function answerNo(){
-
-    document.getElementById("popupText").textContent =
-        "Arre come on! It's going to be super fun, don't miss it! 😉";
-
+    document.getElementById("popupText").textContent = "Arre come on! It's going to be super fun, don't miss it! 😉";
     document.getElementById("popup").classList.add("show");
 }
 
-
-/* ================= CLOSE POPUP ================= */
-
 function closePopup(){
-
     document.getElementById("popup").classList.remove("show");
 }
 
-
-/* ================= RESTART ================= */
-
 function restartWebsite(){
-
-    clearTimers();
-
     selectedYear = "";
-
     closePopup();
-
     showPage("page1");
-
     window.scrollTo(0,0);
 }
 
-
-/* ================= CLEAR TIMERS ================= */
-
-function clearTimers(){
-
-    transitionTimers.forEach(function(timer){
-        clearTimeout(timer);
-    });
-
-    transitionTimers = [];
-}
-
-
-/* ================= FLOWERS ================= */
-
 function createFlowers(id,symbols,count){
-
-    const container =
-        document.getElementById(id);
-
-    if(!container){
-        return;
-    }
-
+    const container = document.getElementById(id);
+    if(!container) return;
     container.innerHTML = "";
 
-
     for(let i=0;i<count;i++){
-
-        const flower =
-            document.createElement("div");
-
+        const flower = document.createElement("div");
         flower.className = "flower";
-
-        flower.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() * symbols.length
-                )
-            ];
-
-        flower.style.left =
-            Math.random()*100 + "%";
-
-        flower.style.fontSize =
-            (15 + Math.random()*22) + "px";
-
-        flower.style.animationDuration =
-            (4 + Math.random()*5) + "s";
-
-        flower.style.animationDelay =
-            Math.random()*3 + "s";
-
+        flower.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        flower.style.left = Math.random()*100 + "%";
+        flower.style.fontSize = (15 + Math.random()*22) + "px";
+        flower.style.animationDuration = (4 + Math.random()*5) + "s";
+        flower.style.animationDelay = Math.random()*3 + "s";
         container.appendChild(flower);
     }
 }
-
 </script>
 
 </body>
