@@ -23,7 +23,7 @@
             transition: background 1s ease;
         }
 
-        /* Dynamic Theme Backgrounds */
+        /* Dynamic Dark Elegant Themes */
         .theme-intro { background: linear-gradient(135deg, #0f0c20, #15002b, #050515); }
         .theme-1st { background: linear-gradient(135deg, #2a0813, #420d1e, #140208); }
         .theme-2nd { background: linear-gradient(135deg, #021c1e, #08383a, #010e0f); }
@@ -152,14 +152,14 @@
         .logo {
             width: 110px;
             height: auto;
-            margin-bottom: 15px;
+            margin-top: 15px;
+            margin-bottom: 10px;
             border-radius: 50%;
             box-shadow: 0 0 15px rgba(255,255,255,0.3);
         }
 
         .credit {
             font-size: 0.9rem;
-            margin-top: 15px;
             color: #f1c40f;
             font-weight: 500;
         }
@@ -184,7 +184,7 @@
 </head>
 <body class="theme-intro">
 
-    <!-- Audio Elements -->
+    <!-- Audio Files per Year -->
     <audio id="audio-intro" src="music_intro.mp3" loop></audio>
     <audio id="audio-1st" src="music_1st.mp3" loop></audio>
     <audio id="audio-2nd" src="music_2nd.mp3" loop></audio>
@@ -193,7 +193,7 @@
 
     <div id="petal-container"></div>
 
-    <!-- Slide 1: Welcome -->
+    <!-- Slide 1: Welcome Screen -->
     <div class="slide active" id="slide-1">
         <h2 class="animate-text">MIDNAPORE COLLEGE (AUTONOMOUS)</h2>
         <h1 class="animate-text">WELCOME TO DEPARTMENT OF MATHEMATICS (UG)</h1>
@@ -212,7 +212,7 @@
         </div>
     </div>
 
-    <!-- 1st Year Sequence -->
+    <!-- 1st Year Specific Slides -->
     <div class="slide" id="slide-1st-intro" onclick="nextSlide('slide-1st-card')">
         <h2 class="animate-text">A new journey begins...</h2>
         <p class="animate-text">with lots of hopes... ✨</p>
@@ -243,7 +243,7 @@
         <div class="hint">👉 Tap anywhere to proceed 👈</div>
     </div>
 
-    <!-- Teacher Selection (No Data Collection) -->
+    <!-- Favorite Teacher Selection (Direct transition, NO DATA SAVE) -->
     <div class="slide" id="slide-teacher-select">
         <h2 class="animate-text">Mention Your Favorite Teacher in the Department ❤️</h2>
         <p class="animate-text" style="font-size: 0.9rem;">Tap on your favorite teacher's name:</p>
@@ -264,7 +264,7 @@
         </div>
     </div>
 
-    <!-- Final Slide: Are You Excited? -->
+    <!-- Final Slide: Are You Excited? + Logo & Credit -->
     <div class="slide" id="slide-final">
         <h1 class="animate-text">Are you excited for the event? 🎉</h1>
         <div>
@@ -272,8 +272,8 @@
             <button class="btn" onclick="excitedResponse('no')">No 😅</button>
         </div>
         
-        <!-- Replace 'logo.png' with your logo filename -->
-        <img src="logo.png" alt="Logo" class="logo" style="margin-top:20px;">
+        <!-- Replace logo.png with your logo file -->
+        <img src="logo.png" alt="Department Logo" class="logo">
         <div class="credit">Created by Sukumar Pradhan 😁</div>
     </div>
 
@@ -287,7 +287,7 @@
             }
             currentAudio = document.getElementById(id);
             if(currentAudio) {
-                currentAudio.play().catch(e => console.log("Audio play blocked:", e));
+                currentAudio.play().catch(e => console.log("Audio play blocked by browser setup:", e));
             }
         }
 
@@ -356,7 +356,7 @@
             }
         }
 
-        /* Falling Petals Effect */
+        /* Falling Petals for 1st Year */
         function createPetals() {
             const container = document.getElementById('petal-container');
             container.innerHTML = '';
@@ -376,7 +376,6 @@
             document.getElementById('petal-container').innerHTML = '';
         }
 
-        // Initialize First Slide Animations
         window.onload = () => {
             triggerWordAnimation(document.getElementById('slide-1'));
         };
