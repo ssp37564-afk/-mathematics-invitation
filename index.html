@@ -48,7 +48,7 @@ body{
     visibility:visible;
 }
 
-/* ================= BACKGROUNDS ================= */
+/* ================= VIBRANT COLOR BACKGROUNDS ================= */
 
 .bg{
     position:absolute;
@@ -59,16 +59,16 @@ body{
     content:"";
     position:absolute;
     inset:0;
-    background: radial-gradient(circle at 50% 45%, rgba(255, 105, 180, 0.25), transparent 60%);
+    background: radial-gradient(circle at 50% 45%, rgba(255, 0, 128, 0.3), transparent 65%);
 }
 
-.theme-opening{ background: radial-gradient(circle at center, #4a00e0 0%, #8e2de2 50%, #05010a 100%); }
-.theme-choice{ background: linear-gradient(135deg, #12002b 0%, #3a0066 50%, #0d001a 100%); }
-.theme-fresher{ background: radial-gradient(circle at center, #ff007f 0%, #7928ca 50%, #070711 100%); }
-.theme-second{ background: radial-gradient(circle at center, #00f2fe 0%, #4facfe 50%, #050711 100%); }
-.theme-third{ background: radial-gradient(circle at center, #ff0844 0%, #ffb199 50%, #070711 100%); }
-.theme-fourth{ background: radial-gradient(circle at center, #f12711 0%, #f5af19 50%, #05050c 100%); }
-.theme-final{ background: radial-gradient(circle at center, #b224ef 0%, #7579ff 50%, #05050b 100%); }
+.theme-opening{ background: radial-gradient(circle at center, #7928ca 0%, #2a085c 50%, #05010a 100%); }
+.theme-choice{ background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); }
+.theme-fresher{ background: radial-gradient(circle at center, #ff007f 0%, #4a00e0 50%, #070711 100%); }
+.theme-second{ background: radial-gradient(circle at center, #00f2fe 0%, #0066ff 50%, #030814 100%); }
+.theme-third{ background: radial-gradient(circle at center, #ff0844 0%, #990033 50%, #070711 100%); }
+.theme-fourth{ background: radial-gradient(circle at center, #f5af19 0%, #f12711 50%, #05050c 100%); }
+.theme-final{ background: radial-gradient(circle at center, #d4145a 0%, #fbb03b 60%, #05050b 100%); }
 
 /* ================= STARS & SPARKLERS ================= */
 
@@ -84,7 +84,7 @@ body{
     height:3px;
     border-radius:50%;
     background:#fff;
-    box-shadow: 0 0 10px #fff, 0 0 20px #ff007f;
+    box-shadow: 0 0 10px #fff, 0 0 20px #00f2fe;
     animation:twinkle 2.5s infinite alternate ease-in-out;
 }
 
@@ -113,8 +113,8 @@ body{
     font-size:15px;
     letter-spacing:6px;
     text-transform:uppercase;
-    color:#ffdf79;
-    text-shadow: 0 0 15px rgba(255, 223, 121, 0.6);
+    color:#ffea00;
+    text-shadow: 0 0 20px rgba(255, 234, 0, 0.8);
     margin-bottom:28px;
     font-weight: bold;
 }
@@ -122,7 +122,7 @@ body{
 .open-title{
     font-size: clamp(36px,8vw,80px);
     line-height:1.15;
-    text-shadow: 0 0 30px rgba(255,255,255,.4), 0 0 60px rgba(255, 0, 128, 0.6);
+    text-shadow: 0 0 30px rgba(255,255,255,.5), 0 0 60px rgba(255, 0, 128, 0.8);
 }
 
 .open-title span{ display:block; }
@@ -131,15 +131,15 @@ body{
     margin-top:55px;
     padding:18px 45px;
     border-radius:50px;
-    border: 2px solid rgba(255,255,255,.7);
-    background: linear-gradient(45deg, #ff007f, #7928ca);
+    border: 2px solid rgba(255,255,255,.8);
+    background: linear-gradient(45deg, #ff007f, #00f2fe);
     color:white;
     font-size:18px;
     font-weight: bold;
     letter-spacing:3px;
     cursor:pointer;
     animation: enterFloat 2.5s infinite ease-in-out;
-    box-shadow: 0 0 30px rgba(255, 0, 127, 0.5);
+    box-shadow: 0 0 35px rgba(255, 0, 127, 0.7);
     transition:.4s;
 }
 
@@ -147,7 +147,7 @@ body{
     background:#fff;
     color:#111;
     transform:scale(1.1);
-    box-shadow: 0 0 50px rgba(255,255,255,0.8);
+    box-shadow: 0 0 50px rgba(255,255,255,0.9);
 }
 
 @keyframes enterFloat{
@@ -170,7 +170,7 @@ body{
     font-size: clamp(38px,7.5vw,70px); 
     margin-bottom:12px; 
     color: #00f2fe;
-    text-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+    text-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
 }
 
 .choice-sub{ color:#e0c3fc; letter-spacing:2px; margin-bottom:40px; font-size: 20px;}
@@ -188,7 +188,7 @@ body{
     width:185px;
     padding:25px 15px;
     border-radius:24px;
-    border: 1px solid rgba(255,255,255,.3);
+    border: 1.5px solid rgba(255,255,255,.4);
     background: rgba(255,255,255,.12);
     backdrop-filter:blur(20px);
     cursor:pointer;
@@ -199,8 +199,8 @@ body{
 
 .option:hover{
     transform: translateY(-12px) scale(1.08);
-    background: linear-gradient(135deg, rgba(255,0,128,0.4), rgba(0,242,254,0.4));
-    box-shadow: 0 20px 50px rgba(255, 0, 128, 0.5);
+    background: linear-gradient(135deg, rgba(255,0,128,0.5), rgba(0,242,254,0.5));
+    box-shadow: 0 20px 50px rgba(255, 0, 128, 0.7);
 }
 
 /* ================= PARTICLES ================= */
@@ -211,7 +211,7 @@ body{
 @keyframes fall{
     0%{ transform: translateY(0) rotate(0deg); opacity:0; }
     10%{ opacity:1; }
-    100%{ transform: translateY(115vh) rotate(720deg); opacity:.2; }
+    100%{ transform: translateY(115vh) rotate(720deg); opacity:.25; }
 }
 
 /* ================= FRESHER MOTIVATION MESSAGE ================= */
@@ -222,7 +222,7 @@ body{
     font-size: clamp(26px,5vw,52px);
     line-height:1.4;
     font-style:italic;
-    text-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+    text-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
     animation: textReveal 2s ease;
     margin-bottom: 15px;
 }
@@ -230,7 +230,7 @@ body{
 .motivation-highlight{
     color: #ffea00;
     font-weight: bold;
-    text-shadow: 0 0 25px rgba(255, 234, 0, 0.8);
+    text-shadow: 0 0 25px rgba(255, 234, 0, 0.9);
 }
 
 @keyframes textReveal{
@@ -246,10 +246,10 @@ body{
     width:min(90%,780px);
     padding: clamp(40px,7vw,70px) 30px;
     border-radius:32px;
-    border: 2px solid rgba(255,255,255,.4);
-    background: rgba(20, 10, 35, 0.55);
+    border: 2px solid rgba(255,255,255,.5);
+    background: rgba(15, 5, 30, 0.65);
     backdrop-filter:blur(25px);
-    box-shadow: 0 30px 100px rgba(0,0,0,.7), 0 0 80px rgba(255, 0, 128, 0.3);
+    box-shadow: 0 30px 100px rgba(0,0,0,.8), 0 0 80px rgba(0, 242, 254, 0.4);
     animation: cardOpen 2s ease;
 }
 
@@ -257,7 +257,7 @@ body{
     content:"";
     position:absolute;
     inset:12px;
-    border: 1px solid rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.25);
     border-radius:24px;
     pointer-events:none;
 }
@@ -267,18 +267,18 @@ body{
     to{ opacity:1; transform: perspective(1000px) rotateX(0) scale(1); }
 }
 
-.card-small{ font-size:15px; letter-spacing:6px; color:#ffb703; text-transform:uppercase; font-weight:bold;}
-.card-title{ font-size: clamp(36px,6.5vw,68px); line-height:1.15; margin:22px 0; color: #ffffff;}
+.card-small{ font-size:15px; letter-spacing:6px; color:#ffea00; text-transform:uppercase; font-weight:bold;}
+.card-title{ font-size: clamp(36px,6.5vw,68px); line-height:1.15; margin:22px 0; color: #ffffff; text-shadow: 0 0 25px rgba(255,255,255,0.5);}
 .card-text{ font-size: clamp(17px,3vw,25px); line-height:1.75; color:#f1e3ff; }
 .card-symbol{ margin-top:25px; font-size:30px; letter-spacing:12px; }
 
 /* ================= TEACHERS DAY ================= */
 
 .teacher-content{ position:relative; z-index:5; max-width:950px; padding:30px; }
-.teacher-title{ font-size: clamp(38px,7vw,72px); color:#00f2fe; margin-bottom:30px; text-shadow: 0 0 30px rgba(0,242,254,0.6); }
+.teacher-title{ font-size: clamp(38px,7vw,72px); color:#00f2fe; margin-bottom:30px; text-shadow: 0 0 35px rgba(0,242,254,0.8); }
 .teacher-line{ opacity:0; font-size: clamp(20px,4vw,34px); line-height:1.65; color:#ffffff; }
 .teacher-line.show{ animation: lineAppear 1.6s ease forwards; }
-.teacher-highlight{ color:#ff007f; text-shadow: 0 0 25px rgba(255,0,127,0.7); font-weight:bold; }
+.teacher-highlight{ color:#ff007f; text-shadow: 0 0 25px rgba(255,0,127,0.8); font-weight:bold; }
 
 @keyframes lineAppear{
     from{ opacity:0; transform:translateY(35px); }
@@ -291,14 +291,14 @@ body{
 .final-content{ position:relative; z-index:5; max-width:1000px; padding:30px; }
 .final-line{ opacity:0; font-size: clamp(22px,4.5vw,46px); line-height:1.5; margin-bottom:22px; }
 .final-line.show{ animation: lineAppear 1.8s ease forwards; }
-.credit{ margin-top:40px; font-size:18px; letter-spacing:3px; color:#ffdf79; opacity:0; font-weight:bold;}
+.credit{ margin-top:40px; font-size:19px; letter-spacing:3px; color:#ffea00; opacity:0; font-weight:bold; text-shadow: 0 0 20px rgba(255, 234, 0, 0.7);}
 .credit.show{ animation: lineAppear 1.8s ease forwards; }
 
 .replay{
     margin-top:30px;
     padding:15px 40px;
     border-radius:30px;
-    border: 2px solid rgba(255,255,255,.5);
+    border: 2px solid rgba(255,255,255,.6);
     background: linear-gradient(45deg, #7928ca, #ff007f);
     color:white;
     font-size:16px;
@@ -306,7 +306,7 @@ body{
     cursor:pointer;
     letter-spacing:2px;
     opacity:0;
-    box-shadow: 0 0 30px rgba(121, 40, 202, 0.6);
+    box-shadow: 0 0 35px rgba(121, 40, 202, 0.8);
     transition:.4s;
 }
 
@@ -323,13 +323,13 @@ body{
     width:50px;
     height:50px;
     border-radius:50%;
-    border: 2px solid rgba(255,255,255,.4);
-    background: rgba(0,0,0,.5);
+    border: 2px solid rgba(255,255,255,.5);
+    background: rgba(0,0,0,.6);
     color:#fff;
     font-size:20px;
     cursor:pointer;
     backdrop-filter:blur(10px);
-    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
 .tap-hint{
@@ -337,7 +337,7 @@ body{
     bottom:22px;
     font-size:13px;
     letter-spacing:3px;
-    color:rgba(255,255,255,0.6);
+    color:rgba(255,255,255,0.7);
     text-transform:uppercase;
     pointer-events:none;
     animation: pulse 2s infinite;
@@ -360,10 +360,8 @@ body{
 
 <body onclick="handleGlobalClick()">
 
-<!-- AUDIO TRACK PLAYER (PROPER WORKING DIRECT STREAM) -->
-<audio id="bgAudio" loop preload="auto">
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
+<!-- AUDIO TRACK PLAYER -->
+<audio id="bgAudio" loop preload="auto"></audio>
 
 <button class="music" id="musicBtn" onclick="toggleMusic(event)">🔊</button>
 
@@ -461,7 +459,7 @@ body{
     <div class="stars"></div>
     <div class="particles" id="finalParticles"></div>
     <div class="final-content">
-        <div class="final-line" style="color:#ffea00; text-shadow:0 0 20px rgba(255,234,0,0.6);">✨ Those who haven't paid yet, please pay as soon as possible! ✨</div>
+        <div class="final-line" style="color:#ffea00; text-shadow:0 0 20px rgba(255,234,0,0.8);">✨ Those who haven't paid yet, please pay as soon as possible! ✨</div>
         <div class="final-line">Because this year's Freshers' Welcome & Teachers' Day is going to be truly memorable! ❤️</div>
         <div class="final-line" style="color:#00f2fe;">Everyone please come and co-operate. Just a few days left... Let's enjoy!</div>
         <div class="credit">Created by Sukumar Pradhan 😁</div>
@@ -470,15 +468,27 @@ body{
 </section>
 
 <script>
+/* DIFFERENT SONGS FOR DIFFERENT YEARS / SLIDES */
+const musicTracks = {
+    opening: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    fresher: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    second:  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    third:   "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+    fourth:  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+};
+
 let audioPlayer = document.getElementById("bgAudio");
 let isMuted = false;
 let currentScreenId = "opening";
 
 const screenOrder = ["opening", "choice", "fresher", "fresherInvite", "teacher", "final"];
 
-function playMainTrack() {
-    if (!isMuted) {
-        audioPlayer.play().catch(e => console.log("Audio waiting for user click"));
+function playYearTrack(trackKey) {
+    if (musicTracks[trackKey]) {
+        audioPlayer.src = musicTracks[trackKey];
+        if (!isMuted) {
+            audioPlayer.play().catch(e => console.log("Audio waiting for user click"));
+        }
     }
 }
 
@@ -513,7 +523,6 @@ function showScreen(id){
     }
 }
 
-// TAP ANYWHERE TO ADVANCE SLIDE (NO AUTOMATIC TRANSITION)
 function handleGlobalClick() {
     if(currentScreenId === "opening" || currentScreenId === "choice") return;
     
@@ -525,7 +534,7 @@ function handleGlobalClick() {
 
 function enterSite(e){
     if(e) e.stopPropagation();
-    playMainTrack();
+    playYearTrack('opening');
     showScreen("choice");
 }
 
@@ -534,7 +543,9 @@ let selectedYear="";
 function startYear(year, e){
     if(e) e.stopPropagation();
     selectedYear=year;
-    playMainTrack();
+    
+    // Play separate track based on selected year
+    playYearTrack(year);
 
     if(year==="fresher"){
         showScreen("fresher");
@@ -609,10 +620,9 @@ function createParticles(containerId, symbols, count){
 
 function replay(e){
     if(e) e.stopPropagation();
-    playMainTrack();
+    playYearTrack('opening');
     showScreen("choice");
 }
 </script>
 </body>
-    </html>
-    
+</html>
