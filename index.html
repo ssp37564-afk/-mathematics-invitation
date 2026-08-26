@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Department of Mathematics | Invitation</title>
 
 <style>
@@ -25,8 +24,7 @@ body{
     background:#080611;
 }
 
-/* ================= SCREEN ================= */
-
+/* SCREEN */
 .screen{
     position:fixed;
     inset:0;
@@ -47,8 +45,7 @@ body{
     transform:scale(1);
 }
 
-/* ================= BACKGROUNDS ================= */
-
+/* BACKGROUNDS */
 .bg{
     position:absolute;
     inset:0;
@@ -92,8 +89,7 @@ body{
     radial-gradient(circle,#49355f,#171127 55%,#05050b);
 }
 
-/* ================= STARS ================= */
-
+/* STARS */
 .stars{
     position:absolute;
     inset:0;
@@ -121,8 +117,7 @@ body{
     }
 }
 
-/* ================= CONTENT ================= */
-
+/* CONTENT */
 .content{
     position:relative;
     z-index:5;
@@ -148,8 +143,7 @@ h1 span{
     display:block;
 }
 
-/* ================= BUTTON ================= */
-
+/* BUTTON */
 .btn{
     border:1px solid rgba(255,255,255,.3);
     background:rgba(255,255,255,.08);
@@ -182,8 +176,7 @@ h1 span{
     }
 }
 
-/* ================= YEAR SELECTION ================= */
-
+/* YEAR SELECTION */
 .choice-title{
     font-size:clamp(34px,7vw,62px);
     margin-bottom:10px;
@@ -220,8 +213,7 @@ h1 span{
     background:#ffffff1c;
 }
 
-/* ================= FALLING FLOWERS ================= */
-
+/* FLOWERS */
 .particles{
     position:absolute;
     inset:0;
@@ -252,8 +244,7 @@ h1 span{
     }
 }
 
-/* ================= FRESHER INTRO ================= */
-
+/* FRESHER INTRO */
 .reveal{
     font-size:clamp(30px,6vw,64px);
     line-height:1.35;
@@ -278,8 +269,7 @@ h1 span{
     }
 }
 
-/* ================= INVITATION CARD ================= */
-
+/* INVITATION CARD */
 .card{
     position:relative;
     z-index:5;
@@ -325,8 +315,7 @@ h1 span{
     color:#e5dfec;
 }
 
-/* ================= TEACHERS DAY ================= */
-
+/* TEACHERS DAY */
 .teacher-wrap{
     position:relative;
     z-index:5;
@@ -356,8 +345,7 @@ h1 span{
     text-shadow:0 0 25px #e8baff55;
 }
 
-/* ================= FAVORITE TEACHER ================= */
-
+/* FAVORITE TEACHER */
 .favorite h2{
     font-size:clamp(29px,6vw,54px);
     margin-bottom:12px;
@@ -395,8 +383,7 @@ h1 span{
     transform:scale(1.03);
 }
 
-/* ================= FINAL ================= */
-
+/* FINAL */
 .final h2{
     font-size:clamp(31px,6vw,58px);
     margin-bottom:25px;
@@ -430,8 +417,7 @@ h1 span{
     margin-top:25px;
 }
 
-/* ================= MUSIC ================= */
-
+/* MUSIC */
 .music{
     position:fixed;
     z-index:50;
@@ -446,8 +432,7 @@ h1 span{
     cursor:pointer;
 }
 
-/* ================= POPUP ================= */
-
+/* POPUP */
 .modal{
     position:fixed;
     inset:0;
@@ -482,8 +467,7 @@ h1 span{
     margin-top:25px;
 }
 
-/* ================= MOBILE ================= */
-
+/* MOBILE */
 @media(max-width:600px){
 
     .option{
@@ -505,13 +489,16 @@ h1 span{
 
 <body>
 
-<!-- MUSIC BUTTON -->
-<button class="music" id="musicBtn" onclick="toggleMusic()">🔇</button>
+<!-- ================= MUSIC ================= -->
+
+<audio id="bgMusic" src="song.mp3" loop preload="auto"></audio>
+
+<button class="music" id="musicBtn" onclick="toggleMusic()">
+    🔇
+</button>
 
 
-<!-- =========================================================
-                     SLIDE 1
-========================================================= -->
+<!-- ================= SLIDE 1 ================= -->
 
 <section id="welcome" class="screen active">
 
@@ -539,9 +526,7 @@ h1 span{
 </section>
 
 
-<!-- =========================================================
-                     SLIDE 2
-========================================================= -->
+<!-- ================= SLIDE 2 ================= -->
 
 <section id="choice" class="screen">
 
@@ -588,9 +573,7 @@ h1 span{
 </section>
 
 
-<!-- =========================================================
-                 1ST YEAR - SLIDE 3
-========================================================= -->
+<!-- ================= FRESHERS SLIDE 3 ================= -->
 
 <section id="freshIntro" class="screen">
 
@@ -614,9 +597,7 @@ h1 span{
 </section>
 
 
-<!-- =========================================================
-                 1ST YEAR - SLIDE 4
-========================================================= -->
+<!-- ================= FRESHERS SLIDE 4 ================= -->
 
 <section id="freshInvite" class="screen">
 
@@ -642,7 +623,8 @@ h1 span{
         </p>
 
         <p>
-            <b>Department of Mathematics</b>
+            <b>Department of Mathematics</b><br>
+            Midnapore College (Autonomous)
         </p>
 
         <div style="margin-top:25px;font-size:27px">
@@ -654,9 +636,7 @@ h1 span{
 </section>
 
 
-<!-- =========================================================
-                 TEACHERS DAY - SLIDE 5
-========================================================= -->
+<!-- ================= TEACHERS DAY ================= -->
 
 <section id="teacher" class="screen">
 
@@ -696,7 +676,7 @@ h1 span{
         </div>
 
 
-        <!-- 2ND / 3RD / 4TH YEAR -->
+        <!-- 2ND / 3RD / 4TH -->
 
         <div id="seniorTeacher">
 
@@ -728,10 +708,7 @@ h1 span{
 </section>
 
 
-<!-- =========================================================
-              FAVORITE TEACHER
-       SLIDE 6 FRESHER / SLIDE 4 OTHERS
-========================================================= -->
+<!-- ================= FAVORITE TEACHER ================= -->
 
 <section id="favorite" class="screen">
 
@@ -758,9 +735,7 @@ h1 span{
 </section>
 
 
-<!-- =========================================================
-                         FINAL
-========================================================= -->
+<!-- ================= FINAL ================= -->
 
 <section id="final" class="screen">
 
@@ -788,9 +763,6 @@ h1 span{
 
         </div>
 
-
-        <!-- LOGO -->
-
         <img
             id="logo"
             class="final-logo"
@@ -799,11 +771,11 @@ h1 span{
         >
 
         <div class="credit">
-            Created by Sukumar Pradhan 😁
+            Sukumar 😁
         </div>
 
-        <button class="btn replay" onclick="location.reload()">
-            ↻ REPLAY
+        <button class="btn replay" onclick="restartInvitation()">
+            ↻ RESTART
         </button>
 
     </div>
@@ -811,9 +783,7 @@ h1 span{
 </section>
 
 
-<!-- =========================================================
-                         POPUP
-========================================================= -->
+<!-- ================= POPUP ================= -->
 
 <div class="modal" id="modal">
 
@@ -832,55 +802,34 @@ h1 span{
 
 <script>
 
-/* =========================================================
-                     VARIABLES
-========================================================= */
+/* ================= VARIABLES ================= */
 
 let selectedYear = "";
-
-let audioCtx = null;
-let musicTimer = null;
 let playing = false;
 
 
-/* =========================================================
-                    13 TEACHERS
-========================================================= */
+/* ================= 13 TEACHERS ================= */
 
 const teacherNames = [
 
     "Dr. Monimohan Mondal",
-
     "Dr. Sujit Kumar De",
-
     "Dr. Himadri Shekhar Mondal",
-
     "Dr. Prasun Kumar Nayak",
-
     "Dr. Bijoy Kumar Das",
-
     "Dr. Pulak Sahoo",
-
     "Dr. Prasanta Sahoo",
-
     "Dr. Nibedita Mandel",
-
     "Bandana Sau",
-
     "Dr. Bandana Bhunia",
-
     "Mousumi Ghorai",
-
     "Mrinmoyee Das",
-
     "Riya Dutta"
 
 ];
 
 
-/* =========================================================
-                     SHOW SCREEN
-========================================================= */
+/* ================= SHOW SCREEN ================= */
 
 function show(id){
 
@@ -894,9 +843,7 @@ function show(id){
 }
 
 
-/* =========================================================
-                     ENTER
-========================================================= */
+/* ================= ENTER ================= */
 
 function goChoice(){
 
@@ -906,16 +853,11 @@ function goChoice(){
 }
 
 
-/* =========================================================
-                    YEAR CHOICE
-========================================================= */
+/* ================= YEAR CHOICE ================= */
 
 function choose(year){
 
     selectedYear = year;
-
-
-    /* FRESHER */
 
     if(year === "fresher"){
 
@@ -927,7 +869,6 @@ function choose(year){
             65
         );
 
-
         setTimeout(function(){
 
             show("freshInvite");
@@ -938,20 +879,15 @@ function choose(year){
                 35
             );
 
-
             setTimeout(function(){
 
                 teacherScreen();
 
             },6500);
 
-
         },5200);
 
     }
-
-
-    /* 2ND / 3RD / 4TH */
 
     else{
 
@@ -962,13 +898,12 @@ function choose(year){
 }
 
 
-/* =========================================================
-                  TEACHERS DAY SCREEN
-========================================================= */
+/* ================= TEACHERS DAY ================= */
 
 function teacherScreen(){
 
-    const bg = document.getElementById("teacherBg");
+    const bg =
+        document.getElementById("teacherBg");
 
 
     if(selectedYear === "second"){
@@ -996,21 +931,16 @@ function teacherScreen(){
     }
 
 
-    /* FRESHER TEXT */
-
     document.getElementById("freshTeacher").style.display =
         selectedYear === "fresher" ? "block" : "none";
 
-
-    /* SENIOR TEXT */
 
     document.getElementById("seniorTeacher").style.display =
         selectedYear === "fresher" ? "none" : "block";
 
 
-    /* ADDRESS */
-
     document.getElementById("seniorAddress").innerHTML =
+
         selectedYear === "fourth"
 
         ?
@@ -1019,13 +949,11 @@ function teacherScreen(){
 
         :
 
-        '<span class="highlight">Brothers &amp; Sisters ❤️</span>';
+        '<span class="highlight">Friends, Brothers &amp; Sisters ❤️</span>';
 
 
     show("teacher");
 
-
-    /* DIFFERENT DECORATIONS */
 
     let flowers;
 
@@ -1062,16 +990,8 @@ function teacherScreen(){
     );
 
 
-    /* ONE BY ONE TEXT ANIMATION */
-
-    const lines = document.querySelectorAll(
-        "#freshTeacher .teacher-line,#seniorTeacher .teacher-line"
-    );
-
-    lines.forEach(x => x.classList.remove("show"));
-
-
     const active =
+
         selectedYear === "fresher"
 
         ?
@@ -1085,6 +1005,8 @@ function teacherScreen(){
 
     active.forEach(function(x,i){
 
+        x.classList.remove("show");
+
         setTimeout(
             () => x.classList.add("show"),
             650 + i * 1200
@@ -1092,8 +1014,6 @@ function teacherScreen(){
 
     });
 
-
-    /* NEXT SCREEN */
 
     setTimeout(
 
@@ -1106,9 +1026,7 @@ function teacherScreen(){
 }
 
 
-/* =========================================================
-                FAVORITE TEACHER SCREEN
-========================================================= */
+/* ================= FAVORITE TEACHER ================= */
 
 function favoriteScreen(){
 
@@ -1143,4 +1061,160 @@ function favoriteScreen(){
 
     buildTeachers();
 
-  
+    show("favorite");
+
+
+    particles(
+        "p4",
+        ["🌸","✨","🌷","💫"],
+        35
+    );
+
+}
+
+
+/* ================= TEACHER BUTTONS ================= */
+
+function buildTeachers(){
+
+    const grid =
+        document.getElementById("teacherGrid");
+
+    grid.innerHTML = "";
+
+
+    teacherNames.forEach(function(name){
+
+        const button =
+            document.createElement("button");
+
+        button.className = "teacher-btn";
+
+        button.textContent = name;
+
+
+        /* NO DATA SAVING */
+
+        button.onclick = function(){
+
+            show("final");
+
+        };
+
+
+        grid.appendChild(button);
+
+    });
+
+}
+
+
+/* ================= YES / NO ================= */
+
+function excited(yes){
+
+    if(yes){
+
+        document.getElementById("modalText").textContent =
+        "Awesome! Let's make this event unforgettable together! ❤️✨";
+
+    }
+
+    else{
+
+        document.getElementById("modalText").textContent =
+        "Arre come on! It's going to be super fun, don't miss it! 😉";
+
+    }
+
+
+    document
+    .getElementById("modal")
+    .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+    .getElementById("modal")
+    .classList.remove("show");
+
+}
+
+
+/* ================= FLOWERS ================= */
+
+function particles(id,symbols,count){
+
+    const box =
+        document.getElementById(id);
+
+    box.innerHTML = "";
+
+
+    for(let i=0;i<count;i++){
+
+        const e =
+            document.createElement("div");
+
+        e.className = "particle";
+
+
+        e.textContent =
+            symbols[
+                Math.floor(
+                    Math.random()*symbols.length
+                )
+            ];
+
+
+        e.style.left =
+            Math.random()*100 + "%";
+
+
+        e.style.fontSize =
+            (14 + Math.random()*23) + "px";
+
+
+        e.style.animationDuration =
+            (4 + Math.random()*6) + "s";
+
+
+        e.style.animationDelay =
+            Math.random()*2.5 + "s";
+
+
+        box.appendChild(e);
+
+    }
+
+}
+
+
+/* ================= STARS ================= */
+
+function makeStars(){
+
+    document
+    .querySelectorAll(".stars")
+    .forEach(function(box){
+
+        for(let i=0;i<42;i++){
+
+            const e =
+                document.createElement("i");
+
+            e.className = "star";
+
+
+            e.style.left =
+                Math.random()*100 + "%";
+
+
+            e.style.top =
+                Math.random()*100 + "%";
+
+
+            e.style
