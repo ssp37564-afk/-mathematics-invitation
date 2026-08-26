@@ -24,7 +24,7 @@ html,body{
 body{
     font-family:'Georgia', serif;
     background:#050611;
-    color:#fff;
+    color:#ffffff;
     cursor:pointer;
 }
 
@@ -48,7 +48,7 @@ body{
     visibility:visible;
 }
 
-/* ================= VIBRANT COLOR BACKGROUNDS ================= */
+/* ================= BALANCED ELEGANT BACKGROUNDS ================= */
 
 .bg{
     position:absolute;
@@ -59,16 +59,16 @@ body{
     content:"";
     position:absolute;
     inset:0;
-    background: radial-gradient(circle at 50% 45%, rgba(255, 0, 128, 0.3), transparent 65%);
+    background: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.4), transparent 80%);
 }
 
-.theme-opening{ background: radial-gradient(circle at center, #7928ca 0%, #2a085c 50%, #05010a 100%); }
-.theme-choice{ background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); }
-.theme-fresher{ background: radial-gradient(circle at center, #ff007f 0%, #4a00e0 50%, #070711 100%); }
-.theme-second{ background: radial-gradient(circle at center, #00f2fe 0%, #0066ff 50%, #030814 100%); }
-.theme-third{ background: radial-gradient(circle at center, #ff0844 0%, #990033 50%, #070711 100%); }
-.theme-fourth{ background: radial-gradient(circle at center, #f5af19 0%, #f12711 50%, #05050c 100%); }
-.theme-final{ background: radial-gradient(circle at center, #d4145a 0%, #fbb03b 60%, #05050b 100%); }
+.theme-opening{ background: radial-gradient(circle at center, #230c4d 0%, #100426 60%, #03000a 100%); }
+.theme-choice{ background: radial-gradient(circle at center, #0f1c3f 0%, #080e21 60%, #02040d 100%); }
+.theme-fresher{ background: radial-gradient(circle at center, #420d2b 0%, #1f0413 60%, #080004 100%); }
+.theme-second{ background: radial-gradient(circle at center, #0a3342 0%, #041821 60%, #01080d 100%); }
+.theme-third{ background: radial-gradient(circle at center, #421c0a 0%, #210d04 60%, #0d0401 100%); }
+.theme-fourth{ background: radial-gradient(circle at center, #381242 0%, #1b0721 60%, #0a010d 100%); }
+.theme-final{ background: radial-gradient(circle at center, #300c3b 0%, #17041d 60%, #060008 100%); }
 
 /* ================= STARS & SPARKLERS ================= */
 
@@ -80,17 +80,17 @@ body{
 
 .star{
     position:absolute;
-    width:3px;
-    height:3px;
+    width:2px;
+    height:2px;
     border-radius:50%;
     background:#fff;
-    box-shadow: 0 0 10px #fff, 0 0 20px #00f2fe;
+    box-shadow: 0 0 6px #fff;
     animation:twinkle 2.5s infinite alternate ease-in-out;
 }
 
 @keyframes twinkle{
     from{ opacity:.2; transform:scale(.5); }
-    to{ opacity:1; transform:scale(2.2); }
+    to{ opacity:1; transform:scale(1.8); }
 }
 
 /* ================= OPENING ================= */
@@ -113,16 +113,17 @@ body{
     font-size:15px;
     letter-spacing:6px;
     text-transform:uppercase;
-    color:#ffea00;
-    text-shadow: 0 0 20px rgba(255, 234, 0, 0.8);
+    color:#ffdf79;
+    text-shadow: 0 0 10px rgba(0,0,0,0.9);
     margin-bottom:28px;
     font-weight: bold;
 }
 
 .open-title{
-    font-size: clamp(36px,8vw,80px);
-    line-height:1.15;
-    text-shadow: 0 0 30px rgba(255,255,255,.5), 0 0 60px rgba(255, 0, 128, 0.8);
+    font-size: clamp(34px,7.5vw,75px);
+    line-height:1.2;
+    color: #ffffff;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 0 30px rgba(180, 130, 255, 0.4);
 }
 
 .open-title span{ display:block; }
@@ -131,28 +132,27 @@ body{
     margin-top:55px;
     padding:18px 45px;
     border-radius:50px;
-    border: 2px solid rgba(255,255,255,.8);
-    background: linear-gradient(45deg, #ff007f, #00f2fe);
+    border: 1.5px solid rgba(255,255,255,.8);
+    background: linear-gradient(135deg, #7928ca, #b8125c);
     color:white;
-    font-size:18px;
+    font-size:17px;
     font-weight: bold;
     letter-spacing:3px;
     cursor:pointer;
     animation: enterFloat 2.5s infinite ease-in-out;
-    box-shadow: 0 0 35px rgba(255, 0, 127, 0.7);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     transition:.4s;
 }
 
 .enter:hover{
     background:#fff;
     color:#111;
-    transform:scale(1.1);
-    box-shadow: 0 0 50px rgba(255,255,255,0.9);
+    transform:scale(1.08);
 }
 
 @keyframes enterFloat{
     0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-12px); }
+    50%{ transform:translateY(-10px); }
 }
 
 /* ================= WHO ARE YOU ================= */
@@ -167,13 +167,13 @@ body{
 }
 
 .choice-title{ 
-    font-size: clamp(38px,7.5vw,70px); 
+    font-size: clamp(36px,7vw,65px); 
     margin-bottom:12px; 
     color: #00f2fe;
-    text-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
-.choice-sub{ color:#e0c3fc; letter-spacing:2px; margin-bottom:40px; font-size: 20px;}
+.choice-sub{ color:#d1c4e9; letter-spacing:2px; margin-bottom:40px; font-size: 19px;}
 
 .options{
     display:flex;
@@ -185,22 +185,22 @@ body{
 }
 
 .option{
-    width:185px;
-    padding:25px 15px;
-    border-radius:24px;
-    border: 1.5px solid rgba(255,255,255,.4);
-    background: rgba(255,255,255,.12);
-    backdrop-filter:blur(20px);
+    width:180px;
+    padding:24px 15px;
+    border-radius:20px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter:blur(15px);
     cursor:pointer;
-    font-size:20px;
+    font-size:19px;
     line-height:1.5;
     transition: transform .4s ease, background .4s ease, box-shadow .4s ease;
 }
 
 .option:hover{
-    transform: translateY(-12px) scale(1.08);
-    background: linear-gradient(135deg, rgba(255,0,128,0.5), rgba(0,242,254,0.5));
-    box-shadow: 0 20px 50px rgba(255, 0, 128, 0.7);
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
 }
 
 /* ================= PARTICLES ================= */
@@ -211,7 +211,7 @@ body{
 @keyframes fall{
     0%{ transform: translateY(0) rotate(0deg); opacity:0; }
     10%{ opacity:1; }
-    100%{ transform: translateY(115vh) rotate(720deg); opacity:.25; }
+    100%{ transform: translateY(115vh) rotate(720deg); opacity:.2; }
 }
 
 /* ================= FRESHER MOTIVATION MESSAGE ================= */
@@ -219,10 +219,11 @@ body{
 .center-content{ position:relative; z-index:5; padding:30px; max-width:980px; }
 
 .fresh-line{
-    font-size: clamp(26px,5vw,52px);
-    line-height:1.4;
+    font-size: clamp(24px,4.5vw,48px);
+    line-height:1.45;
     font-style:italic;
-    text-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+    color: #ffffff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
     animation: textReveal 2s ease;
     margin-bottom: 15px;
 }
@@ -230,11 +231,11 @@ body{
 .motivation-highlight{
     color: #ffea00;
     font-weight: bold;
-    text-shadow: 0 0 25px rgba(255, 234, 0, 0.9);
+    text-shadow: 0 0 15px rgba(255, 234, 0, 0.5);
 }
 
 @keyframes textReveal{
-    from{ opacity:0; transform: translateY(50px) scale(.85); }
+    from{ opacity:0; transform: translateY(40px) scale(.9); }
     to{ opacity:1; transform: translateY(0) scale(1); }
 }
 
@@ -243,45 +244,45 @@ body{
 .invite-card{
     position:relative;
     z-index:5;
-    width:min(90%,780px);
-    padding: clamp(40px,7vw,70px) 30px;
-    border-radius:32px;
-    border: 2px solid rgba(255,255,255,.5);
-    background: rgba(15, 5, 30, 0.65);
-    backdrop-filter:blur(25px);
-    box-shadow: 0 30px 100px rgba(0,0,0,.8), 0 0 80px rgba(0, 242, 254, 0.4);
+    width:min(90%,760px);
+    padding: clamp(38px,6.5vw,65px) 30px;
+    border-radius:28px;
+    border: 1.5px solid rgba(255,255,255,.3);
+    background: rgba(10, 5, 20, 0.85);
+    backdrop-filter:blur(20px);
+    box-shadow: 0 25px 80px rgba(0,0,0,.9);
     animation: cardOpen 2s ease;
 }
 
 .invite-card::before{
     content:"";
     position:absolute;
-    inset:12px;
-    border: 1px solid rgba(255,255,255,.25);
-    border-radius:24px;
+    inset:10px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius:20px;
     pointer-events:none;
 }
 
 @keyframes cardOpen{
-    from{ opacity:0; transform: perspective(1000px) rotateX(60deg) scale(.6); }
+    from{ opacity:0; transform: perspective(1000px) rotateX(50deg) scale(.7); }
     to{ opacity:1; transform: perspective(1000px) rotateX(0) scale(1); }
 }
 
-.card-small{ font-size:15px; letter-spacing:6px; color:#ffea00; text-transform:uppercase; font-weight:bold;}
-.card-title{ font-size: clamp(36px,6.5vw,68px); line-height:1.15; margin:22px 0; color: #ffffff; text-shadow: 0 0 25px rgba(255,255,255,0.5);}
-.card-text{ font-size: clamp(17px,3vw,25px); line-height:1.75; color:#f1e3ff; }
-.card-symbol{ margin-top:25px; font-size:30px; letter-spacing:12px; }
+.card-small{ font-size:14px; letter-spacing:5px; color:#ffea00; text-transform:uppercase; font-weight:bold;}
+.card-title{ font-size: clamp(34px,6vw,62px); line-height:1.2; margin:20px 0; color: #ffffff; text-shadow: 0 4px 15px rgba(0,0,0,0.8);}
+.card-text{ font-size: clamp(16px,2.8vw,23px); line-height:1.7; color:#e0e0e0; }
+.card-symbol{ margin-top:22px; font-size:28px; letter-spacing:10px; }
 
 /* ================= TEACHERS DAY ================= */
 
 .teacher-content{ position:relative; z-index:5; max-width:950px; padding:30px; }
-.teacher-title{ font-size: clamp(38px,7vw,72px); color:#00f2fe; margin-bottom:30px; text-shadow: 0 0 35px rgba(0,242,254,0.8); }
-.teacher-line{ opacity:0; font-size: clamp(20px,4vw,34px); line-height:1.65; color:#ffffff; }
+.teacher-title{ font-size: clamp(36px,6.5vw,68px); color:#00f2fe; margin-bottom:28px; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
+.teacher-line{ opacity:0; font-size: clamp(19px,3.8vw,32px); line-height:1.65; color:#ffffff; text-shadow: 0 3px 10px rgba(0,0,0,0.9); }
 .teacher-line.show{ animation: lineAppear 1.6s ease forwards; }
-.teacher-highlight{ color:#ff007f; text-shadow: 0 0 25px rgba(255,0,127,0.8); font-weight:bold; }
+.teacher-highlight{ color:#ff4081; font-weight:bold; }
 
 @keyframes lineAppear{
-    from{ opacity:0; transform:translateY(35px); }
+    from{ opacity:0; transform:translateY(30px); }
     to{ opacity:1; transform:translateY(0); }
 }
 
@@ -289,29 +290,29 @@ body{
 
 #final{ flex-direction:column; }
 .final-content{ position:relative; z-index:5; max-width:1000px; padding:30px; }
-.final-line{ opacity:0; font-size: clamp(22px,4.5vw,46px); line-height:1.5; margin-bottom:22px; }
+.final-line{ opacity:0; font-size: clamp(21px,4.2vw,42px); line-height:1.55; margin-bottom:20px; color:#ffffff; text-shadow: 0 3px 12px rgba(0,0,0,0.9); }
 .final-line.show{ animation: lineAppear 1.8s ease forwards; }
-.credit{ margin-top:40px; font-size:19px; letter-spacing:3px; color:#ffea00; opacity:0; font-weight:bold; text-shadow: 0 0 20px rgba(255, 234, 0, 0.7);}
+.credit{ margin-top:35px; font-size:18px; letter-spacing:3px; color:#ffea00; opacity:0; font-weight:bold;}
 .credit.show{ animation: lineAppear 1.8s ease forwards; }
 
 .replay{
-    margin-top:30px;
-    padding:15px 40px;
+    margin-top:28px;
+    padding:14px 36px;
     border-radius:30px;
-    border: 2px solid rgba(255,255,255,.6);
-    background: linear-gradient(45deg, #7928ca, #ff007f);
+    border: 1.5px solid rgba(255,255,255,.5);
+    background: linear-gradient(135deg, #7928ca, #b8125c);
     color:white;
-    font-size:16px;
+    font-size:15px;
     font-weight:bold;
     cursor:pointer;
     letter-spacing:2px;
     opacity:0;
-    box-shadow: 0 0 35px rgba(121, 40, 202, 0.8);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
     transition:.4s;
 }
 
 .replay.show{ animation: lineAppear 1.8s ease forwards; }
-.replay:hover{ background:#fff; color:#111; transform:scale(1.08); }
+.replay:hover{ background:#fff; color:#111; transform:scale(1.05); }
 
 /* ================= MUSIC BUTTON & HINT ================= */
 
@@ -320,47 +321,46 @@ body{
     z-index:100;
     top:20px;
     right:20px;
-    width:50px;
-    height:50px;
+    width:48px;
+    height:48px;
     border-radius:50%;
-    border: 2px solid rgba(255,255,255,.5);
-    background: rgba(0,0,0,.6);
+    border: 1.5px solid rgba(255,255,255,.4);
+    background: rgba(0,0,0,.7);
     color:#fff;
-    font-size:20px;
+    font-size:19px;
     cursor:pointer;
     backdrop-filter:blur(10px);
-    box-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
 .tap-hint{
     position:absolute;
     bottom:22px;
-    font-size:13px;
+    font-size:12px;
     letter-spacing:3px;
-    color:rgba(255,255,255,0.7);
+    color:rgba(255,255,255,0.6);
     text-transform:uppercase;
     pointer-events:none;
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse{
-    0%,100%{ opacity:.4; }
+    0%,100%{ opacity:.3; }
     50%{ opacity:1; }
 }
 
 @media(max-width:600px){
-    .options{ gap:14px; }
-    .option{ width:150px; padding:18px 10px; font-size:17px; }
+    .options{ gap:12px; }
+    .option{ width:145px; padding:18px 8px; font-size:16px; }
     .choice-sub{ margin-bottom:25px; }
-    .college{ font-size:12px; letter-spacing:4px; }
-    .music{ top:12px; right:12px; width:44px; height:44px; }
+    .college{ font-size:11px; letter-spacing:3px; }
+    .music{ top:12px; right:12px; width:42px; height:42px; }
 }
 </style>
 </head>
 
 <body onclick="handleGlobalClick()">
 
-<!-- AUDIO TRACK PLAYER -->
+<!-- DYNAMIC MULTI-TRACK AUDIO PLAYER -->
 <audio id="bgAudio" loop preload="auto"></audio>
 
 <button class="music" id="musicBtn" onclick="toggleMusic(event)">🔊</button>
@@ -459,7 +459,7 @@ body{
     <div class="stars"></div>
     <div class="particles" id="finalParticles"></div>
     <div class="final-content">
-        <div class="final-line" style="color:#ffea00; text-shadow:0 0 20px rgba(255,234,0,0.8);">✨ Those who haven't paid yet, please pay as soon as possible! ✨</div>
+        <div class="final-line" style="color:#ffea00;">✨ Those who haven't paid yet, please pay as soon as possible! ✨</div>
         <div class="final-line">Because this year's Freshers' Welcome & Teachers' Day is going to be truly memorable! ❤️</div>
         <div class="final-line" style="color:#00f2fe;">Everyone please come and co-operate. Just a few days left... Let's enjoy!</div>
         <div class="credit">Created by Sukumar Pradhan 😁</div>
@@ -468,13 +468,13 @@ body{
 </section>
 
 <script>
-/* DIFFERENT SONGS FOR DIFFERENT YEARS / SLIDES */
+/* 5 COMPLETELY DIFFERENT SONGS FOR 5 SLIDES/YEARS */
 const musicTracks = {
-    opening: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    fresher: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    second:  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-    third:   "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-    fourth:  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    opening: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Ketsa/Summertime/Ketsa_-_Summertime.mp3",
+    fresher: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3",
+    second:  "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Broke_For_Free/Directionless_Uninst/Broke_For_Free_-_01_-_Night_Owl.mp3",
+    third:   "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Ketsa/Ascending/Ketsa_-_Ascending.mp3",
+    fourth:  "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Jahzzar/Traveller/Jahzzar_-_05_-_Siesta.mp3"
 };
 
 let audioPlayer = document.getElementById("bgAudio");
@@ -483,11 +483,11 @@ let currentScreenId = "opening";
 
 const screenOrder = ["opening", "choice", "fresher", "fresherInvite", "teacher", "final"];
 
-function playYearTrack(trackKey) {
+function playTrack(trackKey) {
     if (musicTracks[trackKey]) {
         audioPlayer.src = musicTracks[trackKey];
         if (!isMuted) {
-            audioPlayer.play().catch(e => console.log("Audio waiting for user click"));
+            audioPlayer.play().catch(e => console.log("Waiting for click"));
         }
     }
 }
@@ -513,11 +513,11 @@ function showScreen(id){
 
     if(id === "teacher") {
         createTeacherLines();
-        createParticles("teacherParticles", getTeacherParticles(), 60);
+        createParticles("teacherParticles", getTeacherParticles(), 50);
     } else if(id === "fresher") {
-        createParticles("fresherParticles", ["🌸","🌺","✨","💫","💮"], 75);
+        createParticles("fresherParticles", ["🌸","🌺","✨","💫","💮"], 60);
     } else if(id === "fresherInvite") {
-        createParticles("freshInviteParticles", ["🌸","✨","💖","🌷"], 45);
+        createParticles("freshInviteParticles", ["🌸","✨","💖","🌷"], 40);
     } else if(id === "final") {
         showFinalLines();
     }
@@ -534,7 +534,7 @@ function handleGlobalClick() {
 
 function enterSite(e){
     if(e) e.stopPropagation();
-    playYearTrack('opening');
+    playTrack('opening');
     showScreen("choice");
 }
 
@@ -544,8 +544,8 @@ function startYear(year, e){
     if(e) e.stopPropagation();
     selectedYear=year;
     
-    // Play separate track based on selected year
-    playYearTrack(year);
+    // Changing song according to year choice
+    playTrack(year);
 
     if(year==="fresher"){
         showScreen("fresher");
@@ -594,7 +594,7 @@ function createTeacherLines(){
 }
 
 function showFinalLines(){
-    createParticles("finalParticles", ["✨", "🌸", "❤️", "💖"], 50);
+    createParticles("finalParticles", ["✨", "🌸", "❤️", "💖"], 40);
     const lines = document.querySelectorAll(".final-line, .credit, .replay");
     lines.forEach((el, index) => {
         el.classList.remove("show");
@@ -620,7 +620,7 @@ function createParticles(containerId, symbols, count){
 
 function replay(e){
     if(e) e.stopPropagation();
-    playYearTrack('opening');
+    playTrack('opening');
     showScreen("choice");
 }
 </script>
