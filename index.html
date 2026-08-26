@@ -1,384 +1,1146 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dept. of Mathematics - Midnapore College</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background-color: #0b0c10;
-            color: #ffffff;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 1s ease;
-        }
+<title>Department of Mathematics | Invitation</title>
 
-        /* Dynamic Dark Elegant Themes */
-        .theme-intro { background: linear-gradient(135deg, #0f0c20, #15002b, #050515); }
-        .theme-1st { background: linear-gradient(135deg, #2a0813, #420d1e, #140208); }
-        .theme-2nd { background: linear-gradient(135deg, #021c1e, #08383a, #010e0f); }
-        .theme-3rd { background: linear-gradient(135deg, #241402, #3d2407, #0f0700); }
-        .theme-4th { background: linear-gradient(135deg, #18032b, #2b0847, #0a0114); }
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        .slide {
-            display: none;
-            width: 90%;
-            max-width: 650px;
-            text-align: center;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 2;
-        }
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
 
-        .slide.active {
-            display: flex;
-        }
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    color:white;
+    background:#080611;
+}
 
-        /* Typography & Word Glow */
-        h1 {
-            font-size: 1.8rem;
-            color: #f1c40f;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
-        }
+/* ================= SCREEN ================= */
 
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
+.screen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.03);
+    transition:opacity .8s ease,transform .8s ease;
+    overflow:hidden;
+}
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: #e0e0e0;
-        }
+.screen.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+}
 
-        /* Word by Word Animation */
-        .word-span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: wordAppear 0.5s forwards ease-out;
-            margin-right: 5px;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-        }
+/* ================= BACKGROUNDS ================= */
 
-        @keyframes wordAppear {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+}
 
-        /* Buttons & Interactions */
-        .btn {
-            background: linear-gradient(45deg, #e67e22, #f1c40f);
-            color: #000;
-            border: none;
-            padding: 12px 28px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
-        }
+.bg:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(
+        circle at 50% 45%,
+        rgba(190,140,255,.22),
+        transparent 55%
+    );
+}
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(241, 196, 15, 0.7);
-        }
+.fresher-bg{
+    background:
+    radial-gradient(circle,#6d476d,#211426 48%,#07050d);
+}
 
-        .teacher-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            width: 100%;
-            max-height: 50vh;
-            overflow-y: auto;
-            margin-top: 15px;
-            padding: 5px;
-        }
+.second-bg{
+    background:
+    radial-gradient(circle,#334e83,#121a38 50%,#050711);
+}
 
-        .t-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.third-bg{
+    background:
+    radial-gradient(circle,#76522d,#2a1d12 50%,#07050b);
+}
 
-        .t-btn:hover {
-            background: rgba(241, 196, 15, 0.3);
-            border-color: #f1c40f;
-        }
+.fourth-bg{
+    background:
+    radial-gradient(circle,#593a70,#20122b 50%,#05050b);
+}
 
-        .hint {
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 20px;
-            animation: pulse 1.5s infinite;
-        }
+.final-bg{
+    background:
+    radial-gradient(circle,#49355f,#171127 55%,#05050b);
+}
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
+/* ================= STARS ================= */
 
-        .logo {
-            width: 110px;
-            height: auto;
-            margin-top: 15px;
-            margin-bottom: 10px;
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255,255,255,0.3);
-        }
+.stars{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+}
 
-        .credit {
-            font-size: 0.9rem;
-            color: #f1c40f;
-            font-weight: 500;
-        }
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:white;
+    animation:twinkle 2s infinite alternate;
+}
 
-        /* Falling Petals Effect for 1st Year */
-        .petal {
-            position: absolute;
-            background: #ff7675;
-            border-radius: 150% 0 150% 0;
-            animation: animatePetal 10s linear infinite;
-            z-index: 1;
-            opacity: 0.7;
-        }
+@keyframes twinkle{
+    from{
+        opacity:.1;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.8);
+    }
+}
 
-        @keyframes animatePetal {
-            0% { opacity: 0; transform: translateY(0) rotate(0deg); }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
-        }
-    </style>
+/* ================= CONTENT ================= */
+
+.content{
+    position:relative;
+    z-index:5;
+    padding:25px;
+    max-width:1000px;
+    width:100%;
+}
+
+.college{
+    font-size:13px;
+    letter-spacing:4px;
+    color:#ddd0ff;
+    margin-bottom:24px;
+}
+
+h1{
+    font-size:clamp(32px,8vw,76px);
+    line-height:1.12;
+    text-shadow:0 0 30px rgba(255,255,255,.18);
+}
+
+h1 span{
+    display:block;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.08);
+    color:white;
+    border-radius:50px;
+    padding:16px 30px;
+    cursor:pointer;
+    font-size:17px;
+    letter-spacing:1px;
+    backdrop-filter:blur(12px);
+    transition:.35s;
+}
+
+.btn:hover{
+    background:white;
+    color:#111;
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px #0008;
+}
+
+.enter{
+    margin-top:42px;
+    animation:pulse 2.4s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.05);
+        box-shadow:0 0 35px #c9a9ff33;
+    }
+}
+
+/* ================= YEAR SELECTION ================= */
+
+.choice-title{
+    font-size:clamp(34px,7vw,62px);
+    margin-bottom:10px;
+}
+
+.choice-sub{
+    color:#c9c1d8;
+    letter-spacing:2px;
+    margin-bottom:32px;
+}
+
+.options{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.option{
+    width:170px;
+    padding:20px 10px;
+    border-radius:22px;
+    border:1px solid #ffffff30;
+    background:#ffffff0d;
+    backdrop-filter:blur(14px);
+    cursor:pointer;
+    font-size:18px;
+    transition:.35s;
+    color:white;
+}
+
+.option:hover{
+    transform:translateY(-9px) scale(1.04);
+    background:#ffffff1c;
+}
+
+/* ================= FALLING FLOWERS ================= */
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:2;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+    top:-70px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(115vh) rotate(720deg);
+        opacity:.12;
+    }
+}
+
+/* ================= FRESHER INTRO ================= */
+
+.reveal{
+    font-size:clamp(30px,6vw,64px);
+    line-height:1.35;
+    font-style:italic;
+}
+
+.reveal span{
+    display:block;
+    opacity:0;
+    animation:lineIn 1.2s ease forwards;
+}
+
+@keyframes lineIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* ================= INVITATION CARD ================= */
+
+.card{
+    position:relative;
+    z-index:5;
+    width:min(90%,780px);
+    padding:55px 28px;
+    border:1px solid #ffffff35;
+    border-radius:30px;
+    background:#ffffff10;
+    backdrop-filter:blur(18px);
+    box-shadow:0 30px 100px #0008;
+    animation:cardIn 1.5s ease;
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:perspective(900px)
+        rotateX(60deg)
+        scale(.65);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.smallcaps{
+    letter-spacing:4px;
+    font-size:13px;
+    color:#e1d4ff;
+}
+
+.card h2{
+    font-size:clamp(35px,7vw,68px);
+    line-height:1.12;
+    margin:22px 0;
+}
+
+.card p{
+    font-size:clamp(17px,3vw,24px);
+    line-height:1.7;
+    color:#e5dfec;
+}
+
+/* ================= TEACHERS DAY ================= */
+
+.teacher-wrap{
+    position:relative;
+    z-index:5;
+    max-width:950px;
+    padding:25px;
+}
+
+.teacher h2{
+    font-size:clamp(36px,7vw,70px);
+    margin-bottom:28px;
+    color:#f0d9ff;
+}
+
+.teacher-line{
+    opacity:0;
+    font-size:clamp(18px,3.5vw,29px);
+    line-height:1.6;
+    margin:10px 0;
+}
+
+.teacher-line.show{
+    animation:lineIn 1s ease forwards;
+}
+
+.highlight{
+    color:#f0cfff;
+    text-shadow:0 0 25px #e8baff55;
+}
+
+/* ================= FAVORITE TEACHER ================= */
+
+.favorite h2{
+    font-size:clamp(29px,6vw,54px);
+    margin-bottom:12px;
+}
+
+.favorite p{
+    color:#cfc7dc;
+    margin-bottom:22px;
+}
+
+.teachers-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+    max-width:700px;
+    margin:auto;
+    max-height:58vh;
+    overflow:auto;
+    padding:5px;
+}
+
+.teacher-btn{
+    border:1px solid #ffffff2d;
+    background:#ffffff0b;
+    color:white;
+    border-radius:15px;
+    padding:14px 8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+.teacher-btn:hover{
+    background:#ffffff1b;
+    transform:scale(1.03);
+}
+
+/* ================= FINAL ================= */
+
+.final h2{
+    font-size:clamp(31px,6vw,58px);
+    margin-bottom:25px;
+}
+
+.excite-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.final-logo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid #ffffff55;
+    margin:25px auto 12px;
+    display:block;
+}
+
+.credit{
+    font-size:17px;
+    letter-spacing:1.5px;
+    color:#dcd3e6;
+}
+
+.replay{
+    margin-top:25px;
+}
+
+/* ================= MUSIC ================= */
+
+.music{
+    position:fixed;
+    z-index:50;
+    right:15px;
+    top:15px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid #ffffff35;
+    background:#0005;
+    color:white;
+    cursor:pointer;
+}
+
+/* ================= POPUP ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:#0009;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    max-width:520px;
+    width:100%;
+    padding:35px 25px;
+    border-radius:25px;
+    background:linear-gradient(145deg,#39274d,#171126);
+    border:1px solid #ffffff35;
+    box-shadow:0 25px 90px #000;
+}
+
+.modal-box h3{
+    font-size:clamp(25px,6vw,42px);
+    line-height:1.3;
+}
+
+.close{
+    margin-top:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .option{
+        width:145px;
+        font-size:16px;
+        padding:17px 7px;
+    }
+
+    .teachers-grid{
+        grid-template-columns:1fr;
+    }
+
+    .college{
+        letter-spacing:2px;
+    }
+}
+</style>
 </head>
-<body class="theme-intro">
 
-    <!-- Audio Files per Year -->
-    <audio id="audio-intro" src="music_intro.mp3" loop></audio>
-    <audio id="audio-1st" src="music_1st.mp3" loop></audio>
-    <audio id="audio-2nd" src="music_2nd.mp3" loop></audio>
-    <audio id="audio-3rd" src="music_3rd.mp3" loop></audio>
-    <audio id="audio-4th" src="music_4th.mp3" loop></audio>
+<body>
 
-    <div id="petal-container"></div>
+<!-- MUSIC BUTTON -->
+<button class="music" id="musicBtn" onclick="toggleMusic()">🔇</button>
 
-    <!-- Slide 1: Welcome Screen -->
-    <div class="slide active" id="slide-1">
-        <h2 class="animate-text">MIDNAPORE COLLEGE (AUTONOMOUS)</h2>
-        <h1 class="animate-text">WELCOME TO DEPARTMENT OF MATHEMATICS (UG)</h1>
-        <button class="btn" onclick="startApp()">✦ TAP TO ENTER ✦</button>
-    </div>
 
-    <!-- Slide 2: Year Selection -->
-    <div class="slide" id="slide-2">
-        <h2 class="animate-text">WHO ARE YOU?</h2>
-        <p class="animate-text">Choose your year to continue</p>
-        <div>
-            <button class="btn" onclick="selectYear('1st')">🌸 1st Year (Freshers')</button>
-            <button class="btn" onclick="selectYear('2nd')">✨ 2nd Year</button>
-            <button class="btn" onclick="selectYear('3rd')">🌷 3rd Year</button>
-            <button class="btn" onclick="selectYear('4th')">🌺 4th Year</button>
+<!-- =========================================================
+                     SLIDE 1
+========================================================= -->
+
+<section id="welcome" class="screen active">
+
+    <div class="bg fourth-bg"></div>
+    <div class="stars"></div>
+
+    <div class="content">
+
+        <div class="college">
+            MIDNAPORE COLLEGE (AUTONOMOUS)
         </div>
+
+        <h1>
+            <span>WELCOME TO</span>
+            <span>DEPARTMENT OF MATHEMATICS</span>
+            <span>(UG)</span>
+        </h1>
+
+        <button class="btn enter" onclick="goChoice()">
+            ✦ TAP TO ENTER ✦
+        </button>
+
     </div>
 
-    <!-- 1st Year Specific Slides -->
-    <div class="slide" id="slide-1st-intro" onclick="nextSlide('slide-1st-card')">
-        <h2 class="animate-text">A new journey begins...</h2>
-        <p class="animate-text">with lots of hopes... ✨</p>
-        <div class="hint">👉 Tap anywhere to proceed 👈</div>
-    </div>
+</section>
 
-    <div class="slide" id="slide-1st-card" onclick="nextSlide('slide-1st-teachers')">
-        <p class="animate-text" style="color: #f1c40f; font-size: 0.9rem;">YOU ARE CORDIALLY INVITED</p>
-        <h1 class="animate-text">A Warm Welcome to Our Freshers'</h1>
-        <p class="animate-text">A new chapter begins with new dreams, new friendships and beautiful memories.</p>
-        <p class="animate-text" style="font-size: 0.9rem; color: #aaa;">Department of Mathematics<br>Midnapore College (Autonomous)</p>
-        <div class="hint">👉 Tap anywhere to proceed 👈</div>
-    </div>
 
-    <div class="slide" id="slide-1st-teachers" onclick="nextSlide('slide-teacher-select')">
-        <h1 class="animate-text">Teachers' Day Celebration ✨</h1>
-        <p class="animate-text">Brothers & Sisters ❤️</p>
-        <p class="animate-text">You are warmly invited to celebrate Teachers' Day with us to honor and show gratitude to our beloved respected Teachers.</p>
-        <div class="hint">👉 Tap anywhere to proceed 👈</div>
-    </div>
+<!-- =========================================================
+                     SLIDE 2
+========================================================= -->
 
-    <!-- 2nd, 3rd, 4th Year Common Invitation Slide -->
-    <div class="slide" id="slide-senior-invite" onclick="nextSlide('slide-teacher-select')">
-        <h1 class="animate-text">Teachers' Day & Freshers' Welcome ✨</h1>
-        <p class="animate-text" id="senior-salutation">Brothers & Sisters ❤️</p>
-        <p class="animate-text">You are cordially invited to celebrate Teachers' Day to pay respect and gratitude to our honored Teachers.</p>
-        <p class="animate-text" style="color: #f1c40f;">Let's all come together and give our freshers a warm and memorable welcome! 🌸</p>
-        <div class="hint">👉 Tap anywhere to proceed 👈</div>
-    </div>
+<section id="choice" class="screen">
 
-    <!-- Favorite Teacher Selection (Direct transition, NO DATA SAVE) -->
-    <div class="slide" id="slide-teacher-select">
-        <h2 class="animate-text">Mention Your Favorite Teacher in the Department ❤️</h2>
-        <p class="animate-text" style="font-size: 0.9rem;">Tap on your favorite teacher's name:</p>
-        <div class="teacher-grid">
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Manimohan Mandal</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Sujit Kumar De</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Himadri Shekhar Mandal</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Prasun Kumar Nayak</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Bijan Kumar Das</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Pulak Sahoo</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Prasanta Sahoo</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Nibedita Mandal</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Bandana Sau</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Dr. Bandana Bhunia</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Mousumi Ghorai</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Mrinmoyee Das</button>
-            <button class="t-btn" onclick="finishTeacherSelect()">Riya Dutta</button>
+    <div class="bg fourth-bg"></div>
+    <div class="stars"></div>
+
+    <div class="content">
+
+        <div class="choice-title">
+            WHO ARE YOU?
         </div>
-    </div>
 
-    <!-- Final Slide: Are You Excited? + Logo & Credit -->
-    <div class="slide" id="slide-final">
-        <h1 class="animate-text">Are you excited for the event? 🎉</h1>
-        <div>
-            <button class="btn" onclick="excitedResponse('yes')">Yes! 😍</button>
-            <button class="btn" onclick="excitedResponse('no')">No 😅</button>
+        <div class="choice-sub">
+            Choose your year to continue
         </div>
-        
-        <!-- Replace logo.png with your logo file -->
-        <img src="logo.png" alt="Department Logo" class="logo">
-        <div class="credit">Created by Sukumar Pradhan 😁</div>
+
+        <div class="options">
+
+            <button class="option" onclick="choose('fresher')">
+                🌸<br>
+                <b>1st Year</b><br>
+                (Freshers')
+            </button>
+
+            <button class="option" onclick="choose('second')">
+                ✨<br>
+                <b>2nd Year</b>
+            </button>
+
+            <button class="option" onclick="choose('third')">
+                🌷<br>
+                <b>3rd Year</b>
+            </button>
+
+            <button class="option" onclick="choose('fourth')">
+                🌺<br>
+                <b>4th Year</b>
+            </button>
+
+        </div>
+
     </div>
 
-    <script>
-        let currentAudio = null;
+</section>
 
-        function playAudio(id) {
-            if(currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-            }
-            currentAudio = document.getElementById(id);
-            if(currentAudio) {
-                currentAudio.play().catch(e => console.log("Audio play blocked by browser setup:", e));
-            }
-        }
 
-        function triggerWordAnimation(slideElement) {
-            const targets = slideElement.querySelectorAll('.animate-text');
-            targets.forEach(target => {
-                if(!target.dataset.originalText) {
-                    target.dataset.originalText = target.innerText;
-                }
-                const words = target.dataset.originalText.split(' ');
-                target.innerHTML = '';
-                words.forEach((word, index) => {
-                    const span = document.createElement('span');
-                    span.className = 'word-span';
-                    span.innerText = word;
-                    span.style.animationDelay = `${index * 0.12}s`;
-                    target.appendChild(span);
-                });
-            });
-        }
+<!-- =========================================================
+                 1ST YEAR - SLIDE 3
+========================================================= -->
 
-        function showSlide(slideId) {
-            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-            const targetSlide = document.getElementById(slideId);
-            targetSlide.classList.add('active');
-            triggerWordAnimation(targetSlide);
-        }
+<section id="freshIntro" class="screen">
 
-        function startApp() {
-            playAudio('audio-intro');
-            showSlide('slide-2');
-        }
+    <div class="bg fresher-bg"></div>
+    <div class="stars"></div>
 
-        function selectYear(year) {
-            document.body.className = `theme-${year}`;
-            playAudio(`audio-${year}`);
+    <div class="particles" id="p1"></div>
 
-            if(year === '1st') {
-                createPetals();
-                showSlide('slide-1st-intro');
-            } else {
-                removePetals();
-                const salutation = document.getElementById('senior-salutation');
-                if(year === '4th') {
-                    salutation.innerText = 'Friends ❤️';
-                } else {
-                    salutation.innerText = 'Brothers & Sisters ❤️';
-                }
-                showSlide('slide-senior-invite');
-            }
-        }
+    <div class="content reveal">
 
-        function nextSlide(targetId) {
-            showSlide(targetId);
-        }
+        <span>
+            A new journey begins...
+        </span>
 
-        function finishTeacherSelect() {
-            showSlide('slide-final');
-        }
+        <span style="animation-delay:.9s">
+            with lots of hopes... ✨
+        </span>
 
-        function excitedResponse(choice) {
-            if(choice === 'yes') {
-                alert("Awesome! Let's make this event unforgettable together! ❤️✨");
-            } else {
-                alert("Arre come on! It's going to be super fun, don't miss it! 😉");
-            }
-        }
+    </div>
 
-        /* Falling Petals for 1st Year */
-        function createPetals() {
-            const container = document.getElementById('petal-container');
-            container.innerHTML = '';
-            for (let i = 0; i < 25; i++) {
-                let petal = document.createElement('div');
-                petal.className = 'petal';
-                petal.style.left = Math.random() * 100 + 'vw';
-                petal.style.width = Math.random() * 12 + 8 + 'px';
-                petal.style.height = Math.random() * 12 + 8 + 'px';
-                petal.style.animationDuration = Math.random() * 5 + 5 + 's';
-                petal.style.animationDelay = Math.random() * 5 + 's';
-                container.appendChild(petal);
-            }
-        }
+</section>
 
-        function removePetals() {
-            document.getElementById('petal-container').innerHTML = '';
-        }
 
-        window.onload = () => {
-            triggerWordAnimation(document.getElementById('slide-1'));
-        };
-    </script>
-</body>
-</html>
+<!-- =========================================================
+                 1ST YEAR - SLIDE 4
+========================================================= -->
+
+<section id="freshInvite" class="screen">
+
+    <div class="bg fresher-bg"></div>
+    <div class="stars"></div>
+
+    <div class="particles" id="p2"></div>
+
+    <div class="card">
+
+        <div class="smallcaps">
+            YOU ARE CORDIALLY INVITED
+        </div>
+
+        <h2>
+            A Warm Welcome<br>
+            to Our Freshers'
+        </h2>
+
+        <p>
+            A new chapter begins with new dreams,
+            new friendships and beautiful memories.
+        </p>
+
+        <p>
+            <b>Department of Mathematics</b>
+        </p>
+
+        <div style="margin-top:25px;font-size:27px">
+            🌸 ✦ 🌸
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+                 TEACHERS DAY - SLIDE 5
+========================================================= -->
+
+<section id="teacher" class="screen">
+
+    <div id="teacherBg" class="bg second-bg"></div>
+
+    <div class="stars"></div>
+
+    <div class="particles" id="p3"></div>
+
+    <div class="teacher-wrap teacher">
+
+        <h2>
+            Teachers' Day ✨
+        </h2>
+
+
+        <!-- FRESHERS -->
+
+        <div id="freshTeacher">
+
+            <div class="teacher-line">
+
+                <span class="highlight">
+                    Brothers &amp; Sisters ❤️
+                </span>
+
+            </div>
+
+            <div class="teacher-line">
+
+                You are warmly invited to celebrate
+                Teachers' Day with us to honor and
+                show gratitude to our beloved respected Teachers.
+
+            </div>
+
+        </div>
+
+
+        <!-- 2ND / 3RD / 4TH YEAR -->
+
+        <div id="seniorTeacher">
+
+            <div class="teacher-line" id="seniorAddress"></div>
+
+            <div class="teacher-line">
+
+                You are cordially invited to celebrate
+                Teachers' Day to pay respect and gratitude
+                to our honored Teachers.
+
+            </div>
+
+            <div class="teacher-line">
+
+                <span class="highlight">
+
+                    Let's all come together and give our
+                    freshers a warm and memorable welcome! 🌸
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+              FAVORITE TEACHER
+       SLIDE 6 FRESHER / SLIDE 4 OTHERS
+========================================================= -->
+
+<section id="favorite" class="screen">
+
+    <div id="favoriteBg" class="bg fresher-bg"></div>
+
+    <div class="stars"></div>
+
+    <div class="particles" id="p4"></div>
+
+    <div class="content favorite">
+
+        <h2>
+            Mention Your Favorite Teacher in the Department ❤️
+        </h2>
+
+        <p>
+            Choose a teacher — no data will be saved.
+        </p>
+
+        <div class="teachers-grid" id="teacherGrid"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+                         FINAL
+========================================================= -->
+
+<section id="final" class="screen">
+
+    <div class="bg final-bg"></div>
+
+    <div class="stars"></div>
+
+    <div class="particles" id="p5"></div>
+
+    <div class="content final">
+
+        <h2>
+            Are you excited for the event? 🎉
+        </h2>
+
+        <div class="excite-buttons">
+
+            <button class="btn" onclick="excited(true)">
+                Yes! 😍
+            </button>
+
+            <button class="btn" onclick="excited(false)">
+                No 😅
+            </button>
+
+        </div>
+
+
+        <!-- LOGO -->
+
+        <img
+            id="logo"
+            class="final-logo"
+            src="logo.jpg"
+            alt="College Logo"
+        >
+
+        <div class="credit">
+            Created by Sukumar Pradhan 😁
+        </div>
+
+        <button class="btn replay" onclick="location.reload()">
+            ↻ REPLAY
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+                         POPUP
+========================================================= -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <h3 id="modalText"></h3>
+
+        <button class="btn close" onclick="closeModal()">
+            Continue ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+                     VARIABLES
+========================================================= */
+
+let selectedYear = "";
+
+let audioCtx = null;
+let musicTimer = null;
+let playing = false;
+
+
+/* =========================================================
+                    13 TEACHERS
+========================================================= */
+
+const teacherNames = [
+
+    "Dr. Monimohan Mondal",
+
+    "Dr. Sujit Kumar De",
+
+    "Dr. Himadri Shekhar Mondal",
+
+    "Dr. Prasun Kumar Nayak",
+
+    "Dr. Bijoy Kumar Das",
+
+    "Dr. Pulak Sahoo",
+
+    "Dr. Prasanta Sahoo",
+
+    "Dr. Nibedita Mandel",
+
+    "Bandana Sau",
+
+    "Dr. Bandana Bhunia",
+
+    "Mousumi Ghorai",
+
+    "Mrinmoyee Das",
+
+    "Riya Dutta"
+
+];
+
+
+/* =========================================================
+                     SHOW SCREEN
+========================================================= */
+
+function show(id){
+
+    document
+    .querySelectorAll(".screen")
+    .forEach(s => s.classList.remove("active"));
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+}
+
+
+/* =========================================================
+                     ENTER
+========================================================= */
+
+function goChoice(){
+
+    startMusic();
+
+    show("choice");
+}
+
+
+/* =========================================================
+                    YEAR CHOICE
+========================================================= */
+
+function choose(year){
+
+    selectedYear = year;
+
+
+    /* FRESHER */
+
+    if(year === "fresher"){
+
+        show("freshIntro");
+
+        particles(
+            "p1",
+            ["🌸","🌺","🌷","💮","🌼"],
+            65
+        );
+
+
+        setTimeout(function(){
+
+            show("freshInvite");
+
+            particles(
+                "p2",
+                ["🌸","✨","💮","🌷"],
+                35
+            );
+
+
+            setTimeout(function(){
+
+                teacherScreen();
+
+            },6500);
+
+
+        },5200);
+
+    }
+
+
+    /* 2ND / 3RD / 4TH */
+
+    else{
+
+        teacherScreen();
+
+    }
+
+}
+
+
+/* =========================================================
+                  TEACHERS DAY SCREEN
+========================================================= */
+
+function teacherScreen(){
+
+    const bg = document.getElementById("teacherBg");
+
+
+    if(selectedYear === "second"){
+
+        bg.className = "bg second-bg";
+
+    }
+
+    else if(selectedYear === "third"){
+
+        bg.className = "bg third-bg";
+
+    }
+
+    else if(selectedYear === "fourth"){
+
+        bg.className = "bg fourth-bg";
+
+    }
+
+    else{
+
+        bg.className = "bg fresher-bg";
+
+    }
+
+
+    /* FRESHER TEXT */
+
+    document.getElementById("freshTeacher").style.display =
+        selectedYear === "fresher" ? "block" : "none";
+
+
+    /* SENIOR TEXT */
+
+    document.getElementById("seniorTeacher").style.display =
+        selectedYear === "fresher" ? "none" : "block";
+
+
+    /* ADDRESS */
+
+    document.getElementById("seniorAddress").innerHTML =
+        selectedYear === "fourth"
+
+        ?
+
+        '<span class="highlight">Friends ❤️</span>'
+
+        :
+
+        '<span class="highlight">Brothers &amp; Sisters ❤️</span>';
+
+
+    show("teacher");
+
+
+    /* DIFFERENT DECORATIONS */
+
+    let flowers;
+
+
+    if(selectedYear === "fresher"){
+
+        flowers = ["🌸","🌷","✨"];
+
+    }
+
+    else if(selectedYear === "second"){
+
+        flowers = ["🌸","💙","✨"];
+
+    }
+
+    else if(selectedYear === "third"){
+
+        flowers = ["🌼","⭐","✨"];
+
+    }
+
+    else{
+
+        flowers = ["🌺","💫","✨"];
+
+    }
+
+
+    particles(
+        "p3",
+        flowers,
+        50
+    );
+
+
+    /* ONE BY ONE TEXT ANIMATION */
+
+    const lines = document.querySelectorAll(
+        "#freshTeacher .teacher-line,#seniorTeacher .teacher-line"
+    );
+
+    lines.forEach(x => x.classList.remove("show"));
+
+
+    const active =
+        selectedYear === "fresher"
+
+        ?
+
+        document.querySelectorAll("#freshTeacher .teacher-line")
+
+        :
+
+        document.querySelectorAll("#seniorTeacher .teacher-line");
+
+
+    active.forEach(function(x,i){
+
+        setTimeout(
+            () => x.classList.add("show"),
+            650 + i * 1200
+        );
+
+    });
+
+
+    /* NEXT SCREEN */
+
+    setTimeout(
+
+        () => favoriteScreen(),
+
+        selectedYear === "fresher" ? 5200 : 7000
+
+    );
+
+}
+
+
+/* =========================================================
+                FAVORITE TEACHER SCREEN
+========================================================= */
+
+function favoriteScreen(){
+
+    const bg =
+        document.getElementById("favoriteBg");
+
+
+    if(selectedYear === "fresher"){
+
+        bg.className = "bg fresher-bg";
+
+    }
+
+    else if(selectedYear === "second"){
+
+        bg.className = "bg second-bg";
+
+    }
+
+    else if(selectedYear === "third"){
+
+        bg.className = "bg third-bg";
+
+    }
+
+    else{
+
+        bg.className = "bg fourth-bg";
+
+    }
+
+
+    buildTeachers();
+
+  
