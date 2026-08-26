@@ -263,13 +263,13 @@ h2{
 }
 
 .money-notice{
-    margin-top:20px;
+    margin-top:25px;
     font-size:clamp(14px, 2.5vw, 17px);
-    color: #ffd1d1;
-    background: rgba(255, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 10px 15px;
-    border-radius: 12px;
+    color: #ffcccc;
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid rgba(255, 100, 100, 0.4);
+    padding: 12px 18px;
+    border-radius: 15px;
     display: inline-block;
     position: relative;
     z-index: 20;
@@ -277,7 +277,7 @@ h2{
 
 .credit{
     margin-top:15px;
-    font-size:16px;
+    font-size:18px;
     letter-spacing:2px;
     position: relative;
     z-index: 20;
@@ -435,16 +435,19 @@ h2{
 <div class="content">
     <h2>Are you excited for the event? 🎉</h2>
     <div class="final-buttons">
-        <button type="button" class="main-btn" onclick="answerYes()">Yes! 😍</button>
-        <button type="button" class="main-btn" onclick="answerNo()">No 😅</button>
+        <button type="button" class="main-btn" onclick="answerYes(event)">Yes! 😍</button>
+        <button type="button" class="main-btn" onclick="answerNo(event)">No 😅</button>
     </div>
 
+    <!-- Payment Reminder Notice -->
     <div class="money-notice">
         ⚠️ Those who haven't paid the money yet, please clear the dues as soon as possible.
     </div>
 
+    <!-- Sukumar Credit -->
     <div class="credit">Created by Sukumar 😁</div>
-    <button type="button" class="main-btn" onclick="restartWebsite()">↻ RESTART</button>
+
+    <button type="button" class="main-btn" onclick="restartWebsite(event)">↻ RESTART</button>
 </div>
 </section>
 
@@ -488,7 +491,7 @@ function enterWebsite(){
 }
 
 function toggleMusic(e){
-    e.stopPropagation();
+    if(e) e.stopPropagation();
     const music = document.getElementById("music");
     if(music.paused){
         music.play().then(function(){
@@ -565,7 +568,8 @@ function createTeacherButtons(){
     });
 }
 
-function answerYes(){
+function answerYes(e){
+    if(e) e.stopPropagation();
     confetti({
         particleCount: 120,
         spread: 80,
@@ -576,7 +580,8 @@ function answerYes(){
     document.getElementById("popup").classList.add("show");
 }
 
-function answerNo(){
+function answerNo(e){
+    if(e) e.stopPropagation();
     document.getElementById("popupText").textContent = "Arre come on! It's going to be super fun, don't miss it! 😉";
     document.getElementById("popup").classList.add("show");
 }
@@ -585,7 +590,8 @@ function closePopup(){
     document.getElementById("popup").classList.remove("show");
 }
 
-function restartWebsite(){
+function restartWebsite(e){
+    if(e) e.stopPropagation();
     selectedYear = "";
     closePopup();
     showPage("page1");
