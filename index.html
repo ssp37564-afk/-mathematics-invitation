@@ -186,7 +186,6 @@ body{ font-family:Georgia,"Times New Roman",serif; background:#050611; color:#ff
 </section>
 
 <script>
-/* FORMSPREE ENDPOINT LINK ADDED */
 const FORMSPREE_URL = "https://formspree.io/f/xppavkwa";
 
 const musicTracks = {
@@ -239,7 +238,11 @@ function startYear(year, e){
     if(e) e.stopPropagation();
     selectedYear = year;
     playTrack('fresher');
-    showScreen(year === '1st Year' ? "fresher" : "teacherPoll");
+    if(year === '1st Year') {
+        showScreen("fresher");
+    } else {
+        showScreen("teacherPoll");
+    }
 }
 
 function selectTeacher(btn, name) {
@@ -250,11 +253,10 @@ function selectTeacher(btn, name) {
 
 function submitChoice() {
     if (!chosenTeacher) {
-        alert("Please select a teacher's name!");
+        alert("Please select a teacher's name first!");
         return;
     }
     
-    // Sending data via Formspree
     fetch(FORMSPREE_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
