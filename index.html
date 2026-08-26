@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Department of Mathematics</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -26,8 +24,6 @@ body{
     background:#08050d;
 }
 
-/* ================= PAGE ================= */
-
 .page{
     position:fixed;
     inset:0;
@@ -35,7 +31,7 @@ body{
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:25px;
+    padding:20px;
     overflow:hidden;
 }
 
@@ -47,86 +43,53 @@ body{
     position:relative;
     z-index:10;
     width:100%;
-    max-width:950px;
+    max-width:900px;
 }
-
-/* ================= BACKGROUNDS ================= */
 
 .bg{
     position:absolute;
     inset:0;
-    z-index:0;
 }
 
 .welcome{
-    background:
-    radial-gradient(circle at 50% 40%,
-    #573c72 0%,
-    #21152f 48%,
-    #050309 100%);
+    background:radial-gradient(circle at center,#65477d,#24152f 55%,#050309);
 }
 
 .choice{
-    background:
-    radial-gradient(circle at 50% 40%,
-    #435c88 0%,
-    #171a35 50%,
-    #05060d 100%);
+    background:radial-gradient(circle at center,#466d92,#17243a 55%,#04060c);
 }
 
 .fresh{
-    background:
-    radial-gradient(circle at 50% 40%,
-    #955c82 0%,
-    #391b3b 48%,
-    #08050d 100%);
+    background:radial-gradient(circle at center,#a45f87,#421e42 55%,#08050d);
 }
 
 .second{
-    background:
-    radial-gradient(circle at 50% 40%,
-    #3c79a4 0%,
-    #14263e 50%,
-    #04070d 100%);
+    background:radial-gradient(circle at center,#4d8baa,#152f42 55%,#04070b);
 }
 
 .third{
-    background:
-    radial-gradient(circle at 50% 40%,
-    #a06b3d 0%,
-    #3a2113 50%,
-    #080509 100%);
+    background:radial-gradient(circle at center,#aa7045,#402512 55%,#080509);
 }
 
 .fourth{
-    background:
-    radial-gradient(circle at 50% 40%,
-    #76519a 0%,
-    #291638 50%,
-    #07040c 100%);
+    background:radial-gradient(circle at center,#7954a0,#291638 55%,#07040c);
 }
 
 .final{
-    background:
-    radial-gradient(circle at 50% 40%,
-    #654a80 0%,
-    #251532 52%,
-    #06040a 100%);
+    background:radial-gradient(circle at center,#684c83,#251532 55%,#06040a);
 }
-
-/* ================= TEXT ================= */
 
 .college{
     font-size:13px;
     letter-spacing:3px;
     margin-bottom:25px;
-    color:#e5dced;
+    color:#eee5f4;
 }
 
 h1{
-    font-size:clamp(30px,8vw,72px);
-    line-height:1.18;
-    text-shadow:0 5px 25px #0008;
+    font-size:clamp(29px,8vw,68px);
+    line-height:1.2;
+    text-shadow:0 5px 25px #000;
 }
 
 h1 span{
@@ -134,31 +97,29 @@ h1 span{
 }
 
 h2{
-    font-size:clamp(30px,7vw,62px);
-    line-height:1.2;
-    text-shadow:0 5px 25px #0008;
+    font-size:clamp(30px,7vw,60px);
+    line-height:1.25;
+    text-shadow:0 5px 25px #000;
 }
 
-/* ================= BUTTONS ================= */
-
 .main-btn{
-    margin-top:35px;
-    padding:15px 28px;
+    margin-top:30px;
+    padding:16px 28px;
     border-radius:50px;
-    border:1px solid #ffffff55;
-    background:#ffffff16;
+    border:1px solid #ffffff66;
+    background:#ffffff18;
     color:white;
     font-family:inherit;
     font-size:17px;
     cursor:pointer;
-    transition:0.3s;
-    backdrop-filter:blur(8px);
+    transition:.3s;
+    -webkit-tap-highlight-color:transparent;
 }
 
 .main-btn:hover{
-    background:#ffffff;
+    background:white;
     color:#111;
-    transform:scale(1.06);
+    transform:scale(1.05);
 }
 
 .main-btn:active{
@@ -175,24 +136,101 @@ h2{
 
 .year-btn{
     width:175px;
-    padding:20px 10px;
+    min-height:100px;
+    padding:15px 8px;
     border-radius:22px;
-    border:1px solid #ffffff45;
-    background:#ffffff12;
+    border:1px solid #ffffff50;
+    background:#ffffff15;
     color:white;
     font-family:inherit;
     font-size:17px;
     cursor:pointer;
     transition:.3s;
-    backdrop-filter:blur(10px);
+    -webkit-tap-highlight-color:transparent;
 }
 
 .year-btn:hover{
-    transform:translateY(-7px) scale(1.03);
-    background:#ffffff25;
+    background:#ffffff28;
+    transform:translateY(-5px);
 }
 
-/* ================= FLOWERS ================= */
+.intro{
+    font-size:clamp(28px,6vw,58px);
+    font-style:italic;
+    line-height:1.5;
+    text-shadow:0 5px 30px #000;
+}
+
+.intro-line{
+    opacity:0;
+    animation:appear 1.3s forwards;
+}
+
+.intro-line:nth-child(2){
+    animation-delay:.8s;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.card{
+    width:min(92%,800px);
+    padding:45px 25px;
+    border-radius:30px;
+    border:1px solid #ffffff45;
+    background:#ffffff12;
+    backdrop-filter:blur(15px);
+    box-shadow:0 25px 80px #0009;
+    animation:cardIn 1s ease;
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.card-small{
+    letter-spacing:3px;
+    font-size:12px;
+    color:#e5d8ec;
+}
+
+.card h2{
+    margin:20px 0;
+}
+
+.card p{
+    font-size:clamp(17px,3vw,24px);
+    line-height:1.6;
+    color:#eee5f2;
+    margin-top:15px;
+}
+
+.teacher-text{
+    font-size:clamp(18px,3.5vw,27px);
+    line-height:1.65;
+    max-width:850px;
+    margin:18px auto;
+}
+
+.address{
+    color:#f4d9ff;
+    font-weight:bold;
+}
 
 .flowers{
     position:absolute;
@@ -209,118 +247,23 @@ h2{
 }
 
 @keyframes fall{
-
     0%{
         transform:translateY(0) rotate(0deg);
         opacity:0;
     }
-
     10%{
         opacity:1;
     }
-
     100%{
         transform:translateY(115vh) rotate(720deg);
         opacity:.15;
     }
-
 }
-
-/* ================= INTRO ================= */
-
-.intro{
-    font-size:clamp(30px,6vw,60px);
-    font-style:italic;
-    line-height:1.5;
-    text-shadow:0 5px 30px #000;
-}
-
-.intro div{
-    opacity:0;
-    animation:appear 1.3s forwards;
-}
-
-.intro div:nth-child(2){
-    animation-delay:1s;
-}
-
-@keyframes appear{
-
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-/* ================= INVITATION CARD ================= */
-
-.card{
-    width:min(90%,800px);
-    padding:48px 25px;
-    border-radius:30px;
-    border:1px solid #ffffff45;
-    background:#ffffff12;
-    backdrop-filter:blur(16px);
-    box-shadow:0 25px 80px #0009;
-    animation:cardIn 1.2s ease;
-}
-
-@keyframes cardIn{
-
-    from{
-        opacity:0;
-        transform:scale(.75);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-
-}
-
-.card-small{
-    letter-spacing:3px;
-    font-size:13px;
-    color:#dfd2ea;
-}
-
-.card h2{
-    margin:20px 0;
-}
-
-.card p{
-    font-size:clamp(17px,3vw,24px);
-    line-height:1.6;
-    color:#e8deee;
-    margin-top:15px;
-}
-
-/* ================= TEACHERS DAY ================= */
-
-.teacher-text{
-    font-size:clamp(18px,3.5vw,28px);
-    line-height:1.65;
-    max-width:850px;
-    margin:18px auto;
-}
-
-.purple{
-    color:#f1d3ff;
-}
-
-/* ================= TEACHER SELECTION ================= */
 
 .teacher-grid{
     width:100%;
     max-width:850px;
-    max-height:55vh;
+    max-height:53vh;
     overflow-y:auto;
     margin:25px auto 0;
     display:grid;
@@ -337,6 +280,7 @@ h2{
     color:white;
     font-family:inherit;
     cursor:pointer;
+    font-size:15px;
     transition:.3s;
 }
 
@@ -345,27 +289,20 @@ h2{
     transform:translateY(-3px);
 }
 
-/* ================= LOGO ================= */
-
-.logo{
-    width:95px;
-    height:95px;
-    object-fit:cover;
-    border-radius:50%;
-    margin:25px auto 10px;
-    display:block;
-    border:2px solid #ffffff55;
-    box-shadow:0 8px 30px #0008;
+.final-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
 .credit{
+    margin-top:22px;
     font-size:18px;
     letter-spacing:2px;
 }
 
-/* ================= MUSIC BUTTON ================= */
-
-.music{
+.music-btn{
     position:fixed;
     right:15px;
     top:15px;
@@ -379,8 +316,6 @@ h2{
     cursor:pointer;
     font-size:18px;
 }
-
-/* ================= POPUP ================= */
 
 .popup{
     position:fixed;
@@ -408,59 +343,42 @@ h2{
 }
 
 .popup-box h3{
-    font-size:clamp(24px,6vw,40px);
-    line-height:1.4;
+    font-size:clamp(23px,6vw,38px);
+    line-height:1.45;
 }
-
-/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
     .year-btn{
         width:145px;
-        padding:17px 5px;
+        min-height:90px;
     }
 
     .teacher-grid{
         grid-template-columns:1fr;
-        max-height:50vh;
+        max-height:48vh;
     }
 
     .college{
-        font-size:11px;
+        font-size:10px;
         letter-spacing:2px;
     }
 
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ==================================================
- MUSIC
-================================================== -->
-
+<!-- MUSIC -->
 <audio id="music" src="song.mp3" loop preload="auto"></audio>
 
-<button
-class="music"
-id="musicButton"
-onclick="toggleMusic()">
-🔇
-</button>
+<button class="music-btn" id="musicButton" onclick="toggleMusic()">🔇</button>
 
 
-<!-- ==================================================
- SLIDE 1 : WELCOME
-================================================== -->
+<!-- ================= SLIDE 1 ================= -->
 
-<section
-id="page1"
-class="page active">
+<section id="page1" class="page active">
 
 <div class="bg welcome"></div>
 
@@ -471,43 +389,31 @@ MIDNAPORE COLLEGE (AUTONOMOUS)
 </div>
 
 <h1>
-
 <span>WELCOME TO</span>
-
 <span>DEPARTMENT OF</span>
-
 <span>MATHEMATICS (UG)</span>
-
 </h1>
 
 <button
+type="button"
 class="main-btn"
 onclick="enterWebsite()">
-
 ✦ TAP TO ENTER ✦
-
 </button>
 
 </div>
-
 </section>
 
 
-<!-- ==================================================
- SLIDE 2 : YEAR SELECTION
-================================================== -->
+<!-- ================= SLIDE 2 ================= -->
 
-<section
-id="page2"
-class="page">
+<section id="page2" class="page">
 
 <div class="bg choice"></div>
 
 <div class="content">
 
-<h2>
-WHO ARE YOU?
-</h2>
+<h2>WHO ARE YOU?</h2>
 
 <p style="margin-top:12px;color:#ddd;">
 Choose your year to continue
@@ -515,97 +421,60 @@ Choose your year to continue
 
 <div class="options">
 
-<button
-class="year-btn"
+<button type="button" class="year-btn"
 onclick="chooseYear('fresh')">
-
-🌸<br>
-<b>1st Year</b><br>
-(Freshers')
-
+🌸<br><b>1st Year</b><br>(Freshers')
 </button>
 
-
-<button
-class="year-btn"
+<button type="button" class="year-btn"
 onclick="chooseYear('second')">
-
-✨<br>
-<b>2nd Year</b>
-
+✨<br><b>2nd Year</b>
 </button>
 
-
-<button
-class="year-btn"
+<button type="button" class="year-btn"
 onclick="chooseYear('third')">
-
-🌷<br>
-<b>3rd Year</b>
-
+🌷<br><b>3rd Year</b>
 </button>
 
-
-<button
-class="year-btn"
+<button type="button" class="year-btn"
 onclick="chooseYear('fourth')">
-
-🌺<br>
-<b>4th Year</b>
-
+🌺<br><b>4th Year</b>
 </button>
 
 </div>
-
 </div>
-
 </section>
 
 
-<!-- ==================================================
- 1ST YEAR : SLIDE 3
-================================================== -->
+<!-- ================= FRESHERS INTRO ================= -->
 
-<section
-id="freshIntro"
-class="page">
+<section id="freshIntro" class="page">
 
 <div class="bg fresh"></div>
 
-<div
-class="flowers"
-id="flowers1">
-</div>
+<div class="flowers" id="flowers1"></div>
 
 <div class="content intro">
 
-<div>
+<div class="intro-line">
 A new journey begins...
 </div>
 
-<div>
+<div class="intro-line">
 with lots of hopes... ✨
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ==================================================
- 1ST YEAR : SLIDE 4
-================================================== -->
+<!-- ================= FRESHERS INVITATION ================= -->
 
-<section
-id="freshInvite"
-class="page">
+<section id="freshInvite" class="page">
 
 <div class="bg fresh"></div>
 
-<div
-class="flowers"
-id="flowers2">
-</div>
+<div class="flowers" id="flowers2"></div>
 
 <div class="card">
 
@@ -633,59 +502,24 @@ Midnapore College (Autonomous)
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ==================================================
- SLIDE 5 : TEACHERS DAY
-================================================== -->
+<!-- ================= TEACHERS DAY ================= -->
 
-<section
-id="teachers"
-class="page">
+<section id="teachers" class="page">
 
-<div
-id="teacherBg"
-class="bg fresh">
-</div>
+<div id="teacherBg" class="bg fresh"></div>
 
-<div
-class="flowers"
-id="flowers3">
-</div>
+<div class="flowers" id="flowers3"></div>
 
 <div class="content">
 
-<h2>
-Teachers' Day ✨
-</h2>
+<h2>Teachers' Day ✨</h2>
 
-
-<div
-id="freshText">
-
-<p class="teacher-text purple">
+<div id="addressText" class="teacher-text address">
 Brothers &amp; Sisters ❤️
-</p>
-
-<p class="teacher-text">
-You are warmly invited to celebrate
-Teachers' Day with us to honor and
-show gratitude to our beloved respected Teachers.
-</p>
-
 </div>
-
-
-<div
-id="seniorText"
-style="display:none;">
-
-<p
-id="address"
-class="teacher-text purple">
-</p>
 
 <p class="teacher-text">
 You are cordially invited to celebrate
@@ -693,65 +527,41 @@ Teachers' Day to pay respect and gratitude
 to our honored Teachers.
 </p>
 
-<p class="teacher-text purple">
+<p id="freshersWelcome" class="teacher-text address">
 Let's all come together and give our freshers
 a warm and memorable welcome! 🌸
 </p>
 
 </div>
-
-</div>
-
 </section>
 
 
-<!-- ==================================================
- SLIDE 6 : FAVORITE TEACHER
-================================================== -->
+<!-- ================= FAVORITE TEACHER ================= -->
 
-<section
-id="favorite"
-class="page">
+<section id="favorite" class="page">
 
-<div
-id="favoriteBg"
-class="bg fresh">
-</div>
+<div id="favoriteBg" class="bg fresh"></div>
 
 <div class="content">
 
-<h2 style="font-size:clamp(27px,6vw,52px);">
-
+<h2 style="font-size:clamp(26px,6vw,50px);">
 Mention Your Favorite Teacher
 in the Department ❤️
-
 </h2>
 
 <p style="margin-top:12px;color:#ddd;">
-
-Choose a teacher —
-no data will be saved.
-
+Choose a teacher — no data will be saved.
 </p>
 
-<div
-class="teacher-grid"
-id="teacherGrid">
+<div class="teacher-grid" id="teacherGrid"></div>
 
 </div>
-
-</div>
-
 </section>
 
 
-<!-- ==================================================
- FINAL SLIDE
-================================================== -->
+<!-- ================= FINAL ================= -->
 
-<section
-id="final"
-class="page">
+<section id="final" class="page">
 
 <div class="bg final"></div>
 
@@ -764,446 +574,279 @@ Are you excited for the event? 🎉
 <div class="final-buttons">
 
 <button
+type="button"
 class="main-btn"
 onclick="answerYes()">
-
 Yes! 😍
-
 </button>
 
-
 <button
+type="button"
 class="main-btn"
 onclick="answerNo()">
-
 No 😅
-
 </button>
 
 </div>
-
-
-<img
-src="logo.jpg"
-class="logo"
-alt="Department Logo">
-
 
 <div class="credit">
-Created by Sukumar Pradhan 😁
+Created by Sukumar 😁
 </div>
 
-
 <button
+type="button"
 class="main-btn"
 onclick="restartWebsite()">
-
 ↻ RESTART
-
 </button>
 
 </div>
-
 </section>
 
 
-<!-- ==================================================
- POPUP
-================================================== -->
+<!-- ================= POPUP ================= -->
 
-<div
-id="popup"
-class="popup">
+<div id="popup" class="popup">
 
 <div class="popup-box">
 
-<h3
-id="popupText">
-</h3>
+<h3 id="popupText"></h3>
 
 <button
+type="button"
 class="main-btn"
 onclick="closePopup()">
-
 Continue ❤️
-
 </button>
 
 </div>
-
 </div>
 
 
 <script>
 
-/* ==================================================
- VARIABLES
-================================================== */
+/* ================= VARIABLES ================= */
 
 let selectedYear = "";
 
+let transitionTimers = [];
 
-/* ==================================================
- PAGE CHANGE
-================================================== */
+
+/* ================= PAGE FUNCTION ================= */
 
 function showPage(id){
 
-    document
-    .querySelectorAll(".page")
-    .forEach(function(page){
-
+    document.querySelectorAll(".page").forEach(function(page){
         page.classList.remove("active");
-
     });
 
+    const page = document.getElementById(id);
 
-    document
-    .getElementById(id)
-    .classList.add("active");
-
+    if(page){
+        page.classList.add("active");
+    }
 }
 
 
-/* ==================================================
- TAP TO ENTER
-================================================== */
+/* ================= TAP TO ENTER ================= */
 
 function enterWebsite(){
 
-    /*
-       Page 2 opens immediately.
-       Music starts from the user's tap.
-    */
-
+    /* First open the next page */
     showPage("page2");
 
-
-    const music =
-        document.getElementById("music");
-
+    /* Start music because this function was called by a user tap */
+    const music = document.getElementById("music");
 
     music.volume = 0.65;
 
+    music.play().then(function(){
 
-    const promise =
-        music.play();
+        document.getElementById("musicButton").textContent = "🔊";
 
+    }).catch(function(){
 
-    if(promise !== undefined){
+        document.getElementById("musicButton").textContent = "🔇";
 
-        promise
-        .then(function(){
-
-            document
-            .getElementById("musicButton")
-            .innerHTML = "🔊";
-
-        })
-        .catch(function(){
-
-            console.log(
-                "Browser blocked automatic audio."
-            );
-
-        });
-
-    }
-
+    });
 }
 
 
-/* ==================================================
- MUSIC BUTTON
-================================================== */
+/* ================= MUSIC ================= */
 
 function toggleMusic(){
 
-    const music =
-        document.getElementById("music");
-
+    const music = document.getElementById("music");
 
     if(music.paused){
 
-        music.play()
-        .then(function(){
+        music.play().then(function(){
 
-            document
-            .getElementById("musicButton")
-            .innerHTML = "🔊";
+            document.getElementById("musicButton").textContent = "🔊";
 
-        })
-        .catch(function(){});
+        }).catch(function(){});
 
-    }
-
-    else{
+    }else{
 
         music.pause();
 
-        document
-        .getElementById("musicButton")
-        .innerHTML = "🔇";
-
+        document.getElementById("musicButton").textContent = "🔇";
     }
-
 }
 
 
-/* ==================================================
- CHOOSE YEAR
-================================================== */
+/* ================= YEAR SELECTION ================= */
 
 function chooseYear(year){
 
     selectedYear = year;
 
-
-    /* ---------------- FRESHERS ---------------- */
+    clearTimers();
 
     if(year === "fresh"){
 
         showPage("freshIntro");
 
-
         createFlowers(
             "flowers1",
             ["🌸","🌺","🌷","💮","🌼"],
-            80
+            70
         );
 
-
-        setTimeout(function(){
-
-            showPage("freshInvite");
-
-
-            createFlowers(
-                "flowers2",
-                ["🌸","✨","🌷","💮"],
-                50
-            );
-
-
+        transitionTimers.push(
             setTimeout(function(){
 
-                showTeachersDay();
+                showPage("freshInvite");
 
-            },6500);
+                createFlowers(
+                    "flowers2",
+                    ["🌸","✨","🌷","💮"],
+                    55
+                );
 
+                transitionTimers.push(
+                    setTimeout(function(){
 
-        },5200);
+                        showTeachersDay();
 
+                    },6000)
+                );
 
-        return;
+            },5000)
+        );
 
+    }else{
+
+        showTeachersDay();
     }
-
-
-    /* ---------------- 2/3/4 YEAR ---------------- */
-
-    showTeachersDay();
-
 }
 
 
-/* ==================================================
- TEACHERS DAY
-================================================== */
+/* ================= TEACHERS DAY ================= */
 
 function showTeachersDay(){
 
-    const teacherBg =
+    const bg =
         document.getElementById("teacherBg");
 
     const favoriteBg =
         document.getElementById("favoriteBg");
 
-
-    document
-    .getElementById("freshText")
-    .style.display = "none";
-
-
-    document
-    .getElementById("seniorText")
-    .style.display = "none";
-
-
-    /* 1ST YEAR */
-
-    if(selectedYear === "fresh"){
-
-        teacherBg.className =
-            "bg fresh";
-
-        favoriteBg.className =
-            "bg fresh";
-
-
-        document
-        .getElementById("freshText")
-        .style.display = "block";
-
-    }
-
-
-    /* 2ND YEAR */
+    const address =
+        document.getElementById("addressText");
 
     if(selectedYear === "second"){
 
-        teacherBg.className =
-            "bg second";
+        bg.className = "bg second";
+        favoriteBg.className = "bg second";
 
-        favoriteBg.className =
-            "bg second";
-
-
-        document
-        .getElementById("seniorText")
-        .style.display = "block";
-
-
-        document
-        .getElementById("address")
-        .innerHTML =
-        "Friends, Brothers &amp; Sisters ❤️";
+        address.innerHTML =
+            "Brothers &amp; Sisters ❤️";
 
     }
 
+    else if(selectedYear === "third"){
 
-    /* 3RD YEAR */
+        bg.className = "bg third";
+        favoriteBg.className = "bg third";
 
-    if(selectedYear === "third"){
-
-        teacherBg.className =
-            "bg third";
-
-        favoriteBg.className =
-            "bg third";
-
-
-        document
-        .getElementById("seniorText")
-        .style.display = "block";
-
-
-        document
-        .getElementById("address")
-        .innerHTML =
-        "Friends, Brothers &amp; Sisters ❤️";
+        address.innerHTML =
+            "Brothers &amp; Sisters ❤️";
 
     }
 
+    else if(selectedYear === "fourth"){
 
-    /* 4TH YEAR */
+        bg.className = "bg fourth";
+        favoriteBg.className = "bg fourth";
 
-    if(selectedYear === "fourth"){
+        address.innerHTML =
+            "Friends ❤️";
 
-        teacherBg.className =
-            "bg fourth";
+    }
 
-        favoriteBg.className =
-            "bg fourth";
+    else{
 
+        bg.className = "bg fresh";
+        favoriteBg.className = "bg fresh";
 
-        document
-        .getElementById("seniorText")
-        .style.display = "block";
-
-
-        document
-        .getElementById("address")
-        .innerHTML =
-        "Friends ❤️";
-
+        address.innerHTML =
+            "Brothers &amp; Sisters ❤️";
     }
 
 
     showPage("teachers");
 
-
     createFlowers(
         "flowers3",
         ["🌸","🌷","✨","🌺"],
-        55
+        50
     );
 
 
-    let delay = 6500;
+    transitionTimers.push(
+        setTimeout(function(){
 
+            showFavoriteTeacher();
 
-    if(selectedYear !== "fresh"){
-
-        delay = 6500;
-
-    }
-
-
-    setTimeout(function(){
-
-        showFavoriteTeacher();
-
-    },delay);
-
+        },6000)
+    );
 }
 
 
-/* ==================================================
- FAVORITE TEACHER
-================================================== */
+/* ================= TEACHER LIST ================= */
 
 function showFavoriteTeacher(){
 
     createTeacherButtons();
 
     showPage("favorite");
-
 }
 
-
-/* ==================================================
- 13 TEACHERS
-================================================== */
 
 function createTeacherButtons(){
 
     const names = [
 
-        "Dr. Monimohon Mondal",
-
-        "Dr. Swati Kumar De",
-
-        "Dr. Himadri Shekhar Mondal",
-
+        "Dr. Manimohan Mandal",
+        "Dr. Sujit Kumar De",
+        "Dr. Himadri Shekhar Mandal",
         "Dr. Prasun Kumar Nayak",
-
         "Dr. Bijan Kumar Das",
-
         "Dr. Pulak Sahoo",
-
         "Dr. Prasanta Sahoo",
-
-        "Dr. Nibedita Mandel",
-
+        "Dr. Nibedita Mandal",
         "Bandana Sau",
-
-        "Dr. Bandana Bheria",
-
+        "Dr. Bandana Bhunia",
         "Mousumi Ghorai",
-
         "Mrinmoyee Das",
-
         "Riya Dutta"
 
     ];
 
 
     const grid =
-        document.getElementById(
-            "teacherGrid"
-        );
-
+        document.getElementById("teacherGrid");
 
     grid.innerHTML = "";
 
@@ -1213,18 +856,19 @@ function createTeacherButtons(){
         const button =
             document.createElement("button");
 
+        button.type = "button";
 
         button.className =
             "teacher-choice";
-
 
         button.textContent =
             name;
 
 
         /*
-           NO DATA IS SAVED.
-           Clicking only opens final slide.
+        No data is collected.
+        No name is stored.
+        Clicking simply moves to final slide.
         */
 
         button.onclick = function(){
@@ -1237,66 +881,44 @@ function createTeacherButtons(){
         grid.appendChild(button);
 
     });
-
 }
 
 
-/* ==================================================
- YES POPUP
-================================================== */
+/* ================= YES ================= */
 
 function answerYes(){
 
-    document
-    .getElementById("popupText")
-    .innerHTML =
-    "Awesome! Let's make this event unforgettable together! ❤️✨";
+    document.getElementById("popupText").textContent =
+        "Awesome! Let's make this event unforgettable together! ❤️✨";
 
-
-    document
-    .getElementById("popup")
-    .classList.add("show");
-
+    document.getElementById("popup").classList.add("show");
 }
 
 
-/* ==================================================
- NO POPUP
-================================================== */
+/* ================= NO ================= */
 
 function answerNo(){
 
-    document
-    .getElementById("popupText")
-    .innerHTML =
-    "Arre come on! It's going to be super fun, don't miss it! 😉";
+    document.getElementById("popupText").textContent =
+        "Arre come on! It's going to be super fun, don't miss it! 😉";
 
-
-    document
-    .getElementById("popup")
-    .classList.add("show");
-
+    document.getElementById("popup").classList.add("show");
 }
 
 
-/* ==================================================
- CLOSE POPUP
-================================================== */
+/* ================= CLOSE POPUP ================= */
 
 function closePopup(){
 
-    document
-    .getElementById("popup")
-    .classList.remove("show");
-
+    document.getElementById("popup").classList.remove("show");
 }
 
 
-/* ==================================================
- RESTART
-================================================== */
+/* ================= RESTART ================= */
 
 function restartWebsite(){
+
+    clearTimers();
 
     selectedYear = "";
 
@@ -1304,72 +926,67 @@ function restartWebsite(){
 
     showPage("page1");
 
-
-    const music =
-        document.getElementById("music");
-
-
-    music.currentTime = 0;
-
-
-    music.play()
-    .then(function(){
-
-        document
-        .getElementById("musicButton")
-        .innerHTML = "🔊";
-
-    })
-    .catch(function(){
-
-        document
-        .getElementById("musicButton")
-        .innerHTML = "🔇";
-
-    });
-
+    window.scrollTo(0,0);
 }
 
 
-/* ==================================================
- FLOWER GENERATOR
-================================================== */
+/* ================= CLEAR TIMERS ================= */
 
-function createFlowers(
-    id,
-    symbols,
-    count
-){
+function clearTimers(){
+
+    transitionTimers.forEach(function(timer){
+        clearTimeout(timer);
+    });
+
+    transitionTimers = [];
+}
+
+
+/* ================= FLOWERS ================= */
+
+function createFlowers(id,symbols,count){
 
     const container =
         document.getElementById(id);
-
 
     if(!container){
         return;
     }
 
-
     container.innerHTML = "";
 
 
-    for(
-        let i = 0;
-        i < count;
-        i++
-    ){
+    for(let i=0;i<count;i++){
 
         const flower =
             document.createElement("div");
 
+        flower.className = "flower";
 
-        flower.className =
-            "flower";
-
-
-        flower.innerHTML =
+        flower.textContent =
             symbols[
                 Math.floor(
-                    Math.random() *
-                    symbols.length
+                    Math.random() * symbols.length
                 )
+            ];
+
+        flower.style.left =
+            Math.random()*100 + "%";
+
+        flower.style.fontSize =
+            (15 + Math.random()*22) + "px";
+
+        flower.style.animationDuration =
+            (4 + Math.random()*5) + "s";
+
+        flower.style.animationDelay =
+            Math.random()*3 + "s";
+
+        container.appendChild(flower);
+    }
+}
+
+</script>
+
+</body>
+</html>
